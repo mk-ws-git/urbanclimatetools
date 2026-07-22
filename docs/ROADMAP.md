@@ -75,6 +75,29 @@ Static Astro output deploys anywhere. Recommended: **Cloudflare Pages** or **Net
 
 ---
 
+## North-star: become the authority on how cities tackle climate change
+
+The goal is for Urban Climate Tools to be *the* go-to reference practitioners, journalists, and students reach for when they ask "how do cities actually respond to heat / flooding / etc.?" Everything below serves that positioning.
+
+### Shareable fact sheets (in progress)
+Every case study and every tool page is being redesigned as a **self-contained, nicely designed fact sheet** — strong visual hierarchy, key stats up top, verified figures with sources, and an at-a-glance layout built to be screenshotted and shared on LinkedIn and elsewhere. Each should have an Open Graph image so links unfurl well on social.
+
+### YouTube explainer series
+Short, high-quality explainer videos embedded on the relevant pages and published to a UCT YouTube channel — the concept-explainer layer that builds authority and organic reach:
+- "What is a sponge city?" (link from Wuhan, Bangkok case studies)
+- "What is the urban heat island effect?" (link from Phoenix, Athens, Ahmedabad)
+- "What are superblocks?" (Barcelona)
+- "What is a Chief Heat Officer?" (Athens)
+- "How do green roofs help cities?" (Toronto)
+- "What is a heat action plan?" (Ahmedabad)
+- One explainer per major concept; embed on case-study/tool pages and cross-link.
+- Repurpose each video into a LinkedIn post + a short-form clip (Reels/Shorts/TikTok).
+
+### Authority-building tactics
+- Consistent publishing cadence (fact sheets + videos) so the catalog is visibly alive.
+- Cite and get cited: link to primary sources; pitch the resource to the tool-makers and city networks featured so they link back.
+- Own the explainer keywords in search ("what is a sponge city", "urban heat island solutions", etc.) via the video + article pairing.
+
 ## Content backlog
 
 **Case studies** (candidates, verify before publishing): Norfolk (US — coastal, photos already in `assets/`), Minneapolis, Paris, London, Jakarta (re-adds from the old Jekyll site); plus Seoul (Cheonggyecheon), Medellín green corridors expansion, Lagos flood, Nairobi, Curitiba BRT/green.
