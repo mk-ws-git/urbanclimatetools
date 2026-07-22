@@ -10,24 +10,11 @@ export async function getStaticPaths() {
 
 const { study } = Astro.props;
 const { Content } = await render(study);
-const { city, country, continent, title, tagline, themes, toolsUsed, population, year, impact, featured } = study.data;
+const { city, country, continent, title, tagline, themes, toolsUsed, population, year, impact, featured, image, imageAlt } = study.data;
 
-const cityPhotos: Record<string, string> = {
-  'amsterdam-netherlands': '/images/cities/amsterdam.jpg',
-  'bogota-colombia':       '/images/cities/bogota.jpg',
-  'cape-town-south-africa':'/images/cities/cape-town.jpg',
-  'copenhagen-denmark':    '/images/cities/copenhagen.jpg',
-  'dhaka-bangladesh':      '/images/cities/dhaka.jpg',
-  'lagos-nigeria':         '/images/cities/lagos.jpg',
-  'medellin-colombia':     '/images/cities/medellin.jpg',
-  'melbourne-australia':   '/images/cities/melbourne.jpg',
-  'miami-usa':             '/images/cities/miami.jpg',
-  'phoenix-usa':           '/images/cities/phoenix.jpg',
-  'rotterdam-netherlands': '/images/cities/rotterdam.jpg',
-  'singapore':             '/images/cities/singapore.jpg',
-  'tokyo-japan':           '/images/cities/tokyo.jpg',
-};
-const photo = cityPhotos[study.id];
+// Hero photo now comes from frontmatter (single source of truth). Studies without an
+// image fall back to the gradient hero below.
+const photo = image;
 
 const allStudies = await getCollection('case-studies');
 const related = allStudies
@@ -41,7 +28,7 @@ const related = allStudies
   <div class="relative bg-forest-950 text-white overflow-hidden flex flex-col justify-end min-h-[420px]">
     {photo && (
       <>
-        <img src={photo} alt={`${city} cityscape`}
+        <img src={photo} alt={imageAlt ?? `${city} cityscape`}
           class="absolute inset-0 h-full w-full object-cover opacity-40" aria-hidden="true" />
         <div class="absolute inset-0 bg-gradient-to-t from-forest-950 via-forest-950/55 to-transparent"></div>
       </>

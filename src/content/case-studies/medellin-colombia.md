@@ -6,6 +6,7 @@ lat: 6.2476
 lng: -75.5658
 title: "Green Urban Acupuncture: Medellín's Corridor Cooling Strategy"
 tagline: "30 interconnected green corridors reduced Medellín's hottest streets by 3°C in under three years"
+image: "/images/cities/medellin.jpg"
 themes: [heat, green]
 toolsUsed: ["urban-heat-island-effect-tool", "cool-roofs-calculator", "i-tree"]
 population: "2.6 million"

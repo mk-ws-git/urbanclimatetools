@@ -1,43 +1,47 @@
-# Astro Starter Kit: Minimal
+# Urban Climate Tools
 
-```sh
-npm create astro@latest -- --template minimal
-```
+A searchable catalog of free and open-source **urban climate-adaptation tools** and real-world **city case studies**, built for planners, researchers, and practitioners.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Built with [Astro](https://astro.build) content collections — every tool and case study is a single Markdown file, and all listing pages, counts, and maps derive from those files (single source of truth).
 
-## 🚀 Project Structure
+## Tech stack
 
-Inside of your Astro project, you'll see the following folders and files:
+- **Astro 6** (static output) + **Tailwind CSS 4** + **MDX**
+- **Pagefind** for static full-text search
+- **Leaflet** for the case-study maps
+- Content modelled as two typed collections (`tools`, `case-studies`) validated by a Zod schema
+
+## Project structure
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+src/
+├── content/
+│   ├── tools/            # one .md per tool          (schema: src/content.config.ts)
+│   └── case-studies/     # one .md per city case study
+├── content.config.ts     # Zod schema for both collections
+├── lib/catalog.ts        # derived counts (toolCount, categories, continents…)
+├── data/metrics.json     # EDITORIAL data only (climate stats, category labels)
+├── components/  layouts/  pages/
+└── styles/
+public/                   # served assets (city photos, hero video, logos, favicons)
+assets/                   # source/brand media not served directly (banners, icons, hi-res video)
+docs/                     # image credits, deploy checklist, roadmap
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Commands
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+| Command           | Action                                          |
+| :---------------- | :---------------------------------------------- |
+| `npm install`     | Install dependencies                            |
+| `npm run dev`     | Start dev server at `localhost:4321`            |
+| `npm run build`   | Build to `./dist/` and index search (Pagefind)  |
+| `npm run preview` | Preview the production build locally            |
+| `npm run astro check` | Type-check content and components           |
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Adding content
 
-## 🧞 Commands
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide to adding a tool or case study. In short: drop a new `.md` file into the relevant `src/content/` folder with the required frontmatter — the site picks it up automatically.
 
-All commands are run from the root of the project, from a terminal:
+## License
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Code is licensed under the [MIT License](LICENSE). Case-study and tool descriptions are original summaries; third-party images retain their original licenses (see [docs/IMAGE-CREDITS.md](docs/IMAGE-CREDITS.md)).

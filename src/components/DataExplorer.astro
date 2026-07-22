@@ -1,5 +1,9 @@
 ---
 import metrics from '../data/metrics.json';
+import { getCatalogStats } from '../lib/catalog';
+
+const { categoryCounts } = await getCatalogStats();
+const maxCount = Math.max(1, ...Object.values(categoryCounts));
 ---
 
 <div class="card" id="data-explorer">
@@ -45,10 +49,10 @@ import metrics from '../data/metrics.json';
                 cat.id === 'data'     ? 'bg-violet-400' :
                 'bg-amber-400',
               ]}
-              style={`width: ${(cat.toolCount / 4) * 100}%`}
+              style={`width: ${((categoryCounts[cat.id] ?? 0) / maxCount) * 100}%`}
             />
           </div>
-          <span class="w-4 text-xs text-stone-400">{cat.toolCount}</span>
+          <span class="w-4 text-xs text-stone-400">{categoryCounts[cat.id] ?? 0}</span>
         </div>
       ))}
     </div>

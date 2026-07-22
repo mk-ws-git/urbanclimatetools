@@ -6,6 +6,7 @@ lat: 52.3676
 lng: 4.9041
 title: "Climate-Adaptive Urban Design: Amsterdam's Neighbourhood Resilience Agenda"
 tagline: "Amsterdam embedded climate adaptation into neighbourhood renewal, creating resilient public spaces that serve residents year-round"
+image: "/images/cities/amsterdam.jpg"
 themes: [flood, green, planning]
 toolsUsed: ["stormwater-calculator", "green-infrastructure-coalition", "climate-resilience-toolkit"]
 population: "921,000"

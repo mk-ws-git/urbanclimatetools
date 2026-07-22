@@ -6,6 +6,7 @@ lat: 23.8103
 lng: 90.4125
 title: "Flood Resilience in a Megacity: Dhaka's Nature-Based Adaptation"
 tagline: "Dhaka is restoring urban wetlands and canals to buffer 21 million people against intensifying monsoon floods"
+image: "/images/cities/dhaka.jpg"
 themes: [flood, green, planning]
 toolsUsed: ["stormwater-calculator", "floodmap-net", "green-infrastructure-coalition"]
 population: "21 million"

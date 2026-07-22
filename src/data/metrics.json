@@ -1,22 +1,17 @@
 {
-  "summary": {
-    "toolCount": 16,
-    "caseStudyCount": 13,
-    "citiesReached": 100,
-    "continents": 6
-  },
+  "_comment": "Editorial data only. Catalog counts (toolCount, caseStudyCount, continents, per-category counts) are DERIVED at build time in src/lib/catalog.ts — do not hand-maintain them here.",
   "categories": [
-    { "id": "heat",     "label": "Heat Management",       "description": "Urban heat island mitigation and thermal comfort",        "toolCount": 2, "icon": "thermometer" },
-    { "id": "flood",    "label": "Flood Risk",             "description": "Stormwater management and flood inundation modelling",    "toolCount": 2, "icon": "droplets" },
-    { "id": "coastal",  "label": "Coastal Resilience",     "description": "Sea level rise projections and shoreline monitoring",    "toolCount": 1, "icon": "waves" },
-    { "id": "green",    "label": "Green Infrastructure",   "description": "Nature-based solutions and urban ecology",              "toolCount": 4, "icon": "leaf" },
-    { "id": "data",     "label": "Data & Analytics",       "description": "Climate data visualisation and risk indices",           "toolCount": 4, "icon": "chart" },
-    { "id": "planning", "label": "Planning & Policy",      "description": "Municipal planning frameworks and investment tools",    "toolCount": 3, "icon": "building" }
+    { "id": "heat",     "label": "Heat Management",     "description": "Urban heat island mitigation and thermal comfort",     "icon": "thermometer" },
+    { "id": "flood",    "label": "Flood Risk",          "description": "Stormwater management and flood inundation modelling", "icon": "droplets" },
+    { "id": "coastal",  "label": "Coastal Resilience",  "description": "Sea level rise projections and shoreline monitoring", "icon": "waves" },
+    { "id": "green",    "label": "Green Infrastructure","description": "Nature-based solutions and urban ecology",            "icon": "leaf" },
+    { "id": "data",     "label": "Data & Analytics",    "description": "Climate data visualisation and risk indices",         "icon": "chart" },
+    { "id": "planning", "label": "Planning & Policy",   "description": "Municipal planning frameworks and investment tools",  "icon": "building" }
   ],
   "climateMetrics": [
-    { "label": "Global mean temperature anomaly (2023)", "value": "+1.45°C",  "source": "NOAA/NASA", "trend": "up" },
-    { "label": "Cities facing high heat risk by 2050",   "value": "970+",     "source": "C40 Cities", "trend": "up" },
+    { "label": "Global mean temperature anomaly (2023)", "value": "+1.45°C",   "source": "NOAA/NASA", "trend": "up" },
+    { "label": "Cities facing high heat risk by 2050",   "value": "970+",      "source": "C40 Cities", "trend": "up" },
     { "label": "Urban population exposed to flooding",   "value": "1 billion", "source": "World Bank", "trend": "up" },
-    { "label": "Green infrastructure ROI (avg)",         "value": "3–6×",     "source": "OECD", "trend": "stable" }
+    { "label": "Green infrastructure ROI (avg)",         "value": "3–6×",      "source": "OECD", "trend": "stable" }
   ]
 }

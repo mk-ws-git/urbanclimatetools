@@ -6,6 +6,7 @@ lat: -33.9249
 lng: 18.4241
 title: "Beyond Day Zero: Cape Town's Multi-Layered Water Resilience Strategy"
 tagline: "Cape Town avoided complete reservoir failure in 2018 and built the water resilience infrastructure to survive future droughts"
+image: "/images/cities/cape-town.jpg"
 themes: [flood, coastal, data, planning]
 toolsUsed: ["copernicus-c3s", "noaa-slr", "climate-resilience-toolkit"]
 population: "4.6 million"

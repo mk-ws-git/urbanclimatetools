@@ -6,6 +6,7 @@ lat: 6.5244
 lng: 3.3792
 title: "Adapting Africa's Largest City to Coastal Flooding and Sea Level Rise"
 tagline: "Lagos is investing in early warning systems, mangrove restoration, and elevated infrastructure to protect 15 million coastal residents"
+image: "/images/cities/lagos.jpg"
 themes: [coastal, flood, data]
 toolsUsed: ["noaa-slr", "floodmap-net", "climate-just"]
 population: "15 million"

@@ -6,6 +6,7 @@ lat: 25.7617
 lng: -80.1918
 title: "Living with Water: Miami's Sea Level Rise Adaptation Strategy"
 tagline: "Miami committed $4 billion to raise streets, improve drainage, and protect communities from inevitable sea level rise"
+image: "/images/cities/miami.jpg"
 themes: [coastal, flood, planning]
 toolsUsed: ["noaa-slr", "floodmap-net", "stormwater-calculator"]
 population: "470,000"

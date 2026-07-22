@@ -6,6 +6,7 @@ lat: -37.8136
 lng: 144.9631
 title: "Urban Forest Strategy: Melbourne's 40% Canopy Target"
 tagline: "Melbourne's Urban Forest Strategy became a global model for city greening — and sparked a worldwide conversation about tree equity"
+image: "/images/cities/melbourne.jpg"
 themes: [heat, green, data]
 toolsUsed: ["i-tree", "urban-heat-island-effect-tool", "forest-carbon-calculator"]
 population: "5.1 million"

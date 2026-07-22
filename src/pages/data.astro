@@ -1,7 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import DataExplorer from '../components/DataExplorer.astro';
-import metrics from '../data/metrics.json';
+import { getCatalogStats } from '../lib/catalog';
+
+const stats = await getCatalogStats();
 ---
 
 <BaseLayout title="Data" description="Climate data context, metrics, and category breakdowns underlying the Urban Climate Tools repository.">
@@ -25,10 +27,10 @@ import metrics from '../data/metrics.json';
       <h2 class="text-lg font-semibold text-stone-900 dark:text-stone-100 mb-6">Repository summary</h2>
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {[
-          { label: 'Tools indexed', value: metrics.summary.toolCount },
-          { label: 'Case studies', value: metrics.summary.caseStudyCount },
-          { label: 'Cities reached', value: `${metrics.summary.citiesReached}+` },
-          { label: 'Continents', value: metrics.summary.continents },
+          { label: 'Tools indexed', value: stats.toolCount },
+          { label: 'Case studies', value: stats.caseStudyCount },
+          { label: 'Countries profiled', value: stats.countryCount },
+          { label: 'Continents', value: stats.continentCount },
         ].map(({ label, value }) => (
           <div class="text-center">
             <div class="text-3xl font-bold text-forest-600 dark:text-forest-400">{value}</div>

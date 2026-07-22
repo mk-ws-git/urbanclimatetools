@@ -6,6 +6,7 @@ lat: 35.6762
 lng: 139.6503
 title: "Taming the Metropolitan Heat Island: Tokyo's 30-Year Cooling Programme"
 tagline: "Tokyo cut its urban heat island intensity by 1.1°C over 20 years through a mandated, data-driven approach to urban greening and cool surfaces"
+image: "/images/cities/tokyo.jpg"
 themes: [heat, green, data, planning]
 toolsUsed: ["urban-heat-island-effect-tool", "cool-roofs-calculator", "climate-central"]
 population: "13.9 million"

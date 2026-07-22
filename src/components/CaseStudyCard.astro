@@ -8,24 +8,10 @@ interface Props {
 }
 
 const { study, compact = false, monochrome = false } = Astro.props;
-const { city, country, continent, title, tagline, themes, population, year, impact, featured } = study.data;
+const { city, country, continent, title, tagline, themes, population, year, impact, featured, image, imageAlt } = study.data;
 
-const cityPhotos: Record<string, string> = {
-  'amsterdam-netherlands': '/images/cities/amsterdam.jpg',
-  'bogota-colombia':       '/images/cities/bogota.jpg',
-  'cape-town-south-africa':'/images/cities/cape-town.jpg',
-  'copenhagen-denmark':    '/images/cities/copenhagen.jpg',
-  'dhaka-bangladesh':      '/images/cities/dhaka.jpg',
-  'lagos-nigeria':         '/images/cities/lagos.jpg',
-  'medellin-colombia':     '/images/cities/medellin.jpg',
-  'melbourne-australia':   '/images/cities/melbourne.jpg',
-  'miami-usa':             '/images/cities/miami.jpg',
-  'phoenix-usa':           '/images/cities/phoenix.jpg',
-  'rotterdam-netherlands': '/images/cities/rotterdam.jpg',
-  'singapore':             '/images/cities/singapore.jpg',
-  'tokyo-japan':           '/images/cities/tokyo.jpg',
-};
-const photo = cityPhotos[study.id];
+// Hero photo comes from frontmatter (single source of truth).
+const photo = image;
 
 const continentColor: Record<string, string> = {
   'South America': 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300',
@@ -45,7 +31,7 @@ const continentColor: Record<string, string> = {
     <div class="relative -mx-6 -mt-6 mb-4 overflow-hidden rounded-t-xl">
       <img
         src={photo}
-        alt={`${city} cityscape`}
+        alt={imageAlt ?? `${city} cityscape`}
         class:list={[
           'h-36 w-full object-cover transition-all duration-300 group-hover:scale-105',
           monochrome && 'grayscale group-hover:grayscale-0',

@@ -1,5 +1,8 @@
 ---
 import metrics from '../data/metrics.json';
+import { getCatalogStats } from '../lib/catalog';
+
+const { categoryCounts } = await getCatalogStats();
 
 const iconMap: Record<string, string> = {
   thermometer: `<path d="M12 2v10.17a4 4 0 101.996 0V2A1 1 0 0012 2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>`,
@@ -35,7 +38,7 @@ const catColor: Record<string, string> = {
       </div>
       <div>
         <p class="text-sm font-semibold text-stone-800 dark:text-stone-200">{cat.label}</p>
-        <p class="mt-0.5 text-xs text-stone-400">{cat.toolCount} tools</p>
+        <p class="mt-0.5 text-xs text-stone-400">{categoryCounts[cat.id] ?? 0} tools</p>
       </div>
     </a>
   ))}

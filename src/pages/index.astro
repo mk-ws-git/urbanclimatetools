@@ -8,10 +8,11 @@ import CaseStudyCard from '../components/CaseStudyCard.astro';
 import ToolFinder from '../components/ToolFinder.astro';
 import CaseStudyMap from '../components/CaseStudyMap.astro';
 import DataExplorer from '../components/DataExplorer.astro';
-import metrics from '../data/metrics.json';
+import { getCatalogStats } from '../lib/catalog';
 
 const allTools = await getCollection('tools');
 const allStudies = await getCollection('case-studies');
+const stats = await getCatalogStats();
 
 const featuredTools = allTools.filter((t) => t.data.featured);
 const featuredStudies = allStudies.filter((s) => s.data.featured);
@@ -52,10 +53,10 @@ const featuredStudies = allStudies.filter((s) => s.data.featured);
 
       <!-- Metrics row -->
       <div class="mt-16 grid grid-cols-2 gap-6 sm:grid-cols-4 border-t border-white/10 pt-10">
-        <MetricCounter value={metrics.summary.toolCount} label="Open-source tools" />
-        <MetricCounter value={metrics.summary.caseStudyCount} label="Case studies" />
-        <MetricCounter value={`${metrics.summary.citiesReached}+`} label="Cities reached" />
-        <MetricCounter value={metrics.summary.continents} label="Continents covered" />
+        <MetricCounter value={stats.toolCount} label="Open-source tools" />
+        <MetricCounter value={stats.caseStudyCount} label="Case studies" />
+        <MetricCounter value={stats.countryCount} label="Countries profiled" />
+        <MetricCounter value={stats.continentCount} label="Continents covered" />
       </div>
     </div>
   </section>

@@ -6,6 +6,7 @@ lat: 51.9244
 lng: 4.4777
 title: "The Water City: Rotterdam's Adaptive Architecture for a Flooded Future"
 tagline: "Rotterdam turned its below-sea-level geography from a liability into a global design and innovation advantage"
+image: "/images/cities/rotterdam.jpg"
 themes: [flood, coastal, green, planning]
 toolsUsed: ["floodmap-net", "noaa-slr", "stormwater-calculator"]
 population: "651,000"

@@ -6,6 +6,7 @@ lat: 33.4484
 lng: -112.0740
 title: "Heat as a Public Health Emergency: Phoenix's Extreme Heat Action Plan"
 tagline: "The world's hottest large city built the most comprehensive heat emergency system in North America"
+image: "/images/cities/phoenix.jpg"
 themes: [heat, data, planning]
 toolsUsed: ["urban-heat-island-effect-tool", "cool-roofs-calculator", "climate-central"]
 population: "1.6 million"

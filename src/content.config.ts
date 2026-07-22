@@ -40,7 +40,9 @@ const caseStudies = defineCollection({
     year:       z.number(),
     impact:     z.string(),
     featured:   z.boolean().default(false),
+    image:      z.string().optional(),      // e.g. /images/cities/phoenix.jpg — falls back to a gradient hero when absent
     imageAlt:   z.string().optional(),
+    imageCredit: z.string().optional(),
   }),
 });
 

@@ -6,6 +6,7 @@ lat: 55.6761
 lng: 12.5683
 title: "Carbon Neutral by 2025: Copenhagen's Systemic Transformation"
 tagline: "Copenhagen's decade-long push for carbon neutrality — a blueprint integrating transport, energy, and urban form"
+image: "/images/cities/copenhagen.jpg"
 themes: [planning, green, data]
 toolsUsed: ["climate-resilience-toolkit", "copernicus-c3s", "forest-carbon-calculator"]
 population: "794,000"

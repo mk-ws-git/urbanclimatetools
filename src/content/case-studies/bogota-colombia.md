@@ -6,6 +6,7 @@ lat: 4.711
 lng: -74.0721
 title: "Climate Action as Social Equity: Bogotá's Integrated Approach"
 tagline: "How Bogotá embedded climate resilience into a city-wide equity agenda, reaching 1.2 million low-income residents"
+image: "/images/cities/bogota.jpg"
 themes: [heat, green, planning]
 toolsUsed: ["urban-heat-island-effect-tool", "i-tree", "climate-resilience-toolkit"]
 population: "7.8 million"

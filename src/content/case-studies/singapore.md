@@ -6,6 +6,7 @@ lat: 1.3521
 lng: 103.8198
 title: "Cool and Green: Singapore's Urban Heat Island Management at Scale"
 tagline: "How Singapore deployed data-driven greening, cool materials, and urban design to tame a tropical urban heat island"
+image: "/images/cities/singapore.jpg"
 themes: [heat, green, data]
 toolsUsed: ["urban-heat-island-effect-tool", "citygreen", "i-tree"]
 population: "5.9 million"

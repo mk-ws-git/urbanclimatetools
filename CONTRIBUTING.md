@@ -1,51 +1,83 @@
 # Contributing to Urban Climate Tools
 
-Thank you for your interest in contributing to Urban Climate Tools! We welcome contributions from everyone — whether you want to suggest a new tool, improve documentation, report a bug, or submit code changes.
+Thanks for helping grow the catalog! This is an [Astro](https://astro.build) site where **every tool and every case study is a single Markdown file** in `src/content/`. Add a file, and the listing pages, search index, counts, and maps update automatically — no other code changes needed.
 
-## Ways to Contribute
+## Local development
 
-### Suggest a Tool or Case Study
-If you know of a climate adaptation tool or city case study that should be included, please [open an issue](https://github.com/mk-ws-git/Urban-Climate-Tools/issues/new?title=Resource+Submission&body=Type%3A+%0AName%3A+%0AURL%3A+%0ADeveloper%3A+%0ADescription%3A+%0ACategories%3A+%0ACost%3A+%0ASkill+Level%3A+) or use the [Submit a Resource](https://mk-ws-git.github.io/Urban-Climate-Tools/contact/#submit) form on the site.
+**Prerequisites:** Node.js 22.12+ (or 24+).
 
-### Report Bugs or Broken Links
-Found a broken link or a bug? Please [open an issue](https://github.com/mk-ws-git/Urban-Climate-Tools/issues) describing the problem, including:
-- The page or URL where you found the issue
-- What you expected to happen
-- What actually happened
-
-### Improve Documentation
-Documentation improvements are always welcome. You can edit any Markdown file and submit a pull request.
-
-### Submit Code Changes
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/your-feature-name`
-3. Make your changes
-4. Test locally by running `bundle exec jekyll serve`
-5. Commit your changes: `git commit -m "Add your descriptive message"`
-6. Push to your fork: `git push origin feature/your-feature-name`
-7. Open a pull request
-
-## Local Development
-
-### Prerequisites
-- Ruby 2.7+
-- Bundler
-
-### Setup
 ```bash
-git clone https://github.com/mk-ws-git/Urban-Climate-Tools.git
-cd Urban-Climate-Tools
-bundle install
-bundle exec jekyll serve
+npm install
+npm run dev        # http://localhost:4321
+npm run astro check   # type-check content against the schema
+npm run build      # production build + Pagefind search index
 ```
 
-The site will be available at `http://localhost:4000/Urban-Climate-Tools/`.
+## Add a tool
+
+Create `src/content/tools/<slug>.md`. The `<slug>` becomes the URL (`/tools/<slug>`). Frontmatter must satisfy the `tools` schema in [`src/content.config.ts`](src/content.config.ts):
+
+```yaml
+---
+title: "Tool Name"
+tagline: "One-line description of what it does"
+category: heat          # heat | flood | coastal | green | data | planning
+tags: [heat, mapping, open-data]
+license: Open-Source    # MIT | Apache-2.0 | GPL-3.0 | BSD-2-Clause | CC-BY-4.0 | Proprietary-Free | Open-Source
+language: "Python"      # optional
+homepage: "https://example.org"   # optional, must be a valid URL
+github: "https://github.com/org/repo"  # optional
+difficulty: intermediate           # beginner | intermediate | advanced
+lastUpdated: "2026"
+featured: false
+dataInputs: ["What the tool takes in"]
+outputs: ["What the tool produces"]
+citedBy: 0
+---
+
+## Overview
+Markdown body: what it is, key features, who it's for, getting started.
+```
+
+## Add a case study
+
+Create `src/content/case-studies/<slug>.md` (convention: `city-country`, e.g. `barcelona-spain`). Frontmatter must satisfy the `case-studies` schema:
+
+```yaml
+---
+city: "Barcelona"
+country: "Spain"
+continent: "Europe"
+lat: 41.3874
+lng: 2.1686
+title: "Descriptive headline for the intervention"
+tagline: "One-line summary"
+themes: [heat, planning]
+toolsUsed: ["i-tree", "climate-central"]   # must match existing tool slugs
+population: "1.6 million"
+year: 2016
+impact: "Quantified outcome with a source-backed figure"
+featured: false
+image: "/images/cities/barcelona.jpg"   # optional — omit for a gradient hero fallback
+imageAlt: "Barcelona superblock with pedestrianised street and trees"
+imageCredit: "Photographer / source (if applicable)"
+---
+
+## Background / The intervention / Results / Lessons
+```
+
+### Notes
+- **`toolsUsed`** entries must be existing tool slugs, or the build will flag a broken reference.
+- **Images** go in `public/images/cities/<name>.jpg` and are referenced from frontmatter (`image:`). If you omit `image`, the page renders a branded gradient hero — fine for a first draft. Record attribution in [`docs/IMAGE-CREDITS.md`](docs/IMAGE-CREDITS.md).
+- **Verify facts and URLs** against primary sources (city reports, peer-reviewed literature) before submitting.
+
+## Submitting changes
+
+1. Create a branch: `git checkout -b add/<slug>`
+2. Add your `.md` file(s) and any images
+3. Run `npm run astro check` and `npm run build` to confirm it compiles
+4. Commit and open a pull request describing the tool/city and your sources
 
 ## Code of Conduct
 
-By participating in this project, you agree to abide by our [Code of Conduct](CODE_OF_CONDUCT.md).
-
-## Questions?
-
-Email us at [urbanclimatetools@gmail.com](mailto:urbanclimatetools@gmail.com) or start a [discussion](https://github.com/mk-ws-git/Urban-Climate-Tools/discussions).
+By participating you agree to abide by our [Code of Conduct](CODE_OF_CONDUCT.md).
