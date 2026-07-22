@@ -11,6 +11,8 @@ toolsUsed: ["urban-heat-island-effect-tool", "climate-adapt"]
 population: "3.1 million (metro)"
 year: 2021
 impact: "Appointed Europe's first Chief Heat Officer (2021) and piloted the world's first heatwave categorisation-and-naming system; the role has since been adopted by cities on several continents."
+statValue: "1st"
+statLabel: "Chief Heat Officer in Europe"
 imageAlt: "Athens cityscape with the Acropolis under a hot summer haze"
 ---
 

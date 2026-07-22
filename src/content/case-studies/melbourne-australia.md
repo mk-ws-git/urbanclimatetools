@@ -12,6 +12,8 @@ toolsUsed: ["i-tree", "urban-heat-island-effect-tool", "forest-carbon-calculator
 population: "5.1 million"
 year: 2012
 impact: "Canopy cover increased from 22% to 29% since 2012; 70,000 new trees; the 'tree email' moment sparked global debate"
+statValue: "29%"
+statLabel: "canopy cover, up from 22%"
 featured: false
 imageAlt: "Melbourne street lined with elm trees in autumn providing dense canopy"
 ---

@@ -11,6 +11,8 @@ toolsUsed: ["stormwater-calculator", "invest", "floodmap-net"]
 population: "10.5 million"
 year: 2017
 impact: "Chulalongkorn Centenary Park (45,000 m²) can retain up to roughly 1 million gallons of stormwater, easing flood risk in a low-lying, subsiding city."
+statValue: "~1M gal"
+statLabel: "stormwater retained by one park"
 imageAlt: "Chulalongkorn Centenary Park with its sloped green roof and retention ponds"
 ---
 

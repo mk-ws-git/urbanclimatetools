@@ -11,6 +11,8 @@ toolsUsed: ["urban-heat-island-effect-tool", "climate-resilience-toolkit", "cool
 population: "8.4 million (metro)"
 year: 2013
 impact: "An estimated 1,190 fewer all-cause deaths per year after implementation (2018 study); the model has been scaled to more than 40 Indian cities."
+statValue: "1,190"
+statLabel: "fewer deaths per year"
 imageAlt: "Dense Ahmedabad rooftops under a hazy hot sky"
 ---
 

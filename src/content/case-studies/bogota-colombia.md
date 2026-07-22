@@ -12,6 +12,8 @@ toolsUsed: ["urban-heat-island-effect-tool", "i-tree", "climate-resilience-toolk
 population: "7.8 million"
 year: 2021
 impact: "120,000 trees planted in lowest-income localities; 18% reduction in heat-related hospital admissions in target zones"
+statValue: "18%"
+statLabel: "fewer heat hospital admissions"
 featured: true
 imageAlt: "Aerial view of Bogotá's TransMilenio corridor lined with street trees"
 ---

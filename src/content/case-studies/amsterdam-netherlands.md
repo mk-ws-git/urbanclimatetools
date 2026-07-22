@@ -12,6 +12,8 @@ toolsUsed: ["stormwater-calculator", "green-infrastructure-coalition", "climate-
 population: "921,000"
 year: 2020
 impact: "120 climate-adaptive interventions completed; 40,000 m² of green roofs; water storage increased by 2.2 million litres in pilot districts"
+statValue: "40,000 m²"
+statLabel: "of new green roofs"
 featured: false
 imageAlt: "Amsterdam climate-adaptive park with water storage basin visible under plaza"
 ---

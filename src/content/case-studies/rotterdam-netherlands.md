@@ -12,6 +12,8 @@ toolsUsed: ["floodmap-net", "noaa-slr", "stormwater-calculator"]
 population: "651,000"
 year: 2013
 impact: "100% of new development meets 100mm/hr rainfall standard; Benthemplein water square stores 1.7 million litres"
+statValue: "1.7M L"
+statLabel: "stored by one water square"
 featured: false
 imageAlt: "Benthemplein water square in Rotterdam with water storage pools visible"
 ---

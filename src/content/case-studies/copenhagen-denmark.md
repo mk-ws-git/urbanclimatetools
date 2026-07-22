@@ -12,6 +12,8 @@ toolsUsed: ["climate-resilience-toolkit", "copernicus-c3s", "forest-carbon-calcu
 population: "794,000"
 year: 2012
 impact: "67% CO2 reduction since 2005; 62% of trips made by bicycle; district heating covers 98% of households"
+statValue: "67%"
+statLabel: "CO₂ reduction since 2005"
 featured: true
 imageAlt: "Copenhagen cyclists on Nørrebro cycling superhighway at morning rush hour"
 ---

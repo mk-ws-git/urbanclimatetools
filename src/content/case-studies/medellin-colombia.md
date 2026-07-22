@@ -12,6 +12,8 @@ toolsUsed: ["urban-heat-island-effect-tool", "cool-roofs-calculator", "i-tree"]
 population: "2.6 million"
 year: 2016
 impact: "3°C average temperature reduction on corridor streets; 36,000 new trees; 2.4 million annual corridor users"
+statValue: "3°C"
+statLabel: "cooler on corridor streets"
 featured: false
 imageAlt: "La 80 green corridor in Medellín with raised planters, trees and cycling lanes"
 ---

@@ -11,6 +11,8 @@ toolsUsed: ["wri-aqueduct", "stormwater-calculator"]
 population: "9.2 million (21M metro)"
 year: 2019
 impact: "Cosecha de Lluvia installed 62,700+ residential rainwater-harvesting systems by 2023 — the world's largest such program — as the city battles land subsidence of up to 50 cm per year."
+statValue: "62,700+"
+statLabel: "rainwater systems installed"
 imageAlt: "Rooftop rainwater-harvesting tank in a dense Mexico City neighbourhood"
 ---
 

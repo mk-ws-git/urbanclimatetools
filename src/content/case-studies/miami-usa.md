@@ -12,6 +12,8 @@ toolsUsed: ["noaa-slr", "floodmap-net", "stormwater-calculator"]
 population: "470,000"
 year: 2017
 impact: "$4B committed; 100 pump stations installed; Brickell neighbourhood street elevation by 1.5 feet completed"
+statValue: "$4B"
+statLabel: "committed to resilience"
 featured: false
 imageAlt: "Miami Beach elevated street construction with pump station visible"
 ---

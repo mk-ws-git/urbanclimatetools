@@ -12,6 +12,8 @@ toolsUsed: ["urban-heat-island-effect-tool", "citygreen", "i-tree"]
 population: "5.9 million"
 year: 2009
 impact: "UHI intensity reduced by 0.6°C in intervention zones; 47% of city covered by greenery; 130 km of park connectors"
+statValue: "47%"
+statLabel: "of the city under greenery"
 featured: false
 imageAlt: "Gardens by the Bay supertrees at night, Singapore skyline behind"
 ---

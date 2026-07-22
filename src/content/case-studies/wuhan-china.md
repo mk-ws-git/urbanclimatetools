@@ -11,6 +11,8 @@ toolsUsed: ["stormwater-calculator", "floodmap-net", "wri-aqueduct"]
 population: "11 million"
 year: 2015
 impact: "One of China's first 16 national sponge-city pilots; 389 sponge projects were built in 2015–2017 targeting 70% annual rainwater retention across pilot districts."
+statValue: "70%"
+statLabel: "annual rainwater retention target"
 imageAlt: "Wuhan waterfront with green embankments along the Yangtze"
 ---
 

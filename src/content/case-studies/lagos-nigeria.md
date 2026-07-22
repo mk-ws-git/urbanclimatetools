@@ -12,6 +12,8 @@ toolsUsed: ["noaa-slr", "floodmap-net", "climate-just"]
 population: "15 million"
 year: 2020
 impact: "50 km of mangrove restoration protecting 400,000 coastal residents; early warning system reaches 2.1 million"
+statValue: "400,000"
+statLabel: "coastal residents protected"
 featured: false
 imageAlt: "Lagos waterfront with mangrove fringe and informal settlements behind"
 ---

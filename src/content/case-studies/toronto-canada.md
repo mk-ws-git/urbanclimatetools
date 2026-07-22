@@ -11,6 +11,8 @@ toolsUsed: ["green-infrastructure-coalition", "i-tree", "invest"]
 population: "2.9 million"
 year: 2009
 impact: "The first North American green-roof mandate (2009) drove 1,200+ green roofs and roughly 111,400 m² of new green roof area; the provincial government repealed the bylaw in 2025."
+statValue: "1,200+"
+statLabel: "green roofs built under the mandate"
 imageAlt: "Toronto skyline with vegetated green roofs on mid-rise buildings"
 ---
 

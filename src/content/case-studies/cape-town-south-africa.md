@@ -12,6 +12,8 @@ toolsUsed: ["copernicus-c3s", "noaa-slr", "climate-resilience-toolkit"]
 population: "4.6 million"
 year: 2018
 impact: "Per-capita water consumption reduced by 50%; groundwater augmentation scheme adds 40 Ml/day to supply"
+statValue: "50%"
+statLabel: "cut in water use per person"
 featured: true
 imageAlt: "Cape Town reservoir at critically low levels during the 2017–2018 drought"
 ---

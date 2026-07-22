@@ -11,6 +11,8 @@ toolsUsed: ["i-tree", "global-forest-watch", "citygreen"]
 population: "1.2 million"
 year: 2020
 impact: "On track to plant one million trees by 2024 with an 80%+ survival rate, financed through a tokenised 'pay-to-grow' tracking platform; a 2023 Earthshot Prize finalist."
+statValue: "1M"
+statLabel: "trees being planted by 2024"
 imageAlt: "Green hillsides above Freetown with young trees and rooftops below"
 ---
 

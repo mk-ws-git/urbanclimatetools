@@ -11,6 +11,8 @@ toolsUsed: ["envi-met", "i-tree", "climate-adapt"]
 population: "1.6 million"
 year: 2016
 impact: "In the Sant Antoni superblock, NO₂ fell roughly 25% and through-traffic dropped sharply within a year; the city plans a wider network of superblocks and green axes."
+statValue: "25%"
+statLabel: "drop in NO₂ in the superblock"
 imageAlt: "A Barcelona superblock intersection turned into a pedestrian plaza with trees and seating"
 ---
 

@@ -12,6 +12,8 @@ toolsUsed: ["urban-heat-island-effect-tool", "cool-roofs-calculator", "climate-c
 population: "1.6 million"
 year: 2021
 impact: "Cooling centre network served 47,000 people in 2023 heatwave; heat-related mortality reduced 22% in enrolled zip codes"
+statValue: "22%"
+statLabel: "lower heat-related mortality"
 featured: false
 imageAlt: "Downtown Phoenix street showing heat shimmer on asphalt during summer"
 ---

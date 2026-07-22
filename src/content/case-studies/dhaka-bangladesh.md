@@ -12,6 +12,8 @@ toolsUsed: ["stormwater-calculator", "floodmap-net", "green-infrastructure-coali
 population: "21 million"
 year: 2019
 impact: "48 km of canals restored; 3,200 hectares of urban wetlands protected; flood peak reduced by 28% in pilot catchments"
+statValue: "28%"
+statLabel: "lower flood peak in pilot catchments"
 featured: false
 imageAlt: "Restored canal in Dhaka with vegetation and informal housing along banks"
 ---

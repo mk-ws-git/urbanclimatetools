@@ -12,6 +12,8 @@ toolsUsed: ["urban-heat-island-effect-tool", "cool-roofs-calculator", "climate-c
 population: "13.9 million"
 year: 2000
 impact: "UHI intensity reduced by 1.1°C; 1,200 ha of green roofs mandated; summer peak electricity demand reduced by 1.2 GW"
+statValue: "1.1°C"
+statLabel: "reduction in urban heat"
 featured: false
 imageAlt: "Tokyo skyline view showing rooftop gardens on commercial buildings"
 ---

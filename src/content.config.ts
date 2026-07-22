@@ -21,6 +21,7 @@ const tools = defineCollection({
     dataInputs:   z.array(z.string()),
     outputs:      z.array(z.string()),
     citedBy:      z.number().default(0),
+    ogImage:      z.string().optional(),      // per-page Open Graph image override; falls back to /og/tools-<slug>.png
   }),
 });
 
@@ -39,7 +40,12 @@ const caseStudies = defineCollection({
     population: z.string(),
     year:       z.number(),
     impact:     z.string(),
+    // Optional pull-out of the single headline figure (drawn from `impact`) for the
+    // fact-sheet hero stat and OG image. `impact` remains the full sourced statement.
+    statValue:  z.string().optional(),
+    statLabel:  z.string().optional(),
     featured:   z.boolean().default(false),
+    ogImage:    z.string().optional(),      // per-page Open Graph image override; falls back to /og/case-studies-<slug>.png
     image:      z.string().optional(),      // e.g. /images/cities/phoenix.jpg — falls back to a gradient hero when absent
     imageAlt:   z.string().optional(),
     imageCredit: z.string().optional(),
