@@ -1,0 +1,77 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  studies: CollectionEntry<'case-studies'>[];
+}
+const { studies } = Astro.props;
+
+const markers = studies.map((s) => ({
+  lat: s.data.lat,
+  lng: s.data.lng,
+  city: s.data.city,
+  country: s.data.country,
+  slug: s.id,
+  themes: s.data.themes,
+  impact: s.data.impact,
+}));
+---
+
+<div class="relative overflow-hidden rounded-xl border border-stone-200 dark:border-stone-800">
+  <div id="case-study-map" class="uct-map h-[480px] w-full bg-stone-100 dark:bg-stone-900"></div>
+</div>
+
+<!-- Leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script define:vars={{ markers }}>
+  window.addEventListener('load', () => {
+    const L = window.L;
+    if (!L) return;
+
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      || document.documentElement.classList.contains('dark');
+
+    const tileURL = prefersDark
+      ? 'https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png'
+      : 'https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png';
+
+    const map = L.map('case-study-map', { zoomControl: true, scrollWheelZoom: false })
+      .setView([15, 15], 2);
+
+    L.tileLayer(tileURL, {
+      attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+      maxZoom: 19,
+    }).addTo(map);
+
+    const svgIcon = (color) => L.divIcon({
+      className: '',
+      html: `<svg width="24" height="32" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 9 12 20 12 20S24 21 24 12C24 5.373 18.627 0 12 0z" fill="${color}"/>
+        <circle cx="12" cy="12" r="5" fill="white"/>
+      </svg>`,
+      iconSize: [24, 32],
+      iconAnchor: [12, 32],
+      popupAnchor: [0, -34],
+    });
+
+    const catColor = {
+      heat: '#dc2626', flood: '#2563eb', coastal: '#0891b2',
+      green: '#16a34a', data: '#7c3aed', planning: '#d97706',
+    };
+
+    markers.forEach((m) => {
+      const color = catColor[m.themes[0]] ?? '#1D9E75';
+      const popup = `
+        <div style="min-width:180px; font-family: system-ui, sans-serif;">
+          <strong style="font-size:14px">${m.city}, ${m.country}</strong>
+          <p style="font-size:12px; margin:4px 0 8px; color:#666">${m.impact.slice(0, 90)}…</p>
+          <a href="/case-studies/${m.slug}" style="font-size:12px; color:#1D9E75; font-weight:600">Read case study →</a>
+        </div>`;
+      L.marker([m.lat, m.lng], { icon: svgIcon(color) })
+        .addTo(map)
+        .bindPopup(popup);
+    });
+  });
+</script>

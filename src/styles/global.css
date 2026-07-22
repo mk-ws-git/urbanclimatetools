@@ -1,0 +1,160 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Typography */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Brand palette — TERRAIN teal system, primary #1D9E75 */
+  --color-forest-950: #04342C;
+  --color-forest-900: #05402F;
+  --color-forest-800: #085041;
+  --color-forest-700: #0F6E56;
+  --color-forest-600: #168A66;
+  --color-forest-500: #1D9E75;
+  --color-forest-400: #3DB88E;
+  --color-forest-300: #5DCAA5;
+  --color-forest-200: #90D9C0;
+  --color-forest-100: #BEE9D9;
+  --color-forest-50:  #E1F5EE;
+
+  --color-stone-950: #0c0a09;
+  --color-stone-900: #1c1917;
+  --color-stone-800: #292524;
+  --color-stone-700: #44403c;
+  --color-stone-600: #57534e;
+  --color-stone-500: #78716c;
+  --color-stone-400: #a8a29e;
+  --color-stone-300: #d6d3d1;
+  --color-stone-200: #e7e5e4;
+  --color-stone-100: #f5f5f4;
+  --color-stone-50:  #fafaf9;
+
+  --color-amber-600: #d97706;
+  --color-amber-500: #f59e0b;
+  --color-amber-400: #fbbf24;
+}
+
+/* Brand-tinted dark mode — surfaces built on deep moss #04342C.
+   Scoped to .dark so light mode is untouched. Unlayered, so it overrides @theme.
+   Dark mode only ever uses stone 700–950 for surfaces/borders and 100–400 for text. */
+.dark {
+  --color-stone-950: #03211B; /* page background — deepest */
+  --color-stone-900: #04342C; /* cards & section surfaces — deep moss */
+  --color-stone-800: #0A4D3E; /* raised: chips, inputs, emphasis borders */
+  --color-stone-700: #12614E; /* borders, hover edges */
+
+  --color-stone-100: #F2F7F5; /* primary text / headings — near white, max contrast */
+  --color-stone-200: #DDE8E3;
+  --color-stone-300: #C2D2CB; /* strong secondary text */
+  --color-stone-400: #9FB3AB; /* muted text — lightened & cooled for contrast on teal */
+  --color-stone-500: #87998F;
+  --color-stone-600: #6E8077;
+}
+
+/* Frosted glass header — defined here so it's never scoped or dropped */
+.uct-header {
+  background: rgba(255, 255, 255, 0.55);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  /* stylelint-disable-next-line */
+  backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
+}
+.dark .uct-header {
+  background: rgba(4, 36, 30, 0.6);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100;
+    min-height: 100dvh;
+  }
+
+  ::selection {
+    @apply bg-forest-200 text-forest-900;
+  }
+
+  h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-lg bg-forest-500 px-5 py-2.5 text-sm font-medium text-white
+           hover:bg-forest-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest-500
+           transition-colors;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 rounded-lg border border-stone-300 bg-white px-5 py-2.5 text-sm font-medium text-stone-700
+           hover:bg-stone-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-400
+           dark:border-stone-700 dark:bg-stone-900 dark:text-stone-200 dark:hover:bg-stone-800 transition-colors;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-stone-600
+           hover:bg-stone-100 dark:text-stone-400 dark:hover:bg-stone-800 transition-colors;
+  }
+
+  /* card and card-hover share the same base styles — card-hover adds hover effects */
+  .card {
+    @apply rounded-xl border border-stone-200 bg-white p-6 shadow-sm
+           dark:border-stone-800 dark:bg-stone-900;
+  }
+
+  .card-hover {
+    @apply rounded-xl border border-stone-200 bg-white p-6 shadow-sm
+           dark:border-stone-800 dark:bg-stone-900
+           hover:border-forest-300 hover:shadow-md dark:hover:border-forest-700 transition-all duration-200;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-widest text-forest-600 dark:text-forest-400;
+  }
+
+  .prose-content {
+    @apply prose prose-stone max-w-none dark:prose-invert
+           prose-headings:font-semibold prose-a:text-forest-700 prose-a:no-underline hover:prose-a:underline
+           dark:prose-a:text-forest-300;
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-stone-300 bg-white px-3 py-2 text-sm
+           placeholder:text-stone-400 focus:border-forest-500 focus:outline-none focus:ring-2 focus:ring-forest-500/20
+           dark:border-stone-700 dark:bg-stone-900 dark:text-stone-100;
+  }
+
+  .category-chip[data-cat="heat"]     { @apply bg-red-100 text-red-700 dark:bg-red-950 dark:text-red-300; }
+  .category-chip[data-cat="flood"]    { @apply bg-blue-100 text-blue-700 dark:bg-blue-950 dark:text-blue-300; }
+  .category-chip[data-cat="coastal"]  { @apply bg-cyan-100 text-cyan-700 dark:bg-cyan-950 dark:text-cyan-300; }
+  .category-chip[data-cat="green"]    { @apply bg-green-100 text-green-700 dark:bg-green-950 dark:text-green-300; }
+  .category-chip[data-cat="data"]     { @apply bg-violet-100 text-violet-700 dark:bg-violet-950 dark:text-violet-300; }
+  .category-chip[data-cat="planning"] { @apply bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300; }
+
+  /* Hide scrollbar on horizontal carousels (arrow buttons drive scrolling) */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}

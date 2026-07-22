@@ -1,0 +1,42 @@
+---
+import metrics from '../data/metrics.json';
+
+const iconMap: Record<string, string> = {
+  thermometer: `<path d="M12 2v10.17a4 4 0 101.996 0V2A1 1 0 0012 2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>`,
+  droplets: `<path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0L12 2.69zM12 9v4M12 15h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>`,
+  waves: `<path d="M2 12c1.5-2 3-2 4.5 0s3 2 4.5 0 3-2 4.5 0M2 17c1.5-2 3-2 4.5 0s3 2 4.5 0 3-2 4.5 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>`,
+  leaf: `<path d="M17 8C8 10 5.9 16.17 3.82 19.5M5 22a14.07 14.07 0 0114.29-14C19.87 15.79 16.71 22 5 22z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>`,
+  chart: `<polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>`,
+  building: `<path d="M3 21h18M9 21V5a2 2 0 012-2h2a2 2 0 012 2v16M3 7h3m-3 4h3m12-4h3m-3 4h3m-6 0h.01M12 7h.01M12 11h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>`,
+};
+
+const catColor: Record<string, string> = {
+  heat:     'bg-red-50 text-red-600 dark:bg-red-950 dark:text-red-400',
+  flood:    'bg-blue-50 text-blue-600 dark:bg-blue-950 dark:text-blue-400',
+  coastal:  'bg-cyan-50 text-cyan-600 dark:bg-cyan-950 dark:text-cyan-400',
+  green:    'bg-green-50 text-green-600 dark:bg-green-950 dark:text-green-400',
+  data:     'bg-violet-50 text-violet-600 dark:bg-violet-950 dark:text-violet-400',
+  planning: 'bg-amber-50 text-amber-600 dark:bg-amber-950 dark:text-amber-400',
+};
+---
+
+<div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+  {metrics.categories.map((cat) => (
+    <a
+      href={`/tools?cat=${cat.id}`}
+      class:list={[
+        'card-hover flex flex-col items-center gap-3 p-5 text-center',
+      ]}
+    >
+      <div class:list={['rounded-xl p-3', catColor[cat.id]]}>
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true"
+          set:html={iconMap[cat.icon] ?? ''}
+        />
+      </div>
+      <div>
+        <p class="text-sm font-semibold text-stone-800 dark:text-stone-200">{cat.label}</p>
+        <p class="mt-0.5 text-xs text-stone-400">{cat.toolCount} tools</p>
+      </div>
+    </a>
+  ))}
+</div>

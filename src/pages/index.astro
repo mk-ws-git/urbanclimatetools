@@ -1,0 +1,154 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import MetricCounter from '../components/MetricCounter.astro';
+import CategoryGrid from '../components/CategoryGrid.astro';
+import ToolCard from '../components/ToolCard.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+import ToolFinder from '../components/ToolFinder.astro';
+import CaseStudyMap from '../components/CaseStudyMap.astro';
+import DataExplorer from '../components/DataExplorer.astro';
+import metrics from '../data/metrics.json';
+
+const allTools = await getCollection('tools');
+const allStudies = await getCollection('case-studies');
+
+const featuredTools = allTools.filter((t) => t.data.featured);
+const featuredStudies = allStudies.filter((s) => s.data.featured);
+---
+
+<BaseLayout title="Urban Climate Tools" description="Open-source solutions for building climate-resilient cities — tools, data, and case studies for urban climate practitioners." fullBleedHero={true}>
+
+  <!-- ─── Hero ─── -->
+  <section class="relative min-h-screen overflow-hidden text-white">
+    <!-- Video background -->
+    <video
+      class="absolute inset-0 h-full w-full object-cover"
+      autoplay muted loop playsinline
+      poster="/hero-poster.jpg"
+      preload="metadata"
+      aria-hidden="true"
+    >
+      <source src="/hero.mp4" type="video/mp4" />
+    </video>
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-forest-950/50"></div>
+
+    <div class="relative mx-auto max-w-7xl px-4 pt-40 pb-24 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="section-label text-forest-300 mb-4">Open Source · Community Driven</p>
+        <h1 class="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+          Open-source solutions for<br/>
+          <span class="text-forest-400">climate-resilient cities</span>
+        </h1>
+        <p class="mt-6 text-lg text-stone-300 max-w-2xl leading-relaxed">
+          A curated repository of free tools, datasets, and implementation case studies for urban climate practitioners, planners, and researchers worldwide.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="/tools" class="btn-primary text-base px-6 py-3">Browse tools</a>
+          <a href="/case-studies" class="btn-secondary bg-white/10 border-white/20 text-white hover:bg-white/20 dark:bg-white/10 dark:border-white/20 dark:text-white text-base px-6 py-3">Case studies</a>
+        </div>
+      </div>
+
+      <!-- Metrics row -->
+      <div class="mt-16 grid grid-cols-2 gap-6 sm:grid-cols-4 border-t border-white/10 pt-10">
+        <MetricCounter value={metrics.summary.toolCount} label="Open-source tools" />
+        <MetricCounter value={metrics.summary.caseStudyCount} label="Case studies" />
+        <MetricCounter value={`${metrics.summary.citiesReached}+`} label="Cities reached" />
+        <MetricCounter value={metrics.summary.continents} label="Continents covered" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Categories ─── -->
+  <section class="py-20 bg-white dark:bg-stone-950">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-10 flex items-end justify-between">
+        <div>
+          <p class="section-label mb-2">Tool library</p>
+          <h2 class="text-2xl font-bold text-stone-900 dark:text-stone-100">Six challenge areas</h2>
+        </div>
+        <a href="/tools" class="btn-ghost text-sm hidden sm:inline-flex">All tools &rarr;</a>
+      </div>
+      <CategoryGrid />
+    </div>
+  </section>
+
+  <!-- ─── Featured Tools ─── -->
+  <section class="py-20 bg-stone-50 dark:bg-stone-900">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-10 flex items-end justify-between">
+        <div>
+          <p class="section-label mb-2">Highlighted</p>
+          <h2 class="text-2xl font-bold text-stone-900 dark:text-stone-100">Featured tools</h2>
+        </div>
+        <a href="/tools" class="btn-ghost text-sm hidden sm:inline-flex">View all {allTools.length} tools &rarr;</a>
+      </div>
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {featuredTools.map((tool) => <ToolCard tool={tool} />)}
+      </div>
+      <div class="mt-6 sm:hidden">
+        <a href="/tools" class="btn-secondary w-full justify-center">View all {allTools.length} tools</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Tool Finder ─── -->
+  <section class="py-20 bg-white dark:bg-stone-950">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-10 lg:grid-cols-2 items-start">
+        <div>
+          <p class="section-label mb-2">Interactive</p>
+          <h2 class="text-2xl font-bold text-stone-900 dark:text-stone-100 mb-3">Not sure where to start?</h2>
+          <p class="text-stone-500 dark:text-stone-400 leading-relaxed">
+            Answer four quick questions and we'll match you to the tools most relevant to your context, technical background, and project goals.
+          </p>
+        </div>
+        <ToolFinder />
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Case Studies Map ─── -->
+  <section class="py-20 bg-stone-50 dark:bg-stone-900">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-10 flex items-end justify-between">
+        <div>
+          <p class="section-label mb-2">Global implementations</p>
+          <h2 class="text-2xl font-bold text-stone-900 dark:text-stone-100">Case studies worldwide</h2>
+        </div>
+        <a href="/case-studies" class="btn-ghost text-sm hidden sm:inline-flex">All case studies &rarr;</a>
+      </div>
+      <CaseStudyMap studies={allStudies} />
+      <div class="mt-6 grid gap-5 sm:grid-cols-3">
+        {featuredStudies.map((s) => <CaseStudyCard study={s} monochrome />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Data Explorer ─── -->
+  <section class="py-20 bg-white dark:bg-stone-950">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-10">
+        <p class="section-label mb-2">Context</p>
+        <h2 class="text-2xl font-bold text-stone-900 dark:text-stone-100">Why this matters</h2>
+      </div>
+      <DataExplorer />
+    </div>
+  </section>
+
+  <!-- ─── CTA ─── -->
+  <section class="py-20 bg-forest-950 text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold mb-4">Help build this resource</h2>
+      <p class="text-stone-300 max-w-xl mx-auto mb-8">
+        Urban Climate Tools is an open, community-maintained project. Submit a tool, contribute a case study, or improve the documentation.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="https://github.com/mk-ws-git/Urban-Climate-Tools" target="_blank" rel="noreferrer" class="btn-primary px-6 py-3">Contribute on GitHub</a>
+        <a href="/about" class="btn-secondary bg-white/10 border-white/20 text-white hover:bg-white/20 dark:bg-white/10 dark:border-white/20 dark:text-white px-6 py-3">Learn more</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

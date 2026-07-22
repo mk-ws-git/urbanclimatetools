@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Search — Urban Climate Tools"
+  description="Search tools, case studies, and data across the Urban Climate Tools library."
+>
+  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16">
+    <p class="section-label mb-2">Search</p>
+    <h1 class="text-3xl font-bold text-stone-900 dark:text-stone-100 mb-8">
+      Search Urban Climate Tools
+    </h1>
+
+    <div id="search"></div>
+
+    <p class="mt-10 text-sm text-stone-400 dark:text-stone-500">
+      Search indexes all tools, case studies, and pages.
+      Run <code class="bg-stone-100 dark:bg-stone-800 px-1.5 py-0.5 rounded text-xs">npm run build</code> to update the index after adding content.
+    </p>
+  </div>
+</BaseLayout>
+
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+<script src="/pagefind/pagefind-ui.js" is:inline></script>
+<script>
+  window.addEventListener('load', () => {
+    if (typeof window.PagefindUI !== 'undefined') {
+      new window.PagefindUI({
+        element: '#search',
+        showSubResults: true,
+        showImages: false,
+      });
+      const params = new URLSearchParams(window.location.search);
+      const q = params.get('q');
+      if (q) {
+        const input = document.querySelector('#search input') as HTMLInputElement;
+        if (input) { input.value = q; input.dispatchEvent(new Event('input')); }
+      }
+    }
+  });
+</script>

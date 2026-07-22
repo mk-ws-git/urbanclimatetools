@@ -1,0 +1,102 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  study: CollectionEntry<'case-studies'>;
+  compact?: boolean;
+  monochrome?: boolean;
+}
+
+const { study, compact = false, monochrome = false } = Astro.props;
+const { city, country, continent, title, tagline, themes, population, year, impact, featured } = study.data;
+
+const cityPhotos: Record<string, string> = {
+  'amsterdam-netherlands': '/images/cities/amsterdam.jpg',
+  'bogota-colombia':       '/images/cities/bogota.jpg',
+  'cape-town-south-africa':'/images/cities/cape-town.jpg',
+  'copenhagen-denmark':    '/images/cities/copenhagen.jpg',
+  'dhaka-bangladesh':      '/images/cities/dhaka.jpg',
+  'lagos-nigeria':         '/images/cities/lagos.jpg',
+  'medellin-colombia':     '/images/cities/medellin.jpg',
+  'melbourne-australia':   '/images/cities/melbourne.jpg',
+  'miami-usa':             '/images/cities/miami.jpg',
+  'phoenix-usa':           '/images/cities/phoenix.jpg',
+  'rotterdam-netherlands': '/images/cities/rotterdam.jpg',
+  'singapore':             '/images/cities/singapore.jpg',
+  'tokyo-japan':           '/images/cities/tokyo.jpg',
+};
+const photo = cityPhotos[study.id];
+
+const continentColor: Record<string, string> = {
+  'South America': 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300',
+  'Africa':        'bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300',
+  'Europe':        'bg-blue-100 text-blue-700 dark:bg-blue-950 dark:text-blue-300',
+  'Asia':          'bg-violet-100 text-violet-700 dark:bg-violet-950 dark:text-violet-300',
+  'North America': 'bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300',
+  'Oceania':       'bg-cyan-100 text-cyan-700 dark:bg-cyan-950 dark:text-cyan-300',
+};
+---
+
+<a
+  href={`/case-studies/${study.id}`}
+  class:list={['card-hover group flex flex-col', compact ? 'p-4' : 'p-6']}
+>
+  {photo && !compact && (
+    <div class="relative -mx-6 -mt-6 mb-4 overflow-hidden rounded-t-xl">
+      <img
+        src={photo}
+        alt={`${city} cityscape`}
+        class:list={[
+          'h-36 w-full object-cover transition-all duration-300 group-hover:scale-105',
+          monochrome && 'grayscale group-hover:grayscale-0',
+        ]}
+        loading="lazy"
+      />
+      {monochrome && (
+        <div class="absolute inset-0 bg-forest-950/50 transition-opacity duration-300 group-hover:opacity-0"></div>
+      )}
+    </div>
+  )}
+
+  {featured && (
+    <div class="mb-3 flex items-center gap-1.5 text-xs font-medium text-amber-600 dark:text-amber-400">
+      <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+        <path d="M8 1l1.94 4.02L14 5.68l-3 2.92.71 4.12L8 10.6l-3.71 2.12.71-4.12L2 5.68l4.06-.66L8 1z"/>
+      </svg>
+      Featured
+    </div>
+  )}
+
+  <div class="flex items-start justify-between gap-3">
+    <div>
+      <div class="flex items-center gap-2">
+        <svg class="h-4 w-4 shrink-0 text-stone-400" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M8 1.5C5.51 1.5 3.5 3.51 3.5 6c0 3.75 4.5 8.5 4.5 8.5S12.5 9.75 12.5 6c0-2.49-2.01-4.5-4.5-4.5zM8 8a2 2 0 110-4 2 2 0 010 4z"/>
+        </svg>
+        <span class="text-xs font-medium text-stone-500 dark:text-stone-400">{city}, {country}</span>
+      </div>
+      <h3 class:list={['mt-1.5 font-semibold text-stone-900 group-hover:text-forest-700 dark:text-stone-100 dark:group-hover:text-forest-400 transition-colors', compact ? 'text-sm' : 'text-base line-clamp-2']}>
+        {title}
+      </h3>
+    </div>
+    <span class:list={['badge shrink-0', continentColor[continent] ?? 'bg-stone-100 text-stone-600']}>{continent}</span>
+  </div>
+
+  {!compact && (
+    <p class="mt-2 text-sm text-stone-500 dark:text-stone-400 line-clamp-2">{tagline}</p>
+  )}
+
+  <div class="mt-auto pt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-stone-400">
+    <span>{population}</span>
+    <span>{year}</span>
+    {themes.slice(0, 3).map((t) => (
+      <span class="badge category-chip" data-cat={t}>{t}</span>
+    ))}
+  </div>
+
+  {!compact && (
+    <p class="mt-2 text-xs text-forest-600 dark:text-forest-400 line-clamp-2">
+      <strong>Impact:</strong> {impact}
+    </p>
+  )}
+</a>

@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allTools   = await getCollection('tools');
+const allStudies = await getCollection('case-studies');
+
+const techStack = [
+  { name: 'Astro 5',          role: 'Static site framework — zero JS by default, islands architecture' },
+  { name: 'Tailwind CSS v4',  role: 'Utility-first CSS with CSS-native theming and dark mode' },
+  { name: 'MDX + Content Collections', role: 'Type-safe content authoring with Zod schema validation' },
+  { name: 'Leaflet',          role: 'Interactive maps for global case study visualisation' },
+  { name: 'FastAPI + PostGIS',role: 'Geospatial API for climate zone queries (backend, separate repo)' },
+  { name: 'Claude API',       role: 'Automated content pipeline — weekly draft generation via GitHub Actions' },
+];
+
+const metrics = [
+  { value: `${allTools.length}`,    label: 'Tools catalogued' },
+  { value: `${allStudies.length}`,  label: 'Case studies written' },
+  { value: '6',                     label: 'Tool categories' },
+  { value: '6',                     label: 'Continents covered' },
+  { value: '100 Lighthouse',        label: 'Performance score (target)' },
+  { value: 'MIT',                   label: 'Open-source licence' },
+];
+
+const highlights = [
+  {
+    title: 'Full-stack climate data platform',
+    body: 'Designed and built end-to-end: content architecture, API design (FastAPI + PostGIS), frontend (Astro + Tailwind), and an automated Claude-powered content pipeline — all open source.',
+  },
+  {
+    title: 'Equity-informed content strategy',
+    body: 'Case studies deliberately span 6 continents and foreground equity considerations — Bogotá, Dhaka, Lagos, Medellín — not just the usual European city examples.',
+  },
+  {
+    title: 'Automated cron pipeline',
+    body: 'A weekly GitHub Action calls the Claude API to draft new tool or case study entries, opens a PR for human review, and merges on approval — keeping the site fresh without manual effort.',
+  },
+  {
+    title: 'Performance-first architecture',
+    body: 'Static Astro output: no client-side framework, zero hydration overhead except for the interactive islands (Tool Finder quiz, Leaflet map). Designed to score 100 on Lighthouse.',
+  },
+];
+---
+
+<BaseLayout
+  title="Portfolio — Urban Climate Tools"
+  description="Portfolio overview of the Urban Climate Tools project: an open-source platform for climate-resilient city planning built with Astro, Tailwind CSS, FastAPI, and the Claude API."
+>
+
+  <!-- Hero -->
+  <div class="bg-gradient-to-b from-stone-900 to-stone-950 text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
+      <p class="section-label text-forest-300 mb-4">Portfolio project</p>
+      <h1 class="text-4xl font-bold sm:text-5xl max-w-3xl">
+        Urban Climate Tools
+      </h1>
+      <p class="mt-4 text-stone-300 text-lg max-w-2xl leading-relaxed">
+        An open-source repository and discovery platform for urban climate practitioners — cataloguing tools, case studies, and data across six climate challenge areas. Built from scratch with Astro, Tailwind CSS v4, and an automated Claude-powered content pipeline.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="https://github.com/mk-ws-git/Urban-Climate-Tools" target="_blank" rel="noreferrer" class="btn-primary px-6 py-3">
+          GitHub repository
+        </a>
+        <a href="/" class="btn-secondary bg-white/10 border-white/20 text-white hover:bg-white/20 dark:bg-white/10 dark:border-white/20 dark:text-white px-6 py-3">
+          Live site
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Key metrics -->
+  <section class="bg-white dark:bg-stone-950 border-b border-stone-200 dark:border-stone-800 py-10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
+        {metrics.map(({ value, label }) => (
+          <div class="text-center">
+            <div class="text-2xl font-bold text-forest-600 dark:text-forest-400">{value}</div>
+            <div class="mt-1 text-xs text-stone-500 dark:text-stone-400">{label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 space-y-16">
+
+    <!-- What I built -->
+    <section>
+      <p class="section-label mb-2">Scope</p>
+      <h2 class="text-2xl font-bold text-stone-900 dark:text-stone-100 mb-8">What I built</h2>
+      <div class="grid gap-6 sm:grid-cols-2">
+        {highlights.map(({ title, body }) => (
+          <div class="card">
+            <h3 class="font-semibold text-stone-900 dark:text-stone-100 mb-2">{title}</h3>
+            <p class="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">{body}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Tech stack -->
+    <section>
+      <p class="section-label mb-2">Technology</p>
+      <h2 class="text-2xl font-bold text-stone-900 dark:text-stone-100 mb-8">Tech stack</h2>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {techStack.map(({ name, role }) => (
+          <div class="card flex gap-4 items-start">
+            <div class="mt-0.5 h-2 w-2 rounded-full bg-forest-500 shrink-0"></div>
+            <div>
+              <p class="text-sm font-semibold text-stone-800 dark:text-stone-200">{name}</p>
+              <p class="text-xs text-stone-500 dark:text-stone-400 mt-0.5 leading-relaxed">{role}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Architecture diagram -->
+    <section>
+      <p class="section-label mb-2">Architecture</p>
+      <h2 class="text-2xl font-bold text-stone-900 dark:text-stone-100 mb-8">System overview</h2>
+      <div class="card p-8">
+        <svg viewBox="0 0 720 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-2xl mx-auto" aria-label="Architecture diagram showing content pipeline, Astro build, and FastAPI backend">
+          <!-- Content layer -->
+          <rect x="10" y="20" width="160" height="90" rx="8" class="fill-forest-50 stroke-forest-300 dark:fill-forest-950 dark:stroke-forest-700" stroke-width="1.5"/>
+          <text x="90" y="50" text-anchor="middle" class="fill-forest-700 dark:fill-forest-300" font-size="11" font-weight="600" font-family="system-ui">Content Layer</text>
+          <text x="90" y="68" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">MDX files</text>
+          <text x="90" y="83" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">19 tools · 13 case studies</text>
+          <text x="90" y="98" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Zod schema validation</text>
+
+          <!-- Claude API -->
+          <rect x="10" y="140" width="160" height="70" rx="8" class="fill-violet-50 stroke-violet-300 dark:fill-violet-950 dark:stroke-violet-700" stroke-width="1.5"/>
+          <text x="90" y="165" text-anchor="middle" class="fill-violet-700 dark:fill-violet-300" font-size="11" font-weight="600" font-family="system-ui">Claude API</text>
+          <text x="90" y="183" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Weekly GH Action</text>
+          <text x="90" y="198" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Draft PR generation</text>
+
+          <!-- Arrow: content → astro -->
+          <path d="M170 65 L270 65" class="stroke-stone-400" stroke-width="1.5" marker-end="url(#arr)"/>
+          <!-- Arrow: claude → content -->
+          <path d="M90 140 L90 110" class="stroke-stone-400" stroke-width="1.5" marker-end="url(#arr)"/>
+
+          <!-- Astro build -->
+          <rect x="270" y="20" width="180" height="200" rx="8" class="fill-stone-50 stroke-stone-300 dark:fill-stone-900 dark:stroke-stone-600" stroke-width="1.5"/>
+          <text x="360" y="48" text-anchor="middle" class="fill-stone-700 dark:fill-stone-300" font-size="11" font-weight="600" font-family="system-ui">Astro Build</text>
+          <text x="360" y="70" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Static HTML + CSS</text>
+          <text x="360" y="90" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Tool Finder (island)</text>
+          <text x="360" y="110" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Leaflet map (island)</text>
+          <text x="360" y="130" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Dark mode toggle</text>
+          <text x="360" y="150" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Filters (vanilla JS)</text>
+          <text x="360" y="175" text-anchor="middle" class="fill-stone-400" font-size="9" font-family="system-ui">Tailwind CSS v4</text>
+          <text x="360" y="193" text-anchor="middle" class="fill-stone-400" font-size="9" font-family="system-ui">MDX + Sitemap</text>
+
+          <!-- Arrow: astro → hosting -->
+          <path d="M450 120 L540 120" class="stroke-stone-400" stroke-width="1.5" marker-end="url(#arr)"/>
+
+          <!-- Hosting -->
+          <rect x="540" y="60" width="160" height="120" rx="8" class="fill-blue-50 stroke-blue-300 dark:fill-blue-950 dark:stroke-blue-700" stroke-width="1.5"/>
+          <text x="620" y="90" text-anchor="middle" class="fill-blue-700 dark:fill-blue-300" font-size="11" font-weight="600" font-family="system-ui">Hosting</text>
+          <text x="620" y="110" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Bluehost / static</text>
+          <text x="620" y="128" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">or Netlify / CF Pages</text>
+          <text x="620" y="148" text-anchor="middle" class="fill-stone-400" font-size="9" font-family="system-ui">CDN · HTTPS · Sitemap</text>
+          <text x="620" y="165" text-anchor="middle" class="fill-stone-400" font-size="9" font-family="system-ui">OG meta · robots.txt</text>
+
+          <!-- FastAPI -->
+          <rect x="540" y="220" width="160" height="70" rx="8" class="fill-amber-50 stroke-amber-300 dark:fill-amber-950 dark:stroke-amber-700" stroke-width="1.5"/>
+          <text x="620" y="245" text-anchor="middle" class="fill-amber-700 dark:fill-amber-300" font-size="11" font-weight="600" font-family="system-ui">FastAPI + PostGIS</text>
+          <text x="620" y="263" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Climate zone queries</text>
+          <text x="620" y="278" text-anchor="middle" class="fill-stone-400" font-size="9" font-family="system-ui">Future integration</text>
+
+          <defs>
+            <marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+              <path d="M0 0L6 3L0 6Z" class="fill-stone-400"/>
+            </marker>
+          </defs>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Content samples -->
+    <section>
+      <p class="section-label mb-2">Deliverables</p>
+      <h2 class="text-2xl font-bold text-stone-900 dark:text-stone-100 mb-8">Sample content</h2>
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {allTools.filter(t => t.data.featured).map((tool) => (
+          <a href={`/tools/${tool.id}`} class="card-hover p-5 flex flex-col gap-2">
+            <span class="badge category-chip" data-cat={tool.data.category}>{tool.data.category}</span>
+            <p class="font-medium text-stone-800 dark:text-stone-200 text-sm">{tool.data.title}</p>
+            <p class="text-xs text-stone-400 line-clamp-2">{tool.data.tagline}</p>
+          </a>
+        ))}
+        {allStudies.filter(s => s.data.featured).map((study) => (
+          <a href={`/case-studies/${study.id}`} class="card-hover p-5 flex flex-col gap-2">
+            <span class="text-xs font-medium text-stone-400">{study.data.city}, {study.data.country}</span>
+            <p class="font-medium text-stone-800 dark:text-stone-200 text-sm line-clamp-2">{study.data.title}</p>
+            <p class="text-xs text-stone-400 line-clamp-2">{study.data.impact}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Contact / links -->
+    <section class="card bg-forest-950 text-white border-0">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+        <div>
+          <h2 class="text-xl font-bold mb-1">Interested in this work?</h2>
+          <p class="text-stone-300 text-sm">Open to climate tech, urban data, and civic tech opportunities.</p>
+        </div>
+        <div class="flex flex-wrap gap-3 shrink-0">
+          <a href="mailto:maryksprague@gmail.com" class="btn-primary px-5 py-2.5">Get in touch</a>
+          <a href="https://github.com/mk-ws-git/Urban-Climate-Tools" target="_blank" rel="noreferrer" class="btn-secondary bg-white/10 border-white/20 text-white hover:bg-white/20 dark:bg-white/10 dark:border-white/20 dark:text-white px-5 py-2.5">GitHub</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>

@@ -1,0 +1,66 @@
+---
+const year = new Date().getFullYear();
+
+const links = {
+  Explore: [
+    { href: '/tools',        label: 'All Tools' },
+    { href: '/case-studies', label: 'Case Studies' },
+    { href: '/data',         label: 'Data Explorer' },
+    { href: '/portfolio',    label: 'Portfolio' },
+  ],
+  Categories: [
+    { href: '/tools?cat=heat',     label: 'Heat Management' },
+    { href: '/tools?cat=flood',    label: 'Flood Risk' },
+    { href: '/tools?cat=coastal',  label: 'Coastal Resilience' },
+    { href: '/tools?cat=green',    label: 'Green Infrastructure' },
+  ],
+  Project: [
+    { href: '/about',                                                               label: 'About' },
+    { href: 'https://github.com/mk-ws-git/Urban-Climate-Tools',                    label: 'GitHub' },
+    { href: 'https://github.com/mk-ws-git/Urban-Climate-Tools/blob/main/LICENSE',  label: 'MIT License' },
+    { href: 'https://github.com/mk-ws-git/Urban-Climate-Tools/blob/main/CONTRIBUTING.md', label: 'Contribute' },
+  ],
+};
+---
+
+<footer class="border-t border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-950">
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+
+      <!-- Brand -->
+      <div class="col-span-2 md:col-span-1">
+        <a href="/" class="flex items-center gap-2 font-semibold text-stone-900 dark:text-stone-100">
+          <img src="/logo-light.png" alt="" class="h-6 w-auto dark:hidden" aria-hidden="true" />
+          <img src="/logo-dark.png"  alt="" class="h-6 w-auto hidden dark:block" aria-hidden="true" />
+          Urban Climate Tools
+        </a>
+        <p class="mt-3 text-sm text-stone-500 dark:text-stone-400">
+          Open-source solutions for building climate-resilient cities.
+        </p>
+        <p class="mt-4 text-xs text-stone-400 dark:text-stone-600">
+          &copy; {year} Urban Climate Tools.<br/>MIT License.
+        </p>
+      </div>
+
+      <!-- Nav cols -->
+      {Object.entries(links).map(([group, items]) => (
+        <div>
+          <h3 class="text-xs font-semibold uppercase tracking-wider text-stone-500 dark:text-stone-400">{group}</h3>
+          <ul class="mt-4 space-y-2">
+            {items.map(({ href, label }) => (
+              <li>
+                <a
+                  href={href}
+                  class="text-sm text-stone-600 hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-200 transition-colors"
+                  {...(href.startsWith('http') ? { target: '_blank', rel: 'noreferrer' } : {})}
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</footer>

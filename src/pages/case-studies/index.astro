@@ -1,0 +1,119 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CaseStudyCard from '../../components/CaseStudyCard.astro';
+import CaseStudyMap from '../../components/CaseStudyMap.astro';
+
+const allStudies = await getCollection('case-studies');
+
+const continents = ['All', 'Africa', 'Asia', 'Europe', 'North America', 'South America', 'Oceania'];
+const themes = ['heat', 'flood', 'coastal', 'green', 'data', 'planning'];
+---
+
+<BaseLayout title="Case Studies" description="Explore 13 global case studies showing how cities applied open-source urban climate tools to real challenges.">
+
+  <div class="bg-stone-50 dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
+      <p class="section-label mb-2">Global implementations</p>
+      <h1 class="text-3xl font-bold text-stone-900 dark:text-stone-100">Case studies</h1>
+      <p class="mt-2 text-stone-500 dark:text-stone-400 max-w-2xl">
+        {allStudies.length} documented implementations across {new Set(allStudies.map(s => s.data.continent)).size} continents — from Cape Town to Copenhagen.
+      </p>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+
+    <!-- Map -->
+    <div class="mb-12">
+      <CaseStudyMap studies={allStudies} />
+    </div>
+
+    <!-- Filters -->
+    <div class="flex flex-wrap gap-3 mb-8 items-center">
+      <div class="flex flex-wrap gap-1.5" role="group" aria-label="Filter by continent">
+        {continents.map((c) => (
+          <button
+            class="cs-filter-btn rounded-lg px-3 py-1.5 text-xs font-medium border transition-colors"
+            data-filter-continent={c.toLowerCase().replace(' ', '-')}
+          >
+            {c}
+          </button>
+        ))}
+      </div>
+
+      <select id="filter-theme" class="input max-w-[160px]" aria-label="Filter by theme">
+        <option value="all">All themes</option>
+        {themes.map((t) => <option value={t}>{t.charAt(0).toUpperCase() + t.slice(1)}</option>)}
+      </select>
+    </div>
+
+    <p class="text-sm text-stone-500 dark:text-stone-400 mb-6" id="cs-count">{allStudies.length} case studies</p>
+
+    <div id="cs-grid" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {allStudies.map((study) => (
+        <div
+          class="cs-item"
+          data-continent={study.data.continent.toLowerCase().replace(' ', '-')}
+          data-themes={study.data.themes.join(' ')}
+        >
+          <CaseStudyCard study={study} monochrome />
+        </div>
+      ))}
+    </div>
+
+    <p id="cs-no-results" class="hidden py-16 text-center text-stone-400">
+      No case studies match your filters.
+      <button class="text-forest-600 underline" id="cs-reset">Reset</button>
+    </p>
+  </div>
+</BaseLayout>
+
+<script>
+  const themeEl = document.getElementById('filter-theme') as HTMLSelectElement;
+  const countEl = document.getElementById('cs-count')!;
+  const noResultsEl = document.getElementById('cs-no-results')!;
+  const items = Array.from(document.querySelectorAll<HTMLElement>('.cs-item'));
+  let activeContinent = 'all';
+
+  function applyFilters() {
+    const theme = themeEl.value;
+    let visible = 0;
+    items.forEach((el) => {
+      const continentMatch = activeContinent === 'all' || el.dataset.continent === activeContinent;
+      const themeMatch = theme === 'all' || el.dataset.themes!.includes(theme);
+      const show = continentMatch && themeMatch;
+      el.classList.toggle('hidden', !show);
+      if (show) visible++;
+    });
+    countEl.textContent = `${visible} case stud${visible !== 1 ? 'ies' : 'y'}`;
+    noResultsEl.classList.toggle('hidden', visible > 0);
+  }
+
+  document.querySelectorAll<HTMLButtonElement>('.cs-filter-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      activeContinent = btn.dataset.filterContinent!;
+      document.querySelectorAll<HTMLButtonElement>('.cs-filter-btn').forEach((b) => {
+        const active = b.dataset.filterContinent === activeContinent;
+        b.className = b.className
+          .replace(/bg-forest-\S+|text-white|border-forest-\S+|border-stone-\S+|text-stone-\S+|dark:border-\S+|dark:text-\S+/g, '')
+          .trim();
+        if (active) {
+          b.classList.add('bg-forest-600', 'text-white', 'border-forest-600');
+        } else {
+          b.classList.add('border-stone-200', 'text-stone-600', 'dark:border-stone-700', 'dark:text-stone-400');
+        }
+      });
+      applyFilters();
+    });
+  });
+
+  themeEl.addEventListener('change', applyFilters);
+  document.getElementById('cs-reset')?.addEventListener('click', () => {
+    themeEl.value = 'all';
+    activeContinent = 'all';
+    document.querySelector<HTMLButtonElement>('[data-filter-continent="all"]')?.click();
+  });
+
+  document.querySelector<HTMLButtonElement>('[data-filter-continent="all"]')?.click();
+</script>

@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import DataExplorer from '../components/DataExplorer.astro';
+import metrics from '../data/metrics.json';
+---
+
+<BaseLayout title="Data" description="Climate data context, metrics, and category breakdowns underlying the Urban Climate Tools repository.">
+
+  <div class="bg-stone-50 dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
+      <p class="section-label mb-2">Context & data</p>
+      <h1 class="text-3xl font-bold text-stone-900 dark:text-stone-100">Climate data overview</h1>
+      <p class="mt-2 text-stone-500 dark:text-stone-400 max-w-2xl">
+        Key metrics and data context behind this repository — updated periodically from IPCC, NOAA, C40, and World Bank sources.
+      </p>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+
+    <DataExplorer />
+
+    <!-- Repository summary -->
+    <div class="card">
+      <h2 class="text-lg font-semibold text-stone-900 dark:text-stone-100 mb-6">Repository summary</h2>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {[
+          { label: 'Tools indexed', value: metrics.summary.toolCount },
+          { label: 'Case studies', value: metrics.summary.caseStudyCount },
+          { label: 'Cities reached', value: `${metrics.summary.citiesReached}+` },
+          { label: 'Continents', value: metrics.summary.continents },
+        ].map(({ label, value }) => (
+          <div class="text-center">
+            <div class="text-3xl font-bold text-forest-600 dark:text-forest-400">{value}</div>
+            <div class="mt-1 text-sm text-stone-500 dark:text-stone-400">{label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Data sources -->
+    <div class="card">
+      <h2 class="text-lg font-semibold text-stone-900 dark:text-stone-100 mb-4">Data sources & methodology</h2>
+      <p class="text-sm text-stone-600 dark:text-stone-400 leading-relaxed mb-4">
+        Climate metrics are drawn from peer-reviewed and institutional sources. Tool metadata is maintained by the community through GitHub pull requests. Case study impact data is verified against published city reports and academic literature before inclusion.
+      </p>
+      <ul class="space-y-2 text-sm">
+        {[
+          ['IPCC AR6 (2021–2022)', 'Global climate projections and risk frameworks'],
+          ['NOAA / NASA GISS',     'Observed temperature anomalies and trend data'],
+          ['C40 Cities',           'Urban climate action and city reach estimates'],
+          ['World Bank',           'Urban flood exposure and infrastructure financing data'],
+          ['OECD',                 'Green infrastructure return on investment meta-analysis'],
+        ].map(([src, desc]) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-0.5 h-1.5 w-1.5 rounded-full bg-forest-500 shrink-0"></span>
+            <span><strong class="text-stone-700 dark:text-stone-300">{src}</strong> — {desc}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+  </div>
+</BaseLayout>

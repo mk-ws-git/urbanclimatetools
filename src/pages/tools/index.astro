@@ -1,0 +1,149 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ToolCard from '../../components/ToolCard.astro';
+
+const allTools = await getCollection('tools');
+
+const categories = [
+  { id: 'all',      label: 'All tools' },
+  { id: 'heat',     label: 'Heat Management' },
+  { id: 'flood',    label: 'Flood Risk' },
+  { id: 'coastal',  label: 'Coastal Resilience' },
+  { id: 'green',    label: 'Green Infrastructure' },
+  { id: 'data',     label: 'Data & Analytics' },
+  { id: 'planning', label: 'Planning & Policy' },
+];
+
+const difficulties = ['beginner', 'intermediate', 'advanced'];
+---
+
+<BaseLayout title="Tools" description="Browse free and open-source urban climate tools across heat, flood, coastal, green infrastructure, data, and planning categories.">
+
+  <div class="bg-stone-50 dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
+      <p class="section-label mb-2">Tool library</p>
+      <h1 class="text-3xl font-bold text-stone-900 dark:text-stone-100">Open-source urban climate tools</h1>
+      <p class="mt-2 text-stone-500 dark:text-stone-400 max-w-2xl">
+        {allTools.length} free tools across six challenge areas. Filter by category, difficulty, or search by keyword.
+      </p>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+    <!-- Filters -->
+    <div class="flex flex-wrap gap-3 mb-8 items-center">
+      <!-- Search -->
+      <input
+        id="tool-search"
+        type="search"
+        placeholder="Search tools..."
+        class="input max-w-xs"
+        aria-label="Search tools"
+      />
+
+      <!-- Category tabs -->
+      <div class="flex flex-wrap gap-1.5" role="group" aria-label="Filter by category">
+        {categories.map(({ id, label }) => (
+          <button
+            class="filter-btn rounded-lg px-3 py-1.5 text-xs font-medium border transition-colors"
+            data-filter-cat={id}
+            data-active={id === 'all' ? 'true' : 'false'}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
+      <!-- Difficulty -->
+      <select id="filter-difficulty" class="input max-w-[160px]" aria-label="Filter by difficulty">
+        <option value="all">All levels</option>
+        {difficulties.map((d) => <option value={d}>{d.charAt(0).toUpperCase() + d.slice(1)}</option>)}
+      </select>
+    </div>
+
+    <!-- Count -->
+    <p class="text-sm text-stone-500 dark:text-stone-400 mb-6" id="tool-count">{allTools.length} tools</p>
+
+    <!-- Grid -->
+    <div id="tools-grid" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {allTools.map((tool) => (
+        <div
+          class="tool-item"
+          data-cat={tool.data.category}
+          data-difficulty={tool.data.difficulty}
+          data-title={tool.data.title.toLowerCase()}
+          data-tags={tool.data.tags.join(' ').toLowerCase()}
+        >
+          <ToolCard tool={tool} />
+        </div>
+      ))}
+    </div>
+
+    <p id="no-results" class="hidden py-16 text-center text-stone-400">
+      No tools match your filters. <button class="text-forest-600 underline" id="reset-filters">Reset</button>
+    </p>
+  </div>
+</BaseLayout>
+
+<script>
+  const searchEl = document.getElementById('tool-search') as HTMLInputElement;
+  const diffEl   = document.getElementById('filter-difficulty') as HTMLSelectElement;
+  const countEl  = document.getElementById('tool-count')!;
+  const noResultsEl = document.getElementById('no-results')!;
+  const items = Array.from(document.querySelectorAll<HTMLElement>('.tool-item'));
+
+  let activeCat = 'all';
+
+  function applyFilters() {
+    const q    = searchEl.value.toLowerCase();
+    const diff = diffEl.value;
+    let visible = 0;
+
+    items.forEach((el) => {
+      const catMatch  = activeCat === 'all' || el.dataset.cat === activeCat;
+      const diffMatch = diff === 'all' || el.dataset.difficulty === diff;
+      const textMatch = !q || el.dataset.title!.includes(q) || el.dataset.tags!.includes(q);
+      const show = catMatch && diffMatch && textMatch;
+      el.classList.toggle('hidden', !show);
+      if (show) visible++;
+    });
+
+    countEl.textContent = `${visible} tool${visible !== 1 ? 's' : ''}`;
+    noResultsEl.classList.toggle('hidden', visible > 0);
+  }
+
+  document.querySelectorAll<HTMLButtonElement>('.filter-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      activeCat = btn.dataset.filterCat!;
+      document.querySelectorAll<HTMLButtonElement>('.filter-btn').forEach((b) => {
+        const active = b.dataset.filterCat === activeCat;
+        b.dataset.active = String(active);
+        b.classList.toggle('bg-forest-600',   active);
+        b.classList.toggle('text-white',       active);
+        b.classList.toggle('border-forest-600',active);
+        b.classList.toggle('border-stone-200', !active);
+        b.classList.toggle('text-stone-600',   !active);
+        b.classList.toggle('dark:border-stone-700', !active);
+        b.classList.toggle('dark:text-stone-400',   !active);
+      });
+      applyFilters();
+    });
+  });
+
+  searchEl.addEventListener('input', applyFilters);
+  diffEl.addEventListener('change', applyFilters);
+  document.getElementById('reset-filters')?.addEventListener('click', () => {
+    searchEl.value = '';
+    diffEl.value = 'all';
+    activeCat = 'all';
+    document.querySelector<HTMLButtonElement>('[data-filter-cat="all"]')?.click();
+  });
+
+  // Init from ?cat= URL param, falling back to "all"
+  const urlCat = new URLSearchParams(window.location.search).get('cat');
+  const initBtn =
+    (urlCat && document.querySelector<HTMLButtonElement>(`[data-filter-cat="${urlCat}"]`)) ||
+    document.querySelector<HTMLButtonElement>('[data-filter-cat="all"]');
+  initBtn?.click();
+</script>
