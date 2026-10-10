@@ -7,13 +7,16 @@ lng: 72.5714
 title: "South Asia's First Heat Action Plan: Ahmedabad's Life-Saving Early Warning System"
 tagline: "After a deadly 2010 heatwave, Ahmedabad built the template now replicated across India"
 themes: [heat, planning, data]
-toolsUsed: ["urban-heat-island-effect-tool", "climate-resilience-toolkit", "cool-roofs-calculator"]
+toolsUsed: ["eea-urban-heat-island", "climate-resilience-toolkit", "roof-savings-calculator"]
 population: "8.4 million (metro)"
 year: 2013
 impact: "An estimated 1,190 fewer all-cause deaths per year after implementation (2018 study); the model has been scaled to more than 40 Indian cities."
 statValue: "1,190"
 statLabel: "fewer deaths per year"
-imageAlt: "Dense Ahmedabad rooftops under a hazy hot sky"
+image: "/images/cities/ahmedabad.jpg"
+imageAlt: "Busy market street in Ahmedabad's old city with the Bhadra Fort tower behind"
+imageCredit: "Photo: Ninara, CC BY 2.0, via Wikimedia Commons"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Historic_City_of_Ahmedabad_(52688850567).jpg"
 ---
 
 ## Background

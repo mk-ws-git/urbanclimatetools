@@ -7,13 +7,16 @@ lng: 23.7275
 title: "Naming the Heat: Athens and the World's First Chief Heat Officer"
 tagline: "Treating heatwaves like named storms to make an invisible killer visible"
 themes: [heat, planning, data]
-toolsUsed: ["urban-heat-island-effect-tool", "climate-adapt"]
+toolsUsed: ["eea-urban-heat-island", "climate-adapt"]
 population: "3.1 million (metro)"
 year: 2021
 impact: "Appointed Europe's first Chief Heat Officer (2021) and piloted the world's first heatwave categorisation-and-naming system; the role has since been adopted by cities on several continents."
 statValue: "1st"
 statLabel: "Chief Heat Officer in Europe"
-imageAlt: "Athens cityscape with the Acropolis under a hot summer haze"
+image: "/images/cities/athens.jpg"
+imageAlt: "View across the dense rooftops of Athens towards Mount Lycabettus"
+imageCredit: "Photo: Tomisti, CC BY-SA 3.0, via Wikimedia Commons"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Athens_panorama_from_Acropolis_2.jpg"
 ---
 
 ## Background

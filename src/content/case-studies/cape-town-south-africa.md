@@ -6,7 +6,6 @@ lat: -33.9249
 lng: 18.4241
 title: "Beyond Day Zero: Cape Town's Multi-Layered Water Resilience Strategy"
 tagline: "Cape Town avoided complete reservoir failure in 2018 and built the water resilience infrastructure to survive future droughts"
-image: "/images/cities/cape-town.jpg"
 themes: [flood, coastal, data, planning]
 toolsUsed: ["copernicus-c3s", "noaa-slr", "climate-resilience-toolkit"]
 population: "4.6 million"
@@ -15,7 +14,10 @@ impact: "Per-capita water consumption reduced by 50%; groundwater augmentation s
 statValue: "50%"
 statLabel: "cut in water use per person"
 featured: true
+image: "/images/cities/cape-town.jpg"
 imageAlt: "Cape Town reservoir at critically low levels during the 2017–2018 drought"
+imageCredit: "Photo: Der Berzerker from Washington, DC, USA, CC BY-SA 2.0, via Wikimedia Commons"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Camps_bay_(53460319478)_(cropped).jpg"
 ---
 
 ## Background

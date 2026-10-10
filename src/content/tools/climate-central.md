@@ -3,9 +3,8 @@ title: "Climate Central"
 tagline: "Climate risk assessment and visualisation for local communities"
 category: data
 tags: [climate risk, visualization, sea level, analytics]
-license: Open-Source
+license: Proprietary-Free
 homepage: "https://www.climatecentral.org"
-github: "https://github.com/climatecentral"
 difficulty: beginner
 lastUpdated: "2024"
 featured: true

@@ -4,8 +4,8 @@ tagline: "Near-real-time monitoring of forest cover, loss, and tree canopy"
 category: green
 tags: [forest, canopy, deforestation, monitoring, satellite, green]
 license: CC-BY-4.0
-homepage: "https://www.globalforestwatch.org"
-github: "https://github.com/Vizzuality/gfw"
+homepage: "https://globalnaturewatch.org"
+github: "https://github.com/wri/gfw"
 difficulty: beginner
 lastUpdated: "2024"
 featured: false
@@ -30,4 +30,4 @@ Urban foresters, environmental departments, and researchers monitoring green cov
 
 ## Getting started
 
-Open [globalforestwatch.org](https://www.globalforestwatch.org), draw or upload your area of interest, and open its dashboard.
+Open [Global Nature Watch](https://globalnaturewatch.org) (the new name for Global Forest Watch), draw or upload your area of interest, and open its dashboard.

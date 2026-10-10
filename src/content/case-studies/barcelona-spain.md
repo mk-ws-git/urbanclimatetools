@@ -13,7 +13,10 @@ year: 2016
 impact: "In the Sant Antoni superblock, NO₂ fell roughly 25% and through-traffic dropped sharply within a year; the city plans a wider network of superblocks and green axes."
 statValue: "25%"
 statLabel: "drop in NO₂ in the superblock"
-imageAlt: "A Barcelona superblock intersection turned into a pedestrian plaza with trees and seating"
+image: "/images/cities/barcelona.jpg"
+imageAlt: "Pedestrianised Superilla street in Sant Antoni, Barcelona, with trees and planters"
+imageCredit: "Photo: Cataleirxs, CC BY-SA 4.0, via Wikimedia Commons"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Superilla_del_barri_de_Sant_Antoni,_Barcelona.jpg"
 ---
 
 ## Background

@@ -5,7 +5,7 @@ category: green
 tags: [ecosystem-services, nature-based, valuation, green, modelling]
 language: "Python"
 license: Open-Source
-homepage: "https://naturalcapitalproject.stanford.edu"
+homepage: "https://naturalcapitalalliance.stanford.edu"
 github: "https://github.com/natcap/invest"
 difficulty: advanced
 lastUpdated: "2024"
@@ -31,4 +31,4 @@ Analysts and researchers quantifying the value of parks, trees, and green infras
 
 ## Getting started
 
-Download the InVEST Workbench from the [Natural Capital Project](https://naturalcapitalproject.stanford.edu) or install the Python package from the [GitHub repository](https://github.com/natcap/invest).
+Download the InVEST Workbench from the [Natural Capital Project](https://naturalcapitalalliance.stanford.edu) or install the Python package from the [GitHub repository](https://github.com/natcap/invest).

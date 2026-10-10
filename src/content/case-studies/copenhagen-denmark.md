@@ -6,16 +6,18 @@ lat: 55.6761
 lng: 12.5683
 title: "Carbon Neutral by 2025: Copenhagen's Systemic Transformation"
 tagline: "Copenhagen's decade-long push for carbon neutrality — a blueprint integrating transport, energy, and urban form"
-image: "/images/cities/copenhagen.jpg"
 themes: [planning, green, data]
-toolsUsed: ["climate-resilience-toolkit", "copernicus-c3s", "forest-carbon-calculator"]
+toolsUsed: ["climate-resilience-toolkit", "copernicus-c3s"]
 population: "794,000"
 year: 2012
 impact: "67% CO2 reduction since 2005; 62% of trips made by bicycle; district heating covers 98% of households"
 statValue: "67%"
 statLabel: "CO₂ reduction since 2005"
 featured: true
+image: "/images/cities/copenhagen.jpg"
 imageAlt: "Copenhagen cyclists on Nørrebro cycling superhighway at morning rush hour"
+imageCredit: "Photo: Moahim, CC BY-SA 4.0, via Wikimedia Commons"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:2018_-_Christiansborg_from_the_Marble_Bridge.jpg"
 ---
 
 ## Background

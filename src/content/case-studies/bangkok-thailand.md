@@ -13,7 +13,10 @@ year: 2017
 impact: "Chulalongkorn Centenary Park (45,000 m²) can retain up to roughly 1 million gallons of stormwater, easing flood risk in a low-lying, subsiding city."
 statValue: "~1M gal"
 statLabel: "stormwater retained by one park"
-imageAlt: "Chulalongkorn Centenary Park with its sloped green roof and retention ponds"
+image: "/images/cities/bangkok.jpg"
+imageAlt: "Retention pond and lawns at Chulalongkorn University Centenary Park in Bangkok"
+imageCredit: "Photo: BunBn, CC BY-SA 4.0, via Wikimedia Commons"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Cu-centenary-park-2017.jpg"
 ---
 
 ## Background

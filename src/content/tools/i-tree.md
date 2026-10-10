@@ -5,7 +5,6 @@ category: green
 tags: [trees, carbon, ecosystem services, urban forest]
 license: Open-Source
 homepage: "https://www.itreetools.org"
-github: "https://github.com/USDA-Forest-Service"
 difficulty: intermediate
 lastUpdated: "2024"
 featured: true

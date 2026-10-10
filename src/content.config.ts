@@ -49,6 +49,7 @@ const caseStudies = defineCollection({
     image:      z.string().optional(),      // e.g. /images/cities/phoenix.jpg — falls back to a gradient hero when absent
     imageAlt:   z.string().optional(),
     imageCredit: z.string().optional(),
+    imageCreditUrl: z.string().url().optional(),
   }),
 });
 

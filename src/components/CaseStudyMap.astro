@@ -34,15 +34,15 @@ const markers = studies.map((s) => ({
       || document.documentElement.classList.contains('dark');
 
     const tileURL = prefersDark
-      ? 'https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png'
-      : 'https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png';
+      ? 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}'
+      : 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}';
 
     const map = L.map('case-study-map', { zoomControl: true, scrollWheelZoom: false })
       .setView([15, 15], 2);
 
     L.tileLayer(tileURL, {
-      attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
-      maxZoom: 19,
+      attribution: 'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, OpenStreetMap contributors',
+      maxZoom: 16,
     }).addTo(map);
 
     const svgIcon = (color) => L.divIcon({

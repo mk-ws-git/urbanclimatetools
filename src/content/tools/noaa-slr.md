@@ -5,7 +5,6 @@ category: coastal
 tags: [sea level rise, coastal vulnerability, flooding, visualization]
 license: Open-Source
 homepage: "https://coast.noaa.gov/slr/"
-github: "https://github.com/NOAA-ORR-ERD"
 difficulty: beginner
 lastUpdated: "2024"
 featured: true

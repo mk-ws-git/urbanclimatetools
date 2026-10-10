@@ -4,7 +4,7 @@ tagline: "Plan and cost city climate actions across six sectors"
 category: planning
 tags: [emissions, planning, cost-benefit, scenarios, policy]
 license: Proprietary-Free
-homepage: "https://www.worldbank.org/en/topic/urbandevelopment/brief/the-curb-tool-climate-action-for-urban-sustainability"
+homepage: "https://www.worldbank.org/curb"
 difficulty: intermediate
 lastUpdated: "2023"
 featured: false
@@ -29,4 +29,4 @@ City sustainability officers and planners building or costing a climate action p
 
 ## Getting started
 
-Read the overview and download the tool from the [World Bank CURB page](https://www.worldbank.org/en/topic/urbandevelopment/brief/the-curb-tool-climate-action-for-urban-sustainability).
+Read the overview and download the tool from the [World Bank CURB page](https://www.worldbank.org/curb).

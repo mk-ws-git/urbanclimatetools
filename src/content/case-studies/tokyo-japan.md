@@ -6,16 +6,18 @@ lat: 35.6762
 lng: 139.6503
 title: "Taming the Metropolitan Heat Island: Tokyo's 30-Year Cooling Programme"
 tagline: "Tokyo cut its urban heat island intensity by 1.1°C over 20 years through a mandated, data-driven approach to urban greening and cool surfaces"
-image: "/images/cities/tokyo.jpg"
 themes: [heat, green, data, planning]
-toolsUsed: ["urban-heat-island-effect-tool", "cool-roofs-calculator", "climate-central"]
+toolsUsed: ["eea-urban-heat-island", "roof-savings-calculator", "climate-central"]
 population: "13.9 million"
 year: 2000
 impact: "UHI intensity reduced by 1.1°C; 1,200 ha of green roofs mandated; summer peak electricity demand reduced by 1.2 GW"
 statValue: "1.1°C"
 statLabel: "reduction in urban heat"
 featured: false
+image: "/images/cities/tokyo.jpg"
 imageAlt: "Tokyo skyline view showing rooftop gardens on commercial buildings"
+imageCredit: "Photo: Morio, CC BY-SA 3.0, via Wikimedia Commons"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Skyscrapers_of_Shinjuku_2009_January.jpg"
 ---
 
 ## Background

@@ -6,7 +6,6 @@ lat: 6.5244
 lng: 3.3792
 title: "Adapting Africa's Largest City to Coastal Flooding and Sea Level Rise"
 tagline: "Lagos is investing in early warning systems, mangrove restoration, and elevated infrastructure to protect 15 million coastal residents"
-image: "/images/cities/lagos.jpg"
 themes: [coastal, flood, data]
 toolsUsed: ["noaa-slr", "floodmap-net", "climate-just"]
 population: "15 million"
@@ -15,7 +14,10 @@ impact: "50 km of mangrove restoration protecting 400,000 coastal residents; ear
 statValue: "400,000"
 statLabel: "coastal residents protected"
 featured: false
+image: "/images/cities/lagos.jpg"
 imageAlt: "Lagos waterfront with mangrove fringe and informal settlements behind"
+imageCredit: "Photo: Koutchika Lihouenou Gaspard, CC BY-SA 4.0, via Wikimedia Commons"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Tafa_Balewa_Square_(Onikan)_in_Lagos._Nigeria.jpg"
 ---
 
 ## Background
