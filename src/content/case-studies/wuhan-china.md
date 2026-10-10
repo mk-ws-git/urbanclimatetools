@@ -13,7 +13,10 @@ year: 2015
 impact: "One of China's first 16 national sponge-city pilots; 389 sponge projects were built in 2015–2017 targeting 70% annual rainwater retention across pilot districts."
 statValue: "70%"
 statLabel: "annual rainwater retention target"
-imageAlt: "Wuhan waterfront with green embankments along the Yangtze"
+image: "/images/cities/wuhan.jpg"
+imageAlt: "Mount Mo and the waters of East Lake in Wuhan"
+imageCredit: "Photo: Zheng Zhou, CC BY-SA 4.0, via Wikimedia Commons"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Mount_Mo_and_East_Lake,_Wuhan.jpg"
 ---
 
 ## Background

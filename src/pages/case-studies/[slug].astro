@@ -13,7 +13,7 @@ const { study } = Astro.props;
 const { Content } = await render(study);
 const {
   city, country, continent, title, tagline, themes, toolsUsed,
-  population, year, impact, statValue, statLabel, featured, image, imageAlt, ogImage,
+  population, year, impact, statValue, statLabel, featured, image, imageAlt, imageCredit, imageCreditUrl, ogImage,
 } = study.data;
 
 // Hero photo now comes from frontmatter (single source of truth). Studies without an
@@ -71,6 +71,11 @@ const resolvedOg = ogImage ?? `/og/case-studies-${study.id}.png`;
       <h1 class="text-3xl font-bold sm:text-4xl max-w-3xl">{title}</h1>
       <p class="mt-3 text-stone-300 text-lg max-w-2xl">{tagline}</p>
     </div>
+    {photo && imageCredit && (
+      <p class="absolute bottom-2 right-3 z-10 text-[10px] text-stone-400/90">
+        {imageCreditUrl ? <a href={imageCreditUrl} target="_blank" rel="noreferrer" class="hover:text-white underline-offset-2 hover:underline">{imageCredit}</a> : imageCredit}
+      </p>
+    )}
   </div>
 
   <!-- ============ FACT SHEET: Key facts panel ============ -->
@@ -235,11 +240,11 @@ const resolvedOg = ogImage ?? `/og/case-studies-${study.id}.png`;
     if (!L) return;
     const prefersDark = document.documentElement.classList.contains('dark');
     const tileURL = prefersDark
-      ? 'https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png'
-      : 'https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png';
+      ? 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}'
+      : 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}';
     const map = L.map('mini-map', { zoomControl: false, dragging: false, scrollWheelZoom: false })
       .setView([lat, lng], 9);
-    L.tileLayer(tileURL, { attribution: '', maxZoom: 19 }).addTo(map);
+    L.tileLayer(tileURL, { attribution: 'Tiles &copy; Esri', maxZoom: 16 }).addTo(map);
     L.circleMarker([lat, lng], { radius: 8, color: '#168A66', fillColor: '#1D9E75', fillOpacity: 0.9, weight: 2 })
       .addTo(map).bindPopup(city);
   });

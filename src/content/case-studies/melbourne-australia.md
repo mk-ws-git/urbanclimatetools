@@ -6,16 +6,18 @@ lat: -37.8136
 lng: 144.9631
 title: "Urban Forest Strategy: Melbourne's 40% Canopy Target"
 tagline: "Melbourne's Urban Forest Strategy became a global model for city greening — and sparked a worldwide conversation about tree equity"
-image: "/images/cities/melbourne.jpg"
 themes: [heat, green, data]
-toolsUsed: ["i-tree", "urban-heat-island-effect-tool", "forest-carbon-calculator"]
+toolsUsed: ["i-tree", "eea-urban-heat-island"]
 population: "5.1 million"
 year: 2012
 impact: "Canopy cover increased from 22% to 29% since 2012; 70,000 new trees; the 'tree email' moment sparked global debate"
 statValue: "29%"
 statLabel: "canopy cover, up from 22%"
 featured: false
+image: "/images/cities/melbourne.jpg"
 imageAlt: "Melbourne street lined with elm trees in autumn providing dense canopy"
+imageCredit: "Photo: Celco85, CC BY-SA 4.0, via Wikimedia Commons"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Skylinemelbourne2026.jpg"
 ---
 
 ## Background

@@ -7,13 +7,16 @@ lng: -13.2317
 title: "#FreetownTheTreetown: Financing Urban Reforestation with Digital Tree Tracking"
 tagline: "A pay-to-grow model that plants, tracks, and pays for a million trees"
 themes: [green, heat, flood]
-toolsUsed: ["i-tree", "global-forest-watch", "citygreen"]
+toolsUsed: ["i-tree", "global-forest-watch"]
 population: "1.2 million"
 year: 2020
 impact: "On track to plant one million trees by 2024 with an 80%+ survival rate, financed through a tokenised 'pay-to-grow' tracking platform; a 2023 Earthshot Prize finalist."
 statValue: "1M"
 statLabel: "trees being planted by 2024"
-imageAlt: "Green hillsides above Freetown with young trees and rooftops below"
+image: "/images/cities/freetown.jpg"
+imageAlt: "Aerial view of Freetown, Sierra Leone, between green hills and the estuary"
+imageCredit: "Photo: David Hond, CC BY 2.0, via Wikimedia Commons"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Freetown-aerialview.jpg"
 ---
 
 ## Background

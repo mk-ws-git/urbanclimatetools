@@ -4,7 +4,7 @@ tagline: "Screen any location worldwide for natural hazard risk in seconds"
 category: data
 tags: [hazard, risk, disaster, screening, planning]
 license: Open-Source
-homepage: "https://www.thinkhazard.org"
+homepage: "https://thinkhazard.org"
 github: "https://github.com/GFDRR/thinkhazard"
 difficulty: beginner
 lastUpdated: "2024"

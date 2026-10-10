@@ -6,16 +6,18 @@ lat: 4.711
 lng: -74.0721
 title: "Climate Action as Social Equity: Bogotá's Integrated Approach"
 tagline: "How Bogotá embedded climate resilience into a city-wide equity agenda, reaching 1.2 million low-income residents"
-image: "/images/cities/bogota.jpg"
 themes: [heat, green, planning]
-toolsUsed: ["urban-heat-island-effect-tool", "i-tree", "climate-resilience-toolkit"]
+toolsUsed: ["eea-urban-heat-island", "i-tree", "climate-resilience-toolkit"]
 population: "7.8 million"
 year: 2021
 impact: "120,000 trees planted in lowest-income localities; 18% reduction in heat-related hospital admissions in target zones"
 statValue: "18%"
 statLabel: "fewer heat hospital admissions"
 featured: true
+image: "/images/cities/bogota.jpg"
 imageAlt: "Aerial view of Bogotá's TransMilenio corridor lined with street trees"
+imageCredit: "Photo: Pedro Szekely from Los Angeles, USA, CC BY-SA 2.0, via Wikimedia Commons"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Bogota,_Colombia_(36668708290).jpg"
 ---
 
 ## Background

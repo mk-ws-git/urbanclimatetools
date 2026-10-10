@@ -6,16 +6,18 @@ lat: 6.2476
 lng: -75.5658
 title: "Green Urban Acupuncture: Medellín's Corridor Cooling Strategy"
 tagline: "30 interconnected green corridors reduced Medellín's hottest streets by 3°C in under three years"
-image: "/images/cities/medellin.jpg"
 themes: [heat, green]
-toolsUsed: ["urban-heat-island-effect-tool", "cool-roofs-calculator", "i-tree"]
+toolsUsed: ["eea-urban-heat-island", "roof-savings-calculator", "i-tree"]
 population: "2.6 million"
 year: 2016
 impact: "3°C average temperature reduction on corridor streets; 36,000 new trees; 2.4 million annual corridor users"
 statValue: "3°C"
 statLabel: "cooler on corridor streets"
 featured: false
+image: "/images/cities/medellin.jpg"
 imageAlt: "La 80 green corridor in Medellín with raised planters, trees and cycling lanes"
+imageCredit: "Photo: Daniel-1-1, CC BY 3.0, via Wikimedia Commons"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:El_Poblado_Medell%C3%ADn.jpg"
 ---
 
 ## Background

@@ -6,16 +6,18 @@ lat: 33.4484
 lng: -112.0740
 title: "Heat as a Public Health Emergency: Phoenix's Extreme Heat Action Plan"
 tagline: "The world's hottest large city built the most comprehensive heat emergency system in North America"
-image: "/images/cities/phoenix.jpg"
 themes: [heat, data, planning]
-toolsUsed: ["urban-heat-island-effect-tool", "cool-roofs-calculator", "climate-central"]
+toolsUsed: ["eea-urban-heat-island", "roof-savings-calculator", "climate-central"]
 population: "1.6 million"
 year: 2021
 impact: "Cooling centre network served 47,000 people in 2023 heatwave; heat-related mortality reduced 22% in enrolled zip codes"
 statValue: "22%"
 statLabel: "lower heat-related mortality"
 featured: false
+image: "/images/cities/phoenix.jpg"
 imageAlt: "Downtown Phoenix street showing heat shimmer on asphalt during summer"
+imageCredit: "Photo: DPPed, CC BY-SA 3.0, via Wikimedia Commons"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Downtown_Phoenix_Aerial_Looking_Northeast.jpg"
 ---
 
 ## Background

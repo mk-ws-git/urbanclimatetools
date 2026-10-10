@@ -4,7 +4,7 @@ tagline: "Open-source ML to nowcast solar PV output and cut grid carbon"
 category: data
 tags: [machine learning, solar, energy, open source]
 license: Open-Source
-homepage: "https://openclimatefix.org"
+homepage: "https://www.openclimatefix.org"
 github: "https://github.com/openclimatefix"
 difficulty: advanced
 lastUpdated: "2024"

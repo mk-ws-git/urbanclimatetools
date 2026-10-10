@@ -13,7 +13,10 @@ year: 2019
 impact: "150+ cooling measures — 22 cool zones, ~100 mist stations, and up to ~4,500 trees planted per year; street trees cut daytime air temperatures by up to 1.2 °C (over 2 °C in shade)."
 statValue: "1.2°C"
 statLabel: "daytime cooling from street trees"
-imageAlt: "A greened Vienna street with mature trees, seating, and a drinking fountain"
+image: "/images/cities/vienna.jpg"
+imageAlt: "Ivy-covered facade and green roof of a courtyard building in Vienna"
+imageCredit: "Photo: WWWeb.pix, CC BY-SA 4.0, via Wikimedia Commons"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Fassadenbegr%C3%BCnung_im_WUK_2025-09.jpg"
 ---
 
 ## Background

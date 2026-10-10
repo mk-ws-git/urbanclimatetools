@@ -7,13 +7,16 @@ lng: -79.3832
 title: "Mandating Green Roofs: Toronto's Pioneering Bylaw and Its Reversal"
 tagline: "North America's first green-roof mandate — and a cautionary tale about policy durability"
 themes: [green, planning, flood]
-toolsUsed: ["green-infrastructure-coalition", "i-tree", "invest"]
+toolsUsed: ["georgetown-gi-toolkit", "i-tree", "invest"]
 population: "2.9 million"
 year: 2009
 impact: "The first North American green-roof mandate (2009) drove 1,200+ green roofs and roughly 111,400 m² of new green roof area; the provincial government repealed the bylaw in 2025."
 statValue: "1,200+"
 statLabel: "green roofs built under the mandate"
-imageAlt: "Toronto skyline with vegetated green roofs on mid-rise buildings"
+image: "/images/cities/toronto.jpg"
+imageAlt: "Planted green roof on the podium of Toronto City Hall"
+imageCredit: "Photo: GreenRoofGardener, CC BY-SA 3.0, via Wikimedia Commons"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Toronto_City_Hall_Podium_green_roof_by_LiveRoof,_July_2010.jpg"
 ---
 
 ## Background

@@ -6,16 +6,18 @@ lat: 23.8103
 lng: 90.4125
 title: "Flood Resilience in a Megacity: Dhaka's Nature-Based Adaptation"
 tagline: "Dhaka is restoring urban wetlands and canals to buffer 21 million people against intensifying monsoon floods"
-image: "/images/cities/dhaka.jpg"
 themes: [flood, green, planning]
-toolsUsed: ["stormwater-calculator", "floodmap-net", "green-infrastructure-coalition"]
+toolsUsed: ["stormwater-calculator", "floodmap-net"]
 population: "21 million"
 year: 2019
 impact: "48 km of canals restored; 3,200 hectares of urban wetlands protected; flood peak reduced by 28% in pilot catchments"
 statValue: "28%"
 statLabel: "lower flood peak in pilot catchments"
 featured: false
+image: "/images/cities/dhaka.jpg"
 imageAlt: "Restored canal in Dhaka with vegetation and informal housing along banks"
+imageCredit: "Photo: Sifat777, CC BY-SA 4.0, via Wikimedia Commons"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Drone_view_from_Kamal_Atat%C3%BCrk_Avenue.jpg"
 ---
 
 ## Background

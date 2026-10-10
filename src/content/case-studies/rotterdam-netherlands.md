@@ -6,7 +6,6 @@ lat: 51.9244
 lng: 4.4777
 title: "The Water City: Rotterdam's Adaptive Architecture for a Flooded Future"
 tagline: "Rotterdam turned its below-sea-level geography from a liability into a global design and innovation advantage"
-image: "/images/cities/rotterdam.jpg"
 themes: [flood, coastal, green, planning]
 toolsUsed: ["floodmap-net", "noaa-slr", "stormwater-calculator"]
 population: "651,000"
@@ -15,7 +14,10 @@ impact: "100% of new development meets 100mm/hr rainfall standard; Benthemplein 
 statValue: "1.7M L"
 statLabel: "stored by one water square"
 featured: false
+image: "/images/cities/rotterdam.jpg"
 imageAlt: "Benthemplein water square in Rotterdam with water storage pools visible"
+imageCredit: "Photo: Rob Oo, CC BY 2.0, via Wikimedia Commons"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:A_view_of_Rotterdam,_taken_from_the_roof_of_the_Maassilo,_Rotterdam,_The_Netherlands.jpg"
 ---
 
 ## Background

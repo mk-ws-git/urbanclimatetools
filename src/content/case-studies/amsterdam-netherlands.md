@@ -6,16 +6,18 @@ lat: 52.3676
 lng: 4.9041
 title: "Climate-Adaptive Urban Design: Amsterdam's Neighbourhood Resilience Agenda"
 tagline: "Amsterdam embedded climate adaptation into neighbourhood renewal, creating resilient public spaces that serve residents year-round"
-image: "/images/cities/amsterdam.jpg"
 themes: [flood, green, planning]
-toolsUsed: ["stormwater-calculator", "green-infrastructure-coalition", "climate-resilience-toolkit"]
+toolsUsed: ["stormwater-calculator", "climate-resilience-toolkit"]
 population: "921,000"
 year: 2020
 impact: "120 climate-adaptive interventions completed; 40,000 m² of green roofs; water storage increased by 2.2 million litres in pilot districts"
 statValue: "40,000 m²"
 statLabel: "of new green roofs"
 featured: false
+image: "/images/cities/amsterdam.jpg"
 imageAlt: "Amsterdam climate-adaptive park with water storage basin visible under plaza"
+imageCredit: "Photo: Andrés Barrios, CC BY-SA 4.0, via Wikimedia Commons"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Imagen_de_los_canales_conc%C3%A9ntricos_en_%C3%81msterdam.png"
 ---
 
 ## Background
