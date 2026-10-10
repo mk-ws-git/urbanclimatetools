@@ -2,7 +2,7 @@
 
 ![Urban Climate Tools](public/og-default.png)
 
-**Live site:** https://urbanclimatetools.org
+**Live site:** https://urbanclimatetools.pages.dev
 
 A searchable catalog of free and open-source **urban climate-adaptation tools** and real-world **city case studies**, built for planners, researchers, and practitioners.
 

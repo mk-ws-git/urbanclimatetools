@@ -6,7 +6,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://urbanclimatetools.org',
+  site: 'https://urbanclimatetools.pages.dev',
   vite: {
     plugins: [tailwindcss()],
   },
