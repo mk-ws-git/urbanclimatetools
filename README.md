@@ -1,5 +1,9 @@
 # Urban Climate Tools
 
+![Urban Climate Tools](public/og-default.png)
+
+**Live site:** https://urbanclimatetools.org
+
 A searchable catalog of free and open-source **urban climate-adaptation tools** and real-world **city case studies**, built for planners, researchers, and practitioners.
 
 Built with [Astro](https://astro.build) content collections — every tool and case study is a single Markdown file, and all listing pages, counts, and maps derive from those files (single source of truth).

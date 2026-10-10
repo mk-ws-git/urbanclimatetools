@@ -1,51 +1,54 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { getCatalogStats } from '../lib/catalog';
 
 const allTools   = await getCollection('tools');
 const allStudies = await getCollection('case-studies');
+const stats      = await getCatalogStats();
+const categoryCount = Object.keys(stats.categoryCounts).length;
 
 const techStack = [
-  { name: 'Astro 5',          role: 'Static site framework — zero JS by default, islands architecture' },
+  { name: 'Astro 6',          role: 'Static site framework — zero JS by default, islands for interactive parts' },
   { name: 'Tailwind CSS v4',  role: 'Utility-first CSS with CSS-native theming and dark mode' },
-  { name: 'MDX + Content Collections', role: 'Type-safe content authoring with Zod schema validation' },
+  { name: 'Content Collections + Zod', role: 'Every tool and case study is a typed Markdown file validated at build time' },
   { name: 'Leaflet',          role: 'Interactive maps for global case study visualisation' },
-  { name: 'FastAPI + PostGIS',role: 'Geospatial API for climate zone queries (backend, separate repo)' },
-  { name: 'Claude API',       role: 'Automated content pipeline — weekly draft generation via GitHub Actions' },
+  { name: 'Pagefind',         role: 'Static full-text search indexed at build time, no server needed' },
+  { name: 'Build-time OG images', role: 'Script generates a share card for every page so links unfurl well' },
 ];
 
 const metrics = [
   { value: `${allTools.length}`,    label: 'Tools catalogued' },
   { value: `${allStudies.length}`,  label: 'Case studies written' },
-  { value: '6',                     label: 'Tool categories' },
-  { value: '6',                     label: 'Continents covered' },
-  { value: '100 Lighthouse',        label: 'Performance score (target)' },
+  { value: `${categoryCount}`,      label: 'Tool categories' },
+  { value: `${stats.continentCount}`, label: 'Continents covered' },
+  { value: `${stats.countryCount}`,  label: 'Countries covered' },
   { value: 'MIT',                   label: 'Open-source licence' },
 ];
 
 const highlights = [
   {
-    title: 'Full-stack climate data platform',
-    body: 'Designed and built end-to-end: content architecture, API design (FastAPI + PostGIS), frontend (Astro + Tailwind), and an automated Claude-powered content pipeline — all open source.',
+    title: 'Content-driven static platform',
+    body: 'Designed and built end-to-end: content model and schema, derived counts and filters from a single source of truth, frontend (Astro + Tailwind), search, and build-time OG images — all open source.',
   },
   {
     title: 'Equity-informed content strategy',
     body: 'Case studies deliberately span 6 continents and foreground equity considerations — Bogotá, Dhaka, Lagos, Medellín — not just the usual European city examples.',
   },
   {
-    title: 'Automated cron pipeline',
-    body: 'A weekly GitHub Action calls the Claude API to draft new tool or case study entries, opens a PR for human review, and merges on approval — keeping the site fresh without manual effort.',
+    title: 'Shareable fact sheets',
+    body: 'Every tool and case study is laid out as a self-contained fact sheet with key figures, sources and an at-a-glance layout, built to be screenshotted and shared.',
   },
   {
     title: 'Performance-first architecture',
-    body: 'Static Astro output: no client-side framework, zero hydration overhead except for the interactive islands (Tool Finder quiz, Leaflet map). Designed to score 100 on Lighthouse.',
+    body: 'Static Astro output with no client-side framework; JavaScript only for the interactive islands (Tool Finder, Leaflet map, filters). Hosted on a global CDN.',
   },
 ];
 ---
 
 <BaseLayout
   title="Portfolio — Urban Climate Tools"
-  description="Portfolio overview of the Urban Climate Tools project: an open-source platform for climate-resilient city planning built with Astro, Tailwind CSS, FastAPI, and the Claude API."
+  description="Portfolio overview of the Urban Climate Tools project: an open-source platform for climate-resilient city planning built with Astro, Tailwind CSS, Pagefind and Leaflet."
 >
 
   <!-- Hero -->
@@ -56,10 +59,10 @@ const highlights = [
         Urban Climate Tools
       </h1>
       <p class="mt-4 text-stone-300 text-lg max-w-2xl leading-relaxed">
-        An open-source repository and discovery platform for urban climate practitioners — cataloguing tools, case studies, and data across six climate challenge areas. Built from scratch with Astro, Tailwind CSS v4, and an automated Claude-powered content pipeline.
+        An open-source repository and discovery platform for urban climate practitioners — cataloguing tools, case studies, and data across six climate challenge areas. Built from scratch with Astro, Tailwind CSS v4, Pagefind and Leaflet.
       </p>
       <div class="mt-8 flex flex-wrap gap-3">
-        <a href="https://github.com/mk-ws-git/Urban-Climate-Tools" target="_blank" rel="noreferrer" class="btn-primary px-6 py-3">
+        <a href="https://github.com/mk-ws-git/urbanclimatetools" target="_blank" rel="noreferrer" class="btn-primary px-6 py-3">
           GitHub repository
         </a>
         <a href="/" class="btn-secondary bg-white/10 border-white/20 text-white hover:bg-white/20 dark:bg-white/10 dark:border-white/20 dark:text-white px-6 py-3">
@@ -121,52 +124,31 @@ const highlights = [
       <p class="section-label mb-2">Architecture</p>
       <h2 class="text-2xl font-bold text-stone-900 dark:text-stone-100 mb-8">System overview</h2>
       <div class="card p-8">
-        <svg viewBox="0 0 720 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-2xl mx-auto" aria-label="Architecture diagram showing content pipeline, Astro build, and FastAPI backend">
-          <!-- Content layer -->
-          <rect x="10" y="20" width="160" height="90" rx="8" class="fill-forest-50 stroke-forest-300 dark:fill-forest-950 dark:stroke-forest-700" stroke-width="1.5"/>
-          <text x="90" y="50" text-anchor="middle" class="fill-forest-700 dark:fill-forest-300" font-size="11" font-weight="600" font-family="system-ui">Content Layer</text>
-          <text x="90" y="68" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">MDX files</text>
-          <text x="90" y="83" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">19 tools · 13 case studies</text>
-          <text x="90" y="98" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Zod schema validation</text>
+        <svg viewBox="0 0 720 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-2xl mx-auto" aria-label="Architecture diagram showing content layer, Astro build, and hosting">
+          <rect x="10" y="30" width="180" height="150" rx="8" class="fill-forest-50 stroke-forest-300 dark:fill-forest-950 dark:stroke-forest-700" stroke-width="1.5"/>
+          <text x="100" y="62" text-anchor="middle" class="fill-forest-700 dark:fill-forest-300" font-size="11" font-weight="600" font-family="system-ui">Content Layer</text>
+          <text x="100" y="86" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Markdown files</text>
+          <text x="100" y="106" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">{allTools.length} tools · {allStudies.length} case studies</text>
+          <text x="100" y="126" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Zod schema validation</text>
+          <text x="100" y="146" text-anchor="middle" class="fill-stone-400" font-size="9" font-family="system-ui">Derived counts &amp; filters</text>
 
-          <!-- Claude API -->
-          <rect x="10" y="140" width="160" height="70" rx="8" class="fill-violet-50 stroke-violet-300 dark:fill-violet-950 dark:stroke-violet-700" stroke-width="1.5"/>
-          <text x="90" y="165" text-anchor="middle" class="fill-violet-700 dark:fill-violet-300" font-size="11" font-weight="600" font-family="system-ui">Claude API</text>
-          <text x="90" y="183" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Weekly GH Action</text>
-          <text x="90" y="198" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Draft PR generation</text>
+          <path d="M190 105 L260 105" class="stroke-stone-400" stroke-width="1.5" marker-end="url(#arr)"/>
 
-          <!-- Arrow: content → astro -->
-          <path d="M170 65 L270 65" class="stroke-stone-400" stroke-width="1.5" marker-end="url(#arr)"/>
-          <!-- Arrow: claude → content -->
-          <path d="M90 140 L90 110" class="stroke-stone-400" stroke-width="1.5" marker-end="url(#arr)"/>
-
-          <!-- Astro build -->
-          <rect x="270" y="20" width="180" height="200" rx="8" class="fill-stone-50 stroke-stone-300 dark:fill-stone-900 dark:stroke-stone-600" stroke-width="1.5"/>
+          <rect x="260" y="20" width="200" height="170" rx="8" class="fill-stone-50 stroke-stone-300 dark:fill-stone-900 dark:stroke-stone-600" stroke-width="1.5"/>
           <text x="360" y="48" text-anchor="middle" class="fill-stone-700 dark:fill-stone-300" font-size="11" font-weight="600" font-family="system-ui">Astro Build</text>
-          <text x="360" y="70" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Static HTML + CSS</text>
-          <text x="360" y="90" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Tool Finder (island)</text>
-          <text x="360" y="110" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Leaflet map (island)</text>
-          <text x="360" y="130" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Dark mode toggle</text>
-          <text x="360" y="150" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Filters (vanilla JS)</text>
-          <text x="360" y="175" text-anchor="middle" class="fill-stone-400" font-size="9" font-family="system-ui">Tailwind CSS v4</text>
-          <text x="360" y="193" text-anchor="middle" class="fill-stone-400" font-size="9" font-family="system-ui">MDX + Sitemap</text>
+          <text x="360" y="72" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Static HTML + CSS</text>
+          <text x="360" y="92" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Tool Finder &amp; Leaflet map (islands)</text>
+          <text x="360" y="112" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Pagefind search index</text>
+          <text x="360" y="132" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Per-page OG images</text>
+          <text x="360" y="158" text-anchor="middle" class="fill-stone-400" font-size="9" font-family="system-ui">Tailwind CSS v4 · MDX · Sitemap</text>
 
-          <!-- Arrow: astro → hosting -->
-          <path d="M450 120 L540 120" class="stroke-stone-400" stroke-width="1.5" marker-end="url(#arr)"/>
+          <path d="M460 105 L530 105" class="stroke-stone-400" stroke-width="1.5" marker-end="url(#arr)"/>
 
-          <!-- Hosting -->
-          <rect x="540" y="60" width="160" height="120" rx="8" class="fill-blue-50 stroke-blue-300 dark:fill-blue-950 dark:stroke-blue-700" stroke-width="1.5"/>
-          <text x="620" y="90" text-anchor="middle" class="fill-blue-700 dark:fill-blue-300" font-size="11" font-weight="600" font-family="system-ui">Hosting</text>
-          <text x="620" y="110" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Bluehost / static</text>
-          <text x="620" y="128" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">or Netlify / CF Pages</text>
-          <text x="620" y="148" text-anchor="middle" class="fill-stone-400" font-size="9" font-family="system-ui">CDN · HTTPS · Sitemap</text>
-          <text x="620" y="165" text-anchor="middle" class="fill-stone-400" font-size="9" font-family="system-ui">OG meta · robots.txt</text>
-
-          <!-- FastAPI -->
-          <rect x="540" y="220" width="160" height="70" rx="8" class="fill-amber-50 stroke-amber-300 dark:fill-amber-950 dark:stroke-amber-700" stroke-width="1.5"/>
-          <text x="620" y="245" text-anchor="middle" class="fill-amber-700 dark:fill-amber-300" font-size="11" font-weight="600" font-family="system-ui">FastAPI + PostGIS</text>
-          <text x="620" y="263" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Climate zone queries</text>
-          <text x="620" y="278" text-anchor="middle" class="fill-stone-400" font-size="9" font-family="system-ui">Future integration</text>
+          <rect x="530" y="45" width="170" height="120" rx="8" class="fill-blue-50 stroke-blue-300 dark:fill-blue-950 dark:stroke-blue-700" stroke-width="1.5"/>
+          <text x="615" y="75" text-anchor="middle" class="fill-blue-700 dark:fill-blue-300" font-size="11" font-weight="600" font-family="system-ui">Hosting</text>
+          <text x="615" y="99" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Cloudflare Pages</text>
+          <text x="615" y="119" text-anchor="middle" class="fill-stone-500" font-size="10" font-family="system-ui">Deploys from GitHub</text>
+          <text x="615" y="143" text-anchor="middle" class="fill-stone-400" font-size="9" font-family="system-ui">CDN · HTTPS</text>
 
           <defs>
             <marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
@@ -208,7 +190,7 @@ const highlights = [
         </div>
         <div class="flex flex-wrap gap-3 shrink-0">
           <a href="mailto:maryksprague@gmail.com" class="btn-primary px-5 py-2.5">Get in touch</a>
-          <a href="https://github.com/mk-ws-git/Urban-Climate-Tools" target="_blank" rel="noreferrer" class="btn-secondary bg-white/10 border-white/20 text-white hover:bg-white/20 dark:bg-white/10 dark:border-white/20 dark:text-white px-5 py-2.5">GitHub</a>
+          <a href="https://github.com/mk-ws-git/urbanclimatetools" target="_blank" rel="noreferrer" class="btn-secondary bg-white/10 border-white/20 text-white hover:bg-white/20 dark:bg-white/10 dark:border-white/20 dark:text-white px-5 py-2.5">GitHub</a>
         </div>
       </div>
     </section>
