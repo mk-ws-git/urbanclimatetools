@@ -22,3 +22,6 @@ npm-debug.log*
 
 # Large source media (preserve locally / via Git LFS, keep out of plain git)
 # assets/video/
+
+# Promo/source videos (not part of the site)
+/*.mp4
