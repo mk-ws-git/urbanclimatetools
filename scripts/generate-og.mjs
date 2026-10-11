@@ -88,4 +88,37 @@ const nCases = await gen(
   })
 );
 
-console.log(`Generated OG images: ${nTools} tools + ${nCases} case studies -> public/og/`);
+// Generic fallback card (pages without their own image).
+await sharp(Buffer.from(svg({ kicker: 'Open source · Community driven', title: 'Urban Climate Tools', sub: 'Open-source solutions for climate-resilient cities.' })))
+  .png().toFile(path.join(ROOT, 'public', 'og-default.png'));
+
+// Homepage share card: the hero poster (green-tinted, like the live hero) + headline + live counts.
+const heroPoster = path.join(ROOT, 'public', 'hero-poster.jpg');
+const nCountries = new Set(
+  fs.readdirSync(path.join(ROOT, 'src/content/case-studies'))
+    .filter((f) => f.endsWith('.md'))
+    .map((f) => frontmatter(path.join(ROOT, 'src/content/case-studies', f)).country)
+).size;
+const homeOverlay = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="v" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#06201a" stop-opacity="0.92"/>
+      <stop offset="0.62" stop-color="#06201a" stop-opacity="0.62"/>
+      <stop offset="1" stop-color="#06201a" stop-opacity="0.25"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#v)"/>
+  <rect x="0" y="0" width="10" height="630" fill="#1D9E75"/>
+  <text x="80" y="118" font-family="Helvetica,Arial,sans-serif" font-size="24" font-weight="700" letter-spacing="3" fill="#7fbfa6">OPEN SOURCE · COMMUNITY DRIVEN</text>
+  <text font-family="Helvetica,Arial,sans-serif" font-size="68" font-weight="700" fill="#ffffff">
+    <tspan x="80" y="225">Open-source solutions for</tspan><tspan x="80" y="305" fill="#5fd0a4">climate-resilient cities</tspan></text>
+  <text font-family="Helvetica,Arial,sans-serif" font-size="30" fill="#d7efe4">
+    <tspan x="80" y="385">Tools, data and city case studies for</tspan><tspan x="80" y="425">urban climate practitioners and planners.</tspan></text>
+  <text x="80" y="520" font-family="Helvetica,Arial,sans-serif" font-size="30" font-weight="700" fill="#8ee3c4">${nTools} tools  ·  ${nCases} case studies  ·  ${nCountries} countries</text>
+  <text x="80" y="590" font-family="Helvetica,Arial,sans-serif" font-size="24" font-weight="700" fill="#a7d7c5">Urban Climate Tools</text>
+</svg>`;
+const homeBase = await sharp(heroPoster).resize(1200, 630, { fit: 'cover', position: 'centre' })
+  .modulate({ brightness: 0.95 }).tint({ r: 70, g: 150, b: 120 }).toBuffer();
+await sharp(homeBase).composite([{ input: Buffer.from(homeOverlay) }]).jpeg({ quality: 86, mozjpeg: true }).toFile(path.join(OUT, 'home.jpg'));
+
+console.log(`Generated OG images: ${nTools} tools + ${nCases} case studies + home -> public/og/`);
