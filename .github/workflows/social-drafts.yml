@@ -1,0 +1,38 @@
+name: Social drafts
+
+# When new tools or case studies reach main, opens an issue with ready-to-paste
+# LinkedIn, Bluesky, newsletter and outreach drafts. Nothing is posted automatically.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/content/tools/*.md"
+      - "src/content/case-studies/*.md"
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  drafts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      - name: Create an issue per new entry
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          files=$(git diff --diff-filter=A --name-only "$BEFORE" "$GITHUB_SHA" -- src/content/tools src/content/case-studies || true)
+          for f in $files; do
+            node scripts/social-drafts.mjs "$f" > drafts.md
+            title=$(head -1 drafts.md | sed 's/^# //')
+            gh issue create --title "$title" --body-file drafts.md --label social-drafts
+          done

@@ -1,0 +1,35 @@
+name: Weekly content reminder
+
+# Every Monday, opens an issue for the entry due in the next 8 days, with the review checklist.
+on:
+  schedule:
+    - cron: "0 7 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      - name: Build the reminder
+        run: node scripts/next-entry.mjs --within 8 --markdown > reminder.md
+
+      - name: Open the issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -s reminder.md ]; then
+            title=$(head -1 reminder.md | sed 's/^## //')
+            gh issue create --title "$title" --body-file reminder.md --label due-this-week
+          else
+            echo "Nothing due in the next 8 days."
+          fi
