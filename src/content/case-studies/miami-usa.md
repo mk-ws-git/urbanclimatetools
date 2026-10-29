@@ -5,35 +5,41 @@ continent: "North America"
 lat: 25.7617
 lng: -80.1918
 title: "Living with Water: Miami's Sea Level Rise Adaptation Strategy"
-tagline: "Miami committed $4 billion to raise streets, improve drainage, and protect communities from inevitable sea level rise"
+tagline: "Miami is funding flood and sea-level-rise projects through a $400 million bond and a decades-long stormwater plan"
 themes: [coastal, flood, planning]
 toolsUsed: ["noaa-slr", "floodmap-net", "stormwater-calculator"]
 population: "470,000"
 year: 2017
-impact: "$4B committed; 100 pump stations installed; Brickell neighbourhood street elevation by 1.5 feet completed"
-statValue: "$4B"
-statLabel: "committed to resilience"
+impact: "Voters approved the $400 million Miami Forever Bond in 2017, with about $192 million for sea-level rise and flood prevention; the city's stormwater master plan calls for roughly $3.8 billion in drainage spending over four decades."
+statValue: "$192M"
+statLabel: "of the $400M Miami Forever Bond for flood and sea-level rise"
 featured: false
 image: "/images/cities/miami.jpg"
-imageAlt: "Miami Beach elevated street construction with pump station visible"
+imageAlt: "Brickell skyline in Miami, Florida"
 imageCredit: "Photo: Phillip Pessar, CC BY 2.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Brickell_Miami_Florida_Skyline_31_August_2023.jpg"
 ---
 
 ## Background
 
-Miami-Dade County faces some of the highest sea level rise exposure of any major US city. Unlike most coastal cities, Miami sits on porous limestone bedrock — conventional seawalls cannot stop saltwater infiltration. The city's 2017 Sea Level Rise Strategy accepted that some flooding is inevitable and planned accordingly.
+Miami sits on porous limestone, so seawalls alone cannot stop seawater reaching the surface through the ground. Flooding already occurs on sunny days at high tides, and the city and Miami Beach have each pursued separate adaptation programmes.
 
-## The Strategy
+## The strategy
 
-Miami Beach's $400 million pump and raise programme elevated more than 10 km of streets in the lowest-lying Brickell and South Beach neighbourhoods, installed 60 stormwater pump stations, and replaced corroded underground pipes. The project used the Sea Level Rise Projector to size infrastructure for 2070 conditions under median IPCC projections.
+- **Miami Forever Bond (City of Miami, 2017):** a $400 million general obligation bond, of which about $192 million is for sea-level rise and flood prevention
+- **Early projects:** the first flood tranche favours low-cost measures such as tidal backflow valves and added capacity at existing pump stations
+- **Stormwater master plan:** calls for around $3.8 billion in drainage spending over about four decades, with the bond as one funding source
+- **Miami Beach (separate programme):** a roughly $400 to $500 million effort to raise roads and install pumps, with reports of as many as 80 pump stations
 
 ## Challenges
 
-Gentrification risk: property values in elevated streets rose sharply, displacing long-term lower-income residents. The city established a $25 million resilience housing fund in response.
+Raised roads can be contested by property owners and can move water onto neighbouring lots. Funding needs far exceed the bond, and the biggest drainage basins are handled through the longer-term master plan.
 
-## Results
+## Lessons
 
-- Street flooding frequency on elevated streets reduced by 85%
-- 100 pump stations operational by 2024
-- Programme recognised as a model by US Army Corps of Engineers
+Cities facing chronic flooding can start with fast, low-cost fixes while financing a long-term programme, and need to plan for the equity and drainage side effects of raising streets.
+
+## Sources
+
+- [City of Miami: Miami Forever Bond](https://www.miami.gov/My-Government/Departments/Office-of-Capital-Improvements/Miami-Forever-Bond)
+- [NPR: As waters rise, Miami Beach builds higher streets](https://www.npr.org/2016/05/10/476071206/as-waters-rise-miami-beach-builds-higher-streets-and-political-willpower)

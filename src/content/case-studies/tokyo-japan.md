@@ -4,39 +4,41 @@ country: "Japan"
 continent: "Asia"
 lat: 35.6762
 lng: 139.6503
-title: "Taming the Metropolitan Heat Island: Tokyo's 30-Year Cooling Programme"
-tagline: "Tokyo cut its urban heat island intensity by 1.1°C over 20 years through a mandated, data-driven approach to urban greening and cool surfaces"
+title: "Greening the Rooftops: Tokyo's Green Roof Mandate"
+tagline: "Tokyo's 2001 ordinance made rooftop greening mandatory for large new buildings to ease the urban heat island"
 themes: [heat, green, data, planning]
 toolsUsed: ["eea-urban-heat-island", "roof-savings-calculator", "climate-central"]
 population: "13.9 million"
 year: 2000
-impact: "UHI intensity reduced by 1.1°C; 1,200 ha of green roofs mandated; summer peak electricity demand reduced by 1.2 GW"
-statValue: "1.1°C"
-statLabel: "reduction in urban heat"
+impact: "Since the 2001 ordinance made rooftop greening mandatory for large new buildings, more than 5,700 buildings have added roughly 180 hectares of green roofs (C40)."
+statValue: "180 ha"
+statLabel: "of green roofs on 5,700+ buildings"
 featured: false
 image: "/images/cities/tokyo.jpg"
-imageAlt: "Tokyo skyline view showing rooftop gardens on commercial buildings"
+imageAlt: "Skyscrapers of Shinjuku, Tokyo"
 imageCredit: "Photo: Morio, CC BY-SA 3.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Skyscrapers_of_Shinjuku_2009_January.jpg"
 ---
 
 ## Background
 
-Tokyo experienced a 3°C increase in urban temperatures over the 20th century — one of the most documented urban heat island intensifications in the world. Starting in 2000, the Tokyo Metropolitan Government implemented the world's most comprehensive urban heat island countermeasure programme.
+Tokyo is one of the world's best-documented urban heat islands. In 2001 the Tokyo Metropolitan Government revised its nature conservation ordinance to require rooftop greening on large new buildings.
 
-## Policy Instruments
+## The policy
 
-- **Mandatory green roof ordinance**: All new buildings >1,000 m² must cover 20% of rooftop area with vegetation (2001)
-- **Cool pavement programme**: 870 km of water-retaining and high-albedo pavement on major roads
-- **Watering the streets**: Traditional *uchimizu* (sprinkled water) formalised with 200 automatic street-wetting systems
-- **Street trees**: 100,000 additional street trees since 2000
+- **Requirement:** new private buildings above 1,000 m² of floor area must green 20% of usable roof space; for public facilities the threshold is 250 m²
+- **Tightened later:** requirements were strengthened in 2009
+- **Reported results:** C40 reports that more than 5,700 buildings have added roughly 180 hectares of green roofs; a 2004 study found lightweight green roofs on existing buildings could lower ceiling temperatures by 1 to 3°C
 
-## Monitoring
+## Early limits
 
-Tokyo's 825-station urban weather network — the world's densest city-scale climate observation system — tracks temperature trends at 500m resolution, providing continuous feedback on programme effectiveness.
+A 2004 Development Bank of Japan report found that only about 13 hectares of roofs had been greened in fiscal 2002, attributing the slow start partly to high upfront costs. Results for other measures such as cool or water-retaining pavement were not verified for this entry.
 
-## Results
+## Lessons
 
-- UHI intensity reduced from 3.5°C to 2.4°C between 2000 and 2022
-- 1,200 hectares of green roofs mandated on new buildings
-- Summer peak electricity demand reduced by 1.2 GW (equivalent to one power station) due to building cooling load reduction
+Mandates can create a market for green roofs, but uptake depends on cost and on incentives for existing buildings.
+
+## Sources
+
+- [C40: Tokyo nature conservation ordinance good practice guide](https://www.c40.org/case-studies/c40-good-practice-guides-tokyo-nature-conservation-ordinance/)
+- [Japan for Sustainability: Tokyo's rooftop greening](https://japanfs.org/en/news/archives/news_id025113.html)

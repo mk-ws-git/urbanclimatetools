@@ -5,34 +5,40 @@ continent: "Europe"
 lat: 52.3676
 lng: 4.9041
 title: "Climate-Adaptive Urban Design: Amsterdam's Neighbourhood Resilience Agenda"
-tagline: "Amsterdam embedded climate adaptation into neighbourhood renewal, creating resilient public spaces that serve residents year-round"
+tagline: "Amsterdam is trialling blue-green roofs and subsidies, but only a small share of suitable roofs is in use"
 themes: [flood, green, planning]
 toolsUsed: ["stormwater-calculator", "climate-resilience-toolkit"]
 population: "921,000"
 year: 2020
-impact: "120 climate-adaptive interventions completed; 40,000 m² of green roofs; water storage increased by 2.2 million litres in pilot districts"
-statValue: "40,000 m²"
-statLabel: "of new green roofs"
+impact: "The RESILIO project installed about 10,000 m² of smart blue-green roofs in Amsterdam between 2018 and 2022; a nationwide survey found about 60% of Amsterdam roof area suitable for greening but only about 4% in use."
+statValue: "10,000 m²"
+statLabel: "smart blue-green roofs installed 2018 to 2022"
 featured: false
 image: "/images/cities/amsterdam.jpg"
-imageAlt: "Amsterdam climate-adaptive park with water storage basin visible under plaza"
+imageAlt: "Aerial view of Amsterdam's concentric canals"
 imageCredit: "Photo: Andrés Barrios, CC BY-SA 4.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Imagen_de_los_canales_conc%C3%A9ntricos_en_%C3%81msterdam.png"
 ---
 
 ## Background
 
-Amsterdam's 2020 Climate Adaptation Strategy moves beyond emergency response to embedding resilience into the city's fabric through neighbourhood-scale design. The programme identifies 20 pilot neighbourhoods with the highest compound climate exposure and co-designs adaptations with residents.
+Amsterdam's adaptation strategy aims to reduce the impacts of flooding, drought and heat. Rooftops are a large, mostly unused surface, so green and blue-green roofs are one of the city's main tools.
 
 ## Approach
 
-Each neighbourhood pilot starts with a community climate risk workshop using translated outputs from the Urban Climate Risk Index. Residents co-design interventions from a menu of tested solutions including: wadi gardens (shallow depression wetlands), porous pavements, bioswales, green roofs, and water squares.
+- **RESILIO:** a collaboration of the municipality, the water authority Waternet and housing corporations that installed about 10,000 m² of smart blue-green roofs on housing association and private homes (2018 to 2022)
+- **Subsidies:** summaries report support of up to 50% of cost, with a per-m² cap and a minimum area of 30 m²; this comes from a secondary source, so check current municipal rules
 
-The Green Roof Designer tool is made publicly available to homeowners through the city's website, alongside a subsidy calculator showing the €30/m² municipal green roof grant.
+## What limits uptake
 
-## Results
+A nationwide survey found that around 60% of Amsterdam's roof area is immediately suitable for greening, yet only about 4% is used. A 2024 TU Delft thesis found that inconsistent subsidy availability undermines housing associations' willingness to commit, and recommended linking green roofs to energy-label improvements and introducing a stormwater fee.
 
-- 40,000 m² of new green roofs installed in pilot neighbourhoods (2020–2024)
-- Water storage capacity in pilot areas increased by 2.2 million litres
-- 92% of residents in pilot areas report satisfaction with climate-adaptive public spaces
-- Amsterdam's co-design process used as a template by 8 European cities
+## Lessons
+
+Pilot projects prove the technology, but steady funding and incentives matter more for scale than any single installation.
+
+## Sources
+
+- [Urban Innovative Actions: RESILIO](https://www.uia-initiative.eu/en/pdf/2543)
+- [IO+: Green roofs vs. heat](https://ioplus.nl/en/posts/green-roofs-vs-heat-995-of-dutch-roofs-remain-unused)
+- [TU Delft: green roofs and housing associations in Amsterdam](https://repository.tudelft.nl/record/uuid:93db8e91-e4b9-44a3-a113-f810a41c51b6)

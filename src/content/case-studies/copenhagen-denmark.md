@@ -4,47 +4,42 @@ country: "Denmark"
 continent: "Europe"
 lat: 55.6761
 lng: 12.5683
-title: "Carbon Neutral by 2025: Copenhagen's Systemic Transformation"
-tagline: "Copenhagen's decade-long push for carbon neutrality — a blueprint integrating transport, energy, and urban form"
-themes: [planning, green, data]
+title: "Cloudbursts and Carbon: Copenhagen's Climate Plans"
+tagline: "After a devastating 2011 cloudburst, Copenhagen chose about 300 surface projects over a bigger sewer, alongside its carbon-neutral goal"
+themes: [flood, planning, green, data]
 toolsUsed: ["climate-resilience-toolkit", "copernicus-c3s"]
 population: "794,000"
 year: 2012
-impact: "67% CO2 reduction since 2005; 62% of trips made by bicycle; district heating covers 98% of households"
-statValue: "67%"
-statLabel: "CO₂ reduction since 2005"
+impact: "The July 2011 cloudburst caused more than DKK 6 billion in damage; Copenhagen's Cloudburst Management Plan combines sewer upgrades with about 300 surface projects, estimated at DKK 13 billion versus DKK 20 billion for a conventional sewer-only option."
+statValue: "DKK 6bn+"
+statLabel: "damage from the 2011 cloudburst"
 featured: true
 image: "/images/cities/copenhagen.jpg"
-imageAlt: "Copenhagen cyclists on Nørrebro cycling superhighway at morning rush hour"
+imageAlt: "Christiansborg Palace seen from the Marble Bridge, Copenhagen"
 imageCredit: "Photo: Moahim, CC BY-SA 4.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:2018_-_Christiansborg_from_the_Marble_Bridge.jpg"
 ---
 
 ## Background
 
-Copenhagen set a target of carbon neutrality by 2025 — the world's most ambitious climate goal for a capital city when adopted in 2012. The plan covered transport, energy, buildings, and urban adaptation, positioning the city not just as a climate leader but as a global demonstrator of what integrated urban decarbonisation looks like.
+In 2012 Copenhagen adopted a goal of becoming carbon neutral by 2025 and also set about adapting to heavier rain. The two efforts shaped the city's wider climate agenda.
 
-## Key Interventions
+## Cloudburst Management Plan
 
-### Transport
-The city invested heavily in cycling infrastructure — Copenhagen's cycling modal share reached 62% for commute trips by 2023. Electric bus conversion, harbour ferry expansion, and metro extensions reduced private car trips by 18%.
+- The 2011 cloudburst, the largest of four major rain events in six years, caused damage of more than DKK 6 billion, excluding direct repair costs to municipal infrastructure
+- Without action, an economic assessment estimated about DKK 16 billion of damage over 100 years
+- The chosen solution combines expanded sewers with around 300 surface projects, such as retention and drainage, with a minimum 20-year timeframe
+- The city estimated this at about DKK 13 billion, compared with DKK 20 billion for a traditional sewer-only option, and each year decides which projects to build
 
-### Energy
-District heating supplied by waste-to-energy plants and wind power now covers 98% of city buildings. The Amager Bakke waste-to-energy plant — with a ski slope on its roof — became a global symbol of design-led climate infrastructure.
+## Carbon neutrality
 
-### Green Infrastructure
-1,000 new trees per year, pocket parks every 300 metres in new developments, and green roofs mandated on new flat-roof buildings over 500 m².
-
-## Climate Adaptation
-
-Separately, the CPH 2025 plan invested €1.7 billion in cloudburst management after a 2011 extreme rainfall event caused €700 million in damages. Over 300 cloudburst solutions — green streets, retention basins, separated storm sewers — are now embedded in the city fabric.
-
-## Results
-
-- 67% CO2 reduction since 2005 baseline
-- Carbon neutrality target now revised to 2030 (energy sector delays)
-- Copenhagen consistently ranked #1 globally in urban sustainability indices
+Copenhagen's 2025 carbon-neutral target was widely cited as the most ambitious for a capital city. This entry does not give emissions figures because current progress numbers were not verified; check the city's latest climate reporting.
 
 ## Lessons
 
-Long-term political commitment across multiple election cycles, a dedicated climate secretariat, and strong co-investment from Copenhagen's utilities made the plan financially viable. The city's willingness to publicise setbacks (the 2025 target was revised) has increased rather than decreased its global credibility.
+Surface solutions can be cheaper than larger pipes and also add parks and public space, but they take decades to deliver and need steady annual prioritisation.
+
+## Sources
+
+- [Climate-ADAPT: the economics of Copenhagen's Cloudburst Management Plan](https://climate-adapt.eea.europa.eu/en/metadata/case-studies/the-economics-of-managing-heavy-rains-and-stormwater-in-copenhagen-2013-the-cloudburst-management-plan/)
+- [C40: Copenhagen cloudburst case study](https://www.c40.org/?p=26985)

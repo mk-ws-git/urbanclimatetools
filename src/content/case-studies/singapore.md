@@ -5,39 +5,41 @@ continent: "Asia"
 lat: 1.3521
 lng: 103.8198
 title: "Cool and Green: Singapore's Urban Heat Island Management at Scale"
-tagline: "How Singapore deployed data-driven greening, cool materials, and urban design to tame a tropical urban heat island"
+tagline: "How Singapore combines skyrise greenery incentives, tree cover and cool materials to manage a tropical urban heat island"
 themes: [heat, green, data]
 toolsUsed: ["eea-urban-heat-island", "i-tree"]
 population: "5.9 million"
 year: 2009
-impact: "UHI intensity reduced by 0.6°C in intervention zones; 47% of city covered by greenery; 130 km of park connectors"
-statValue: "47%"
-statLabel: "of the city under greenery"
+impact: "Skyrise Greenery Incentive Scheme (2009) co-funds up to 50% of rooftop and vertical greenery on existing buildings; target of 200 ha of skyrise greenery by 2030; cool-paint pilots report up to 2°C lower ambient temperature around buildings (preliminary)."
+statValue: "200 ha"
+statLabel: "skyrise greenery targeted by 2030"
 featured: false
 image: "/images/cities/singapore.jpg"
-imageAlt: "Gardens by the Bay supertrees at night, Singapore skyline behind"
+imageAlt: "Marina Bay and the Singapore skyline at dusk"
 imageCredit: "Photo: Benh LIEU SONG (Flickr), CC BY-SA 4.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Singapore_Marina_Bay_Dusk_2018-02-27.jpg"
 ---
 
 ## Background
 
-As a dense tropical city-state, Singapore faces acute urban heat island challenges — nighttime temperatures regularly exceed rural surrounds by 4–7°C. Since 2009, the government has systematically applied a multi-pronged strategy combining mandated green plot ratios, cool pavement programs, and a national park connector network.
+Singapore is a dense tropical city-state where heat is a constant stressor. Greening is part of national policy, framed today by the Singapore Green Plan 2030 and the "City in Nature" vision.
 
 ## Strategy
 
-Singapore's Urban Redevelopment Authority requires all new developments to achieve a Green Plot Ratio — maintaining greenery equivalent to the site's footprint even as buildings rise vertically. The result is skyrise gardens, green roofs, and vertical walls becoming standard building elements rather than luxury add-ons.
+- **Skyrise Greenery Incentive Scheme (2009):** run by the National Parks Board (NParks), it co-funds up to 50% of installation costs for rooftop and vertical greenery on existing buildings
+- **Skyrise greenery target:** NParks has set a goal of 200 hectares of skyrise greenery by 2030
+- **Cool paint pilots:** trials in public housing estates; preliminary findings suggest cool coatings can lower ambient temperatures around buildings by up to 2°C
+- **More green space:** the Green Plan 2030 aims to add about 1,000 hectares of green space over 10 to 15 years
 
-## Data Infrastructure
+## What the evidence says
 
-The National Environment Agency runs a dense network of 67 urban weather stations and a publicly accessible API delivering hourly temperature, humidity, and heat index data — making Singapore one of the world's best-instrumented cities for urban climate monitoring.
-
-## Results
-
-- 47% of the island covered by greenery (up from 36% in 1986 despite population growth)
-- UHI intensity in CBD reduced from 4.2°C to 3.6°C between 2009 and 2022
-- 1.2 million visits per weekend to park connector network, delivering health co-benefits
+NParks researchers report that vegetation cover reduces urban heat island intensity by about 0.4°C, and that high tree cover (around 80%) can cool the air by up to 1.6°C at 6 pm. Figures for individual measures vary by method and site, so treat them as indicative.
 
 ## Lessons
 
-Mandatory green plot ratios are more effective than voluntary green building certifications at achieving citywide cooling, but require strong regulatory capacity and developer engagement from early planning stages.
+Incentives for private building owners, rather than mandates alone, can scale greenery in a dense city. Pairing them with monitoring and pilots of cool materials builds an evidence base before wider rollout.
+
+## Sources
+
+- [NParks: Skyrise Greenery Incentive Scheme](https://skyrisegreenery.nparks.gov.sg/incentive-scheme/about/)
+- [GPSC: Cool solutions for a hotter climate](https://www.thegpsc.org/node/13245)

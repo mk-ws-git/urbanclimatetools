@@ -5,37 +5,41 @@ continent: "Asia"
 lat: 23.8103
 lng: 90.4125
 title: "Flood Resilience in a Megacity: Dhaka's Nature-Based Adaptation"
-tagline: "Dhaka is restoring urban wetlands and canals to buffer 21 million people against intensifying monsoon floods"
+tagline: "Dhaka has lost most of its natural drainage, and restoring canals and wetlands is now part of its flood strategy"
 themes: [flood, green, planning]
 toolsUsed: ["stormwater-calculator", "floodmap-net"]
 population: "21 million"
 year: 2019
-impact: "48 km of canals restored; 3,200 hectares of urban wetlands protected; flood peak reduced by 28% in pilot catchments"
-statValue: "28%"
-statLabel: "lower flood peak in pilot catchments"
+impact: "Dhaka has lost about 3,440 acres of designated flood-flow zones, retention ponds and water bodies since the 2010 area plan, and urban wetlands have declined by more than 75% since the 1960s; a 2022 government-approved project aims to revive four canals."
+statValue: "75%+"
+statLabel: "of urban wetlands lost since the 1960s"
 featured: false
 image: "/images/cities/dhaka.jpg"
-imageAlt: "Restored canal in Dhaka with vegetation and informal housing along banks"
+imageAlt: "Drone view along Kamal Atatürk Avenue, Dhaka"
 imageCredit: "Photo: Sifat777, CC BY-SA 4.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Drone_view_from_Kamal_Atat%C3%BCrk_Avenue.jpg"
 ---
 
 ## Background
 
-Dhaka, one of the world's most densely populated cities, experiences severe annual flooding. Rapid urbanisation since the 1980s has eliminated 70% of the city's historic wetland area — the natural flood buffer — replacing it with impervious surfaces. Monsoon floods regularly affect 40% of the city's area, disproportionately impacting the 35% of residents living in informal settlements.
+Dhaka is one of the world's most densely populated cities and floods in most monsoon seasons. Filling of wetlands, canals and retention ponds for development has removed much of the natural drainage that once absorbed water.
 
-## The Approach
+## The scale of loss
 
-The Bangladesh government's Delta Plan 2100 identified Dhaka's urban waterbodies as critical climate infrastructure. Phase 1 (2019–2024) focused on:
+A 2019 study by the Bangladesh Institute of Planners found that Dhaka had lost about 3,440 acres of designated flood-flow zones, retention ponds and water bodies since the previous Detailed Area Plan (2010). Urban wetlands have declined by more than 75% since the 1960s.
 
-- Restoring 48 km of encroached canals
-- Legally protecting 3,200 hectares of urban wetlands from further development
-- Piloting 12 bioretention areas in informal settlements prone to flash flooding
+## Response so far
 
-The Stormwater Runoff Modeler was used to quantify the hydrological benefit of wetland restoration under climate projections, providing the evidence base for land acquisition decisions.
+- A 2022 government-approved project aims to revive four canals: Kalunagar, Jirani, Manda and Shyampur
+- The Detailed Area Plan 2022 to 2035 includes canal recovery; one estimate says restoring 65 canals could cost more than BDT 500 billion
+- The plan has also been criticised for legalising some development in previously protected flood-flow zones, and officials have said a revision will bar wetland filling
 
-## Results
+## Lessons
 
-- Flood peak flows reduced by 28% in the pilot Balu River sub-catchment
-- 240,000 residents in restored canal corridors experienced fewer flood events
-- Programme cited in World Bank report as a replicable model for South Asian megacities
+Experts note that drains and box culverts alone have not solved waterlogging, and that natural drainage has to be restored and protected. Published results showing reduced flooding from restored canals were not found, so this entry describes the problem and policy rather than outcomes.
+
+## Sources
+
+- [The Daily Star: how to revive Dhaka's canals and fix waterlogging](https://d11.thedailystar.net/news/bangladesh/news/turning-tide-how-revive-dhakas-canals-and-fix-waterlogging-3781066)
+- [The Daily Star: Dhaka's disappearing flood flow zones](https://tds-images.thedailystar.net/news/bangladesh/news/dhakas-disappearing-flood-flow-zones-3770806)
+- [The Business Standard: why Dhaka keeps drowning every monsoon](https://www.tbsnews.net/bangladesh/why-dhaka-keeps-drowning-every-monsoon-despite-years-drainage-projects-1486081)

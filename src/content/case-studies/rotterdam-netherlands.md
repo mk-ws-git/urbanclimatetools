@@ -5,35 +5,38 @@ continent: "Europe"
 lat: 51.9244
 lng: 4.4777
 title: "The Water City: Rotterdam's Adaptive Architecture for a Flooded Future"
-tagline: "Rotterdam turned its below-sea-level geography from a liability into a global design and innovation advantage"
+tagline: "Rotterdam's Benthemplein shows how a public square can double as stormwater storage"
 themes: [flood, coastal, green, planning]
 toolsUsed: ["floodmap-net", "noaa-slr", "stormwater-calculator"]
 population: "651,000"
 year: 2013
-impact: "100% of new development meets 100mm/hr rainfall standard; Benthemplein water square stores 1.7 million litres"
+impact: "Benthemplein, opened in December 2013, was billed as the world's first full-scale water square; its basins hold about 1.7 million litres of rainwater and double as a sports and play space in dry weather."
 statValue: "1.7M L"
 statLabel: "stored by one water square"
 featured: false
 image: "/images/cities/rotterdam.jpg"
-imageAlt: "Benthemplein water square in Rotterdam with water storage pools visible"
+imageAlt: "View over Rotterdam from the roof of the Maassilo"
 imageCredit: "Photo: Rob Oo, CC BY 2.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:A_view_of_Rotterdam,_taken_from_the_roof_of_the_Maassilo,_Rotterdam,_The_Netherlands.jpg"
 ---
 
 ## Background
 
-Seventy percent of Rotterdam lies below sea level. Rather than simply hardening defences, the city adopted a "water-sensitive city" philosophy — treating water as an asset to be held and celebrated rather than a threat to be drained away.
+Much of Rotterdam lies below sea level, so managing water is a core design task. The city has experimented with ways to make stormwater storage visible and useful rather than hiding it underground.
 
-## Key Projects
+## Key project: Benthemplein water square
 
-**Benthemplein Water Square**: The world's first water square — a public space that functions as a recreational plaza in dry weather and a 1.7 million-litre retention basin during downpours. Replicated in cities from Beijing to São Paulo.
+- **Opened:** 4 December 2013, described as the first full-scale water square
+- **Design:** by De Urbanisten, covering about 9,000 m², with three sunken basins
+- **Capacity:** sources give about 1.7 million litres, with some quoting up to 1.8 to 2 million
+- **Cost:** a project sheet lists about €4.5 million
+- **Everyday use:** in dry weather the basins serve as places to play basketball, skate and gather
 
-**Floating Pavilion**: A climate-resilient floating structure in the Rijnhaven harbour demonstrating adaptive construction techniques for sea-level rise.
+## Lessons
 
-**Water-Sensitive Urban Design Standards**: All new Rotterdam developments must accommodate 70mm of rainfall per hour on-site with no runoff to sewers.
+Combining storage with public space lets a city justify the investment through everyday use. Figures such as capacity vary between sources, so check the designers' and the city's own documentation when citing them.
 
-## Results
+## Sources
 
-- Zero sewer overflow events in 2022 during storms that would previously have flooded streets
-- Rotterdam's water square concept exported to 28 cities globally
-- Property values in water square catchment areas increased 12% above citywide average
+- [Delta Programme: Delta Commissioner opens Water Square in Rotterdam](https://english.deltaprogramma.nl/latest/news/2013/12/04/delta-commissioner-opens-water-square-in-rotterdam)
+- [De Urbanisten: Watersquare Benthemplein](https://www.urbanisten.nl/work/benthemplein)

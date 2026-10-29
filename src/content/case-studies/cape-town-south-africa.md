@@ -10,43 +10,33 @@ themes: [flood, coastal, data, planning]
 toolsUsed: ["copernicus-c3s", "noaa-slr", "climate-resilience-toolkit"]
 population: "4.6 million"
 year: 2018
-impact: "Per-capita water consumption reduced by 50%; groundwater augmentation scheme adds 40 Ml/day to supply"
-statValue: "50%"
-statLabel: "cut in water use per person"
+impact: "In early 2018 Cape Town's dams fell below 30% and daily use was capped at 87 then 50 litres per person; restrictions cut citywide use by more than half, to about 500 million litres a day by March 2018, and Day Zero was repeatedly postponed."
+statValue: "50%+"
+statLabel: "cut in citywide daily water use by March 2018"
 featured: true
 image: "/images/cities/cape-town.jpg"
-imageAlt: "Cape Town reservoir at critically low levels during the 2017–2018 drought"
+imageAlt: "Camps Bay beach and mountains, Cape Town"
 imageCredit: "Photo: Der Berzerker from Washington, DC, USA, CC BY-SA 2.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Camps_bay_(53460319478)_(cropped).jpg"
 ---
 
 ## Background
 
-In 2018, Cape Town came within 90 days of being the first major city to run out of municipal water. The "Day Zero" crisis — the result of three consecutive drought years worsened by climate change — triggered a profound shift in how the city manages water as a shared public resource.
+After three years of drought, Cape Town came close to being the first major city to run out of piped water. "Day Zero" was the date on which dam levels would fall so low that most taps would be turned off.
 
-## The Crisis
+## The crisis (2018)
 
-The Western Cape's winter rainfall had declined 20% since 2015. The City's six major reservoirs collectively fell to 13.5% capacity (the viable pumping threshold is around 10%). Emergency demand restrictions, a citywide communication campaign, and tiered pricing drove an extraordinary 50% reduction in per-capita consumption — from 220 L/day to under 50 L/day.
-
-## The Resilience Strategy
-
-Cape Town's post-crisis Water Resilience Plan pivoted to a "portfolio of supply sources" philosophy, diversifying away from sole reliance on mountain catchment reservoirs:
-
-1. **Groundwater**: Cape Flats and Table Mountain Group aquifer development, adding 40 Ml/day
-2. **Water recycling**: Indirect potable reuse scheme targeting 70 Ml/day by 2030
-3. **Desalination**: Temporary emergency plants converted to permanent 2 Ml/day capacity
-4. **Stormwater harvesting**: Wetland-based urban recharge systems
-
-## Climate Projections
-
-The City used the Climate Data Explorer to analyse CMIP6 projections for the Western Cape, finding that under SSP2-4.5, multi-year droughts like 2015–2018 would occur twice as frequently by 2050. This evidence base justified a R2.8 billion investment programme.
-
-## Results
-
-- Water consumption stabilised at 130 L/capita/day — 40% below pre-crisis levels
-- Supply portfolio diversification reduced dependence on rainfall by 35%
-- City awarded C40 Cities Award for Urban Climate Action 2019
+- Dam levels fell below 30% in January 2018, and the projected Day Zero moved from 21 April to 12 April
+- Residents were first limited to 87 litres per person per day, then to 50 litres from 1 February 2018 under Level 6B restrictions
+- Restrictions, pricing and a large public communication effort cut citywide consumption by more than half, to roughly 500 million litres a day by March 2018
+- Day Zero was postponed several times; strong rains from June 2018 helped dams recover, and by late June the city said Day Zero was not a prospect for 2019 if restrictions were maintained
 
 ## Lessons
 
-Extreme water scarcity, while catastrophic, can catalyse behavioural and institutional change that decades of "normal" water management could not achieve. Cape Town's experience is now a global reference for demand management under climate stress.
+Demand management, clear public messaging and visible dam data changed behaviour faster than new supply could be built. The city's longer-term plans to diversify supply, for example with groundwater, reuse and desalination, are not covered here because published details were not verified for this entry.
+
+## Sources
+
+- [Al Jazeera: Cape Town confronts looming Day Zero](https://www.aljazeera.com/news/2018/1/16/cape-town-confronts-looming-day-zero-water-crisis)
+- [Engineering News: 50 litres per day as Day Zero nears](https://www.engineeringnews.co.za/article/cape-town-cuts-water-allowance-to-daily-50-litres-as-day-zero-nears-2018-01-18)
+- [BusinessTech: Cape Town scraps Day Zero as dam levels rise](https://businesstech.co.za/news/energy/255009/cape-town-scraps-day-zero-as-dam-levels-rise/)
