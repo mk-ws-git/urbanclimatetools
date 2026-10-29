@@ -35,3 +35,4 @@ City photographs on case-study pages are from Wikimedia Commons under CC BY or C
 | Santiago Chile | santiago.jpg | Álvaro Orozco | CC BY 3.0 | https://commons.wikimedia.org/wiki/File:Atardecer_En_Santiago_%28258224103%29.jpeg |
 | Accra Ghana | accra.jpg | Alexandre Ultré | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Accra_11_%28117437945%29.jpeg |
 | Doha Qatar | doha.jpg | Zairon | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:Doha_Skyline_03.jpg |
+| Paris France | paris.jpg | Shepard4711 | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Paris_at_night%2C_4_July_2013.jpg |

@@ -14,6 +14,10 @@ impact: "10 pilot schoolyards greened under the EU-funded OASIS project (2018–
 statValue: "~700"
 statLabel: "schoolyards to become cool islands by 2050"
 featured: false
+image: "/images/cities/paris.jpg"
+imageAlt: "View of Paris from the Montparnasse Tower."
+imageCredit: "Photo: Shepard4711, CC BY-SA 2.0, via Wikimedia Commons"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Paris_at_night%2C_4_July_2013.jpg"
 ---
 
 ## Background
