@@ -10,7 +10,6 @@ lastUpdated: "2024"
 featured: true
 dataInputs: ["Tree inventory or sample plots", "Species and diameter (DBH)", "Location / climate zone", "Land cover data"]
 outputs: ["Carbon storage & sequestration", "Air pollution removal", "Stormwater interception", "Ecosystem service dollar value"]
-citedBy: 0
 ---
 
 ## Overview

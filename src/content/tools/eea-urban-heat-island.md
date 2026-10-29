@@ -10,7 +10,6 @@ lastUpdated: "2024"
 featured: true
 dataInputs: ["Select a city or use the open dataset in GIS"]
 outputs: ["Summer urban heat island intensity maps (100 m resolution)", "Temperature difference between city and rural reference"]
-citedBy: 0
 ---
 
 ## Overview

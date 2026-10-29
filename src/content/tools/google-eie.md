@@ -10,7 +10,6 @@ lastUpdated: "2024"
 featured: false
 dataInputs: ["City or region selection"]
 outputs: ["Building and transportation emissions estimates", "Rooftop solar potential", "Tree canopy coverage"]
-citedBy: 0
 ---
 
 ## Overview

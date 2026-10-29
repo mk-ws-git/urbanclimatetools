@@ -10,7 +10,6 @@ lastUpdated: "2024"
 featured: false
 dataInputs: ["Location (anywhere worldwide)", "Water-level scenario"]
 outputs: ["Flood-extent maps", "Elevation-based inundation layers"]
-citedBy: 0
 ---
 
 ## Overview

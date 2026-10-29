@@ -10,7 +10,6 @@ lastUpdated: "2023"
 featured: false
 dataInputs: ["City baseline energy and emissions data", "Local costs and policy assumptions"]
 outputs: ["Modelled emission-reduction scenarios", "Cost, feasibility, and impact estimates", "Sector-by-sector action comparisons"]
-citedBy: 0
 ---
 
 ## Overview

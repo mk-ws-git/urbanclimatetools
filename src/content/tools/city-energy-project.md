@@ -10,7 +10,6 @@ lastUpdated: "2024"
 featured: false
 dataInputs: ["City building stock and energy use data"]
 outputs: ["Benchmarking policy guidance", "Templates and city examples"]
-citedBy: 0
 ---
 
 ## Overview

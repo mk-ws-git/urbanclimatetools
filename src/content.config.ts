@@ -20,7 +20,6 @@ const tools = defineCollection({
     featured:     z.boolean().default(false),
     dataInputs:   z.array(z.string()),
     outputs:      z.array(z.string()),
-    citedBy:      z.number().default(0),
     ogImage:      z.string().optional(),      // per-page Open Graph image override; falls back to /og/tools-<slug>.png
   }),
 });

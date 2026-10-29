@@ -32,7 +32,6 @@ lastUpdated: "2026"
 featured: false
 dataInputs: ["What the tool takes in"]
 outputs: ["What the tool produces"]
-citedBy: 0
 ---
 
 ## Overview

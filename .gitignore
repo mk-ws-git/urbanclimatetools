@@ -25,3 +25,4 @@ npm-debug.log*
 
 # Promo/source videos (not part of the site)
 /*.mp4
+/*.png

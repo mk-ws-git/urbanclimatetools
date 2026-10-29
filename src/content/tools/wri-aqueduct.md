@@ -10,7 +10,6 @@ lastUpdated: "2023"
 featured: false
 dataInputs: ["Location or region of interest", "Optional: facility / asset coordinates"]
 outputs: ["Water stress, flood, and drought risk scores", "Future projections (2030 / 2050 / 2080)", "Customizable global risk maps"]
-citedBy: 0
 ---
 
 ## Overview

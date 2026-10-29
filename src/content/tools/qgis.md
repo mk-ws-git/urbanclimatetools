@@ -12,7 +12,6 @@ lastUpdated: "2024"
 featured: false
 dataInputs: ["Vector and raster spatial data (Shapefile, GeoTIFF, GeoJSON, PostGIS, etc.)"]
 outputs: ["Maps and cartographic layouts", "Spatial analysis results", "Processed geospatial datasets"]
-citedBy: 0
 ---
 
 ## Overview

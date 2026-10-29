@@ -10,7 +10,6 @@ lastUpdated: "2024"
 featured: true
 dataInputs: ["Site location", "Soil type", "Land cover / surface", "Local rainfall record", "Proposed LID controls"]
 outputs: ["Annual runoff volume", "Runoff reduction from LID", "Rainfall-retention performance", "Climate-scenario comparisons"]
-citedBy: 0
 ---
 
 ## Overview

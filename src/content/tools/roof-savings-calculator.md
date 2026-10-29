@@ -10,7 +10,6 @@ lastUpdated: "2025"
 featured: true
 dataInputs: ["Building location", "Roof area and type", "Roof reflectance", "Insulation level", "HVAC type and energy prices"]
 outputs: ["Annual heating and cooling energy savings", "Cost savings", "Payback estimate"]
-citedBy: 0
 ---
 
 ## Overview

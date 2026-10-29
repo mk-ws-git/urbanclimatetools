@@ -1,8 +1,16 @@
 ---
-// No server-side props needed — entirely client-side
+import { getCollection } from 'astro:content';
+
+// Recommendations are derived from the tools collection (single source of truth).
+const toolData = (await getCollection('tools')).map((t) => ({
+  slug: t.id,
+  title: t.data.title,
+  cat: t.data.category,
+  difficulty: t.data.difficulty,
+}));
 ---
 
-<div id="tool-finder" class="card" data-quiz>
+<div id="tool-finder" class="card" data-quiz data-tools={JSON.stringify(toolData)}>
   <!-- Step indicator -->
   <div class="flex items-center gap-2 mb-6" id="quiz-steps">
     {[1,2,3,4].map((n) => (
@@ -134,22 +142,9 @@
     updateStepDots(n);
   }
 
-  const toolData = [
-    { slug: 'roof-savings-calculator',        title: 'Roof Savings Calculator',            cat: 'heat',     difficulty: 'beginner' },
-    { slug: 'eea-urban-heat-island',          title: 'EEA Urban Heat Island Modelling',      cat: 'heat',     difficulty: 'intermediate' },
-    { slug: 'stormwater-calculator',         title: 'EPA Stormwater Calculator',          cat: 'flood',    difficulty: 'intermediate' },
-    { slug: 'floodmap-net',                  title: 'FloodMap.net',                       cat: 'flood',    difficulty: 'beginner' },
-    { slug: 'noaa-slr',                      title: 'NOAA Sea Level Rise Viewer',         cat: 'coastal',  difficulty: 'beginner' },
-    { slug: 'i-tree',                        title: 'i-Tree Tools',                       cat: 'green',    difficulty: 'intermediate' },
-    { slug: 'georgetown-gi-toolkit',        title: 'Georgetown GI Toolkit',              cat: 'green',    difficulty: 'beginner' },
-    { slug: 'copernicus-c3s',                title: 'Copernicus Climate Change Service',  cat: 'data',     difficulty: 'intermediate' },
-    { slug: 'climate-central',               title: 'Climate Central',                    cat: 'data',     difficulty: 'beginner' },
-    { slug: 'open-climate-fix',              title: 'Open Climate Fix',                   cat: 'data',     difficulty: 'advanced' },
-    { slug: 'city-energy-project',            title: 'City Energy Project',      cat: 'data',     difficulty: 'beginner' },
-    { slug: 'climate-just',                  title: 'Climate Just',                       cat: 'planning', difficulty: 'beginner' },
-    { slug: 'climate-resilience-toolkit',    title: 'U.S. Climate Resilience Toolkit',    cat: 'planning', difficulty: 'beginner' },
-    { slug: 'unep-urban-resilience',         title: 'UNEP Urban Resilience Hub',          cat: 'planning', difficulty: 'beginner' },
-  ];
+  const toolData: { slug: string; title: string; cat: string; difficulty: string }[] = JSON.parse(
+    document.getElementById('tool-finder')?.dataset.tools ?? '[]'
+  );
 
   function getRecommendations(a: Answers) {
     return toolData
