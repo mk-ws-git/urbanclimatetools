@@ -14,6 +14,10 @@ impact: "HBKU ENVI-met modelling of combined green roofs, trees and parks projec
 statValue: ">4°C"
 statLabel: "modelled peak-temperature cut from nature-based cooling"
 featured: false
+image: "/images/cities/doha.jpg"
+imageAlt: "Skyline, Doha, Qatar"
+imageCredit: "Photo: Zairon, CC BY 4.0, via Wikimedia Commons"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Doha_Skyline_03.jpg"
 ---
 
 ## Background

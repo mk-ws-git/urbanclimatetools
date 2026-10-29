@@ -14,6 +14,10 @@ impact: "Nyandungu Eco-Park restored 121 ha of degraded urban wetland (opened 20
 statValue: "121 ha"
 statLabel: "of urban wetland restored at Nyandungu"
 featured: false
+image: "/images/cities/kigali.jpg"
+imageAlt: "Kigali, Rwanda, as viewed by Hodoyoshi-1 satellite."
+imageCredit: "Photo: Axelspace Corporation, CC BY-SA 4.0, via Wikimedia Commons"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Kigali%2C_Rwanda_%28satellite_view%29.jpg"
 ---
 
 ## Background

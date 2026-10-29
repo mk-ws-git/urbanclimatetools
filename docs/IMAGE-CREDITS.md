@@ -29,3 +29,10 @@ City photographs on case-study pages are from Wikimedia Commons under CC BY or C
 | Jakarta | jakarta.jpg | VOA Indonesian Service | Public domain | https://commons.wikimedia.org/wiki/File:VOA_People_walk_through_Jakarta%27s_flooded_streets.jpg |
 | New York | new-york.jpg | Beth Carey | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Flooding_on_FDR_Drive%2C_following_Hurricane_Sandy.jpg |
 | Auckland | auckland.jpg | Spil030 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Lake_formed_from_floodwaters_on_top_of_cricket_pitches_in_Pukekawa_Auckland_Domain_from_Carlton_Gore_Rd.jpg |
+| Paris France | paris.jpg | Jean-Léon Gérôme | Public domain | https://commons.wikimedia.org/wiki/File:Jean-L%C3%A9on_G%C3%A9r%C3%B4me_-_Evening_Prayer%2C_Cairo_%281865%29.jpg |
+| Seoul South Korea | seoul.jpg | Basile Morin | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Cheonggyecheon_stream_with_flowers_and_bridge_at_sunrise_near_Cheonggye_Plaza_in_Seoul.jpg |
+| Kigali Rwanda | kigali.jpg | Axelspace Corporation | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Kigali%2C_Rwanda_%28satellite_view%29.jpg |
+| Philadelphia USA | philadelphia.jpg | 颐园居 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Philadelphia_skyline_20240528_%28cropped%29.jpg |
+| Santiago Chile | santiago.jpg | Álvaro Orozco | CC BY 3.0 | https://commons.wikimedia.org/wiki/File:Atardecer_En_Santiago_%28258224103%29.jpeg |
+| Accra Ghana | accra.jpg | Alexandre Ultré | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Accra_11_%28117437945%29.jpeg |
+| Doha Qatar | doha.jpg | Zairon | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:Doha_Skyline_03.jpg |

@@ -14,6 +14,10 @@ impact: "A 25-year, ~US$2.4B programme targeting roughly 10,000 'greened acres' 
 statValue: "85%"
 statLabel: "targeted cut in sewer-overflow volume by 2036"
 featured: false
+image: "/images/cities/philadelphia.jpg"
+imageAlt: "Philadelphia Skyline from ​Schuylkill River"
+imageCredit: "Photo: 颐园居, CC BY-SA 4.0, via Wikimedia Commons"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Philadelphia_skyline_20240528_%28cropped%29.jpg"
 ---
 
 ## Background

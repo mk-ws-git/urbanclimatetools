@@ -14,6 +14,10 @@ impact: "Air temperatures along the restored corridor run 3.3–5.9°C cooler th
 statValue: "3.3–5.9°C"
 statLabel: "cooler along the restored stream corridor"
 featured: false
+image: "/images/cities/seoul.jpg"
+imageAlt: "Cheonggyecheon stream with flowers and bridge, at sunrise, near Cheonggye Plaza in Seoul, "
+imageCredit: "Photo: Basile Morin, CC BY-SA 4.0, via Wikimedia Commons"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Cheonggyecheon_stream_with_flowers_and_bridge_at_sunrise_near_Cheonggye_Plaza_in_Seoul.jpg"
 ---
 
 ## Background

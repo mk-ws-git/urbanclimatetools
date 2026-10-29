@@ -14,6 +14,10 @@ impact: "The GARID programme (2020, extended to 2027) has completed drainage alo
 statValue: "~40%"
 statLabel: "of the Odaw channel dredged (in progress)"
 featured: false
+image: "/images/cities/accra.jpg"
+imageAlt: "500px provided description: This is a libre photo. Feel free to copy it, to modify it, to "
+imageCredit: "Photo: Alexandre Ultré, CC BY-SA 3.0, via Wikimedia Commons"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Accra_11_%28117437945%29.jpeg"
 ---
 
 ## Background
