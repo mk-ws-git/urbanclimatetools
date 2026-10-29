@@ -6,10 +6,11 @@ retry_wait_time = 5
 timeout = 45
 max_concurrency = 8
 user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36"
-exclude_path = ["node_modules", "dist"]
+exclude_path = ["node_modules", "dist", "docs/IMAGE-CREDITS.md"]
 exclude = [
   '^https?://localhost',
   'example\.(org|com)',
   'github\.com/org/repo',
   '\{',
+  'repository\.tudelft\.nl',
 ]
