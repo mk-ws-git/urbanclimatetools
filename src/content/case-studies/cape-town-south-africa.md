@@ -17,7 +17,7 @@ featured: true
 image: "/images/cities/cape-town.jpg"
 imageAlt: "Camps Bay beach and mountains, Cape Town"
 imageCredit: "Photo: Der Berzerker from Washington, DC, USA, CC BY-SA 2.0, via Wikimedia Commons"
-imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Camps_bay_(53460319478)_(cropped).jpg"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Camps_bay_%2853460319478%29_%28cropped%29.jpg"
 ---
 
 ## Background

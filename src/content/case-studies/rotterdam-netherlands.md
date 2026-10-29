@@ -17,7 +17,7 @@ featured: false
 image: "/images/cities/rotterdam.jpg"
 imageAlt: "View over Rotterdam from the roof of the Maassilo"
 imageCredit: "Photo: Rob Oo, CC BY 2.0, via Wikimedia Commons"
-imageCreditUrl: "https://commons.wikimedia.org/wiki/File:A_view_of_Rotterdam,_taken_from_the_roof_of_the_Maassilo,_Rotterdam,_The_Netherlands.jpg"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:A_view_of_Rotterdam%2C_taken_from_the_roof_of_the_Maassilo%2C_Rotterdam%2C_The_Netherlands.jpg"
 ---
 
 ## Background

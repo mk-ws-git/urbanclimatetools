@@ -16,7 +16,7 @@ statLabel: "green roofs built under the mandate"
 image: "/images/cities/toronto.jpg"
 imageAlt: "Planted green roof on the podium of Toronto City Hall"
 imageCredit: "Photo: GreenRoofGardener, CC BY-SA 3.0, via Wikimedia Commons"
-imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Toronto_City_Hall_Podium_green_roof_by_LiveRoof,_July_2010.jpg"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Toronto_City_Hall_Podium_green_roof_by_LiveRoof%2C_July_2010.jpg"
 ---
 
 ## Background

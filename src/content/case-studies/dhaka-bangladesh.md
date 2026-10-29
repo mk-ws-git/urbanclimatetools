@@ -41,5 +41,4 @@ Experts note that drains and box culverts alone have not solved waterlogging, an
 ## Sources
 
 - [The Daily Star: how to revive Dhaka's canals and fix waterlogging](https://d11.thedailystar.net/news/bangladesh/news/turning-tide-how-revive-dhakas-canals-and-fix-waterlogging-3781066)
-- [The Daily Star: Dhaka's disappearing flood flow zones](https://tds-images.thedailystar.net/news/bangladesh/news/dhakas-disappearing-flood-flow-zones-3770806)
 - [The Business Standard: why Dhaka keeps drowning every monsoon](https://www.tbsnews.net/bangladesh/why-dhaka-keeps-drowning-every-monsoon-despite-years-drainage-projects-1486081)

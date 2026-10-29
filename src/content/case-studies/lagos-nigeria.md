@@ -15,7 +15,7 @@ featured: false
 image: "/images/cities/lagos.jpg"
 imageAlt: "Tafa Balewa Square in Onikan, Lagos"
 imageCredit: "Photo: Koutchika Lihouenou Gaspard, CC BY-SA 4.0, via Wikimedia Commons"
-imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Tafa_Balewa_Square_(Onikan)_in_Lagos._Nigeria.jpg"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Tafa_Balewa_Square_%28Onikan%29_in_Lagos._Nigeria.jpg"
 ---
 
 ## Background
@@ -38,6 +38,5 @@ Large engineering projects and nature-based approaches can conflict, so cities b
 
 ## Sources
 
-- [Eko Atlantic EIA summary](https://www.ekoatlantic.com/wp-content/uploads/2012/12/EkoAtlantic-EIA-Summary.pdf)
 - [BusinessDay: the true cost of Lagos coastal expansion](https://businessday.ng/pro/article/losing-ground-by-reclaiming-land-the-true-cost-of-the-coastal-expansion-of-lagos/)
 - [News Central: how Lagos is battling erosion](https://newscentraltv.com/?p=18824)

@@ -16,7 +16,7 @@ statLabel: "drop in NO₂ in the superblock"
 image: "/images/cities/barcelona.jpg"
 imageAlt: "Pedestrianised Superilla street in Sant Antoni, Barcelona, with trees and planters"
 imageCredit: "Photo: Cataleirxs, CC BY-SA 4.0, via Wikimedia Commons"
-imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Superilla_del_barri_de_Sant_Antoni,_Barcelona.jpg"
+imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Superilla_del_barri_de_Sant_Antoni%2C_Barcelona.jpg"
 ---
 
 ## Background
