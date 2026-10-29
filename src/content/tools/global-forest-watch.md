@@ -11,7 +11,6 @@ lastUpdated: "2024"
 featured: false
 dataInputs: ["Area of interest (draw, upload, or select boundary)"]
 outputs: ["Tree cover gain and loss over time", "Deforestation and fire alerts", "Carbon and canopy statistics"]
-citedBy: 0
 ---
 
 ## Overview

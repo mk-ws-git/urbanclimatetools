@@ -3,14 +3,13 @@ title: "FloodMap.net"
 tagline: "Visualise global flood risk from elevation and sea-level scenarios"
 category: flood
 tags: [flood risk, elevation, sea level, visualization]
-license: Proprietary-Free
+license: Free-to-use
 homepage: "https://www.floodmap.net"
 difficulty: beginner
 lastUpdated: "2024"
 featured: false
 dataInputs: ["Location (anywhere worldwide)", "Water-level scenario"]
 outputs: ["Flood-extent maps", "Elevation-based inundation layers"]
-citedBy: 0
 ---
 
 ## Overview

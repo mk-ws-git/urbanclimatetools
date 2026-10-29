@@ -3,14 +3,13 @@ title: "Georgetown Climate Center Green Infrastructure Toolkit"
 tagline: "Legal, policy and design guidance for scaling green infrastructure"
 category: green
 tags: [green-infrastructure, stormwater, policy, local-government]
-license: Proprietary-Free
+license: Free-to-use
 homepage: "https://www.georgetownclimate.org/adaptation/toolkits/green-infrastructure-toolkit.html"
 difficulty: beginner
 lastUpdated: "2024"
 featured: false
 dataInputs: ["Local policy and regulatory context"]
 outputs: ["Best-practice examples", "Policy and legal options for scaling green infrastructure"]
-citedBy: 0
 ---
 
 ## Overview

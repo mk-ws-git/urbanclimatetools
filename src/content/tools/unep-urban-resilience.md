@@ -3,14 +3,13 @@ title: "UNEP Urban Resilience Hub"
 tagline: "Global knowledge platform for urban climate resilience"
 category: planning
 tags: [resilience, global, financing, case studies]
-license: Proprietary-Free
+license: Free-to-use
 homepage: "https://www.unep.org/topics/cities"
 difficulty: beginner
 lastUpdated: "2024"
 featured: false
 dataInputs: ["City context", "Resilience theme of interest"]
 outputs: ["Guidance & toolkits", "Case studies", "Financing approaches"]
-citedBy: 0
 ---
 
 ## Overview

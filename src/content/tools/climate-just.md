@@ -3,14 +3,13 @@ title: "Climate Just"
 tagline: "Map social vulnerability to climate change for equitable adaptation"
 category: planning
 tags: [equity, social vulnerability, adaptation, mapping]
-license: Proprietary-Free
+license: Free-to-use
 homepage: "https://www.climatejust.org.uk"
 difficulty: beginner
 lastUpdated: "2023"
 featured: false
 dataInputs: ["Neighbourhood / area boundary", "Socio-economic indicators"]
 outputs: ["Social-vulnerability maps", "Flood & heat disadvantage indices", "Equity-focused guidance"]
-citedBy: 0
 ---
 
 ## Overview

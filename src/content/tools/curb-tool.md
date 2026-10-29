@@ -3,14 +3,13 @@ title: "CURB Tool"
 tagline: "Plan and cost city climate actions across six sectors"
 category: planning
 tags: [emissions, planning, cost-benefit, scenarios, policy]
-license: Proprietary-Free
+license: Free-to-use
 homepage: "https://www.worldbank.org/curb"
 difficulty: intermediate
 lastUpdated: "2023"
 featured: false
 dataInputs: ["City baseline energy and emissions data", "Local costs and policy assumptions"]
 outputs: ["Modelled emission-reduction scenarios", "Cost, feasibility, and impact estimates", "Sector-by-sector action comparisons"]
-citedBy: 0
 ---
 
 ## Overview

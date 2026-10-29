@@ -2,7 +2,7 @@ import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
 const categoryEnum = z.enum(['heat', 'flood', 'coastal', 'green', 'data', 'planning']);
-const licenseEnum  = z.enum(['MIT', 'Apache-2.0', 'GPL-3.0', 'BSD-2-Clause', 'CC-BY-4.0', 'Proprietary-Free', 'Open-Source']);
+const licenseEnum  = z.enum(['MIT', 'Apache-2.0', 'GPL-3.0', 'BSD-2-Clause', 'CC-BY-4.0', 'Free-to-use', 'Open-Source']);
 
 const tools = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/tools' }),
@@ -20,7 +20,6 @@ const tools = defineCollection({
     featured:     z.boolean().default(false),
     dataInputs:   z.array(z.string()),
     outputs:      z.array(z.string()),
-    citedBy:      z.number().default(0),
     ogImage:      z.string().optional(),      // per-page Open Graph image override; falls back to /og/tools-<slug>.png
   }),
 });

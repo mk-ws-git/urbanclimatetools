@@ -4,14 +4,13 @@ tagline: "High-resolution 3D microclimate simulation for streets and neighbourho
 category: heat
 tags: [microclimate, heat, cooling, simulation, urban-design]
 language: "C++"
-license: Proprietary-Free
+license: Free-to-use
 homepage: "https://envi-met.com"
 difficulty: advanced
 lastUpdated: "2024"
 featured: false
 dataInputs: ["3D model of buildings, vegetation, and surfaces", "Local meteorological boundary conditions"]
 outputs: ["Air and surface temperature fields", "Mean radiant temperature and thermal comfort (PET/UTCI)", "Wind flow and humidity distributions"]
-citedBy: 0
 ---
 
 ## Overview

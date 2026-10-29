@@ -2,7 +2,6 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CaseStudyCard from '../../components/CaseStudyCard.astro';
-import { categoryLabel } from '../../lib/labels.mjs';
 
 export async function getStaticPaths() {
   const studies = await getCollection('case-studies');
@@ -111,7 +110,7 @@ const resolvedOg = ogImage ?? `/og/case-studies-${study.id}.png`;
             <dd class="text-sm font-semibold text-stone-800 dark:text-stone-100">{continent}</dd>
           </div>
           <div class="p-4">
-            <dt class="text-[11px] font-semibold uppercase tracking-wider text-stone-400 dark:text-stone-500 mb-1">Tools used</dt>
+            <dt class="text-[11px] font-semibold uppercase tracking-wider text-stone-400 dark:text-stone-500 mb-1">Relevant tools</dt>
             <dd class="text-sm font-semibold text-forest-700 dark:text-forest-300">{toolsUsed.length}</dd>
           </div>
         </dl>
@@ -159,11 +158,11 @@ const resolvedOg = ogImage ?? `/og/case-studies-${study.id}.png`;
           <div class="px-4 py-3 text-sm text-stone-500 dark:text-stone-400">{city}, {country}</div>
         </div>
 
-        <!-- Tools used -->
+        <!-- Relevant tools -->
         {toolsUsed.length > 0 && (
           <div class="card">
             <h2 class="text-sm font-semibold text-stone-700 dark:text-stone-300 mb-3">
-              Tools used
+              Relevant tools
               <span class="ml-1.5 rounded-full bg-forest-100 dark:bg-forest-900 px-1.5 py-0.5 text-xs font-medium text-forest-700 dark:text-forest-300">{toolsUsed.length}</span>
             </h2>
             <ul class="space-y-2">

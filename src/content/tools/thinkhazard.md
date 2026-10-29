@@ -11,7 +11,6 @@ lastUpdated: "2024"
 featured: false
 dataInputs: ["Project location (country, province, or district)"]
 outputs: ["Hazard level ratings (very low to high)", "Recommendations to reduce risk", "Downloadable hazard report"]
-citedBy: 0
 ---
 
 ## Overview

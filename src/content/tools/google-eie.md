@@ -3,14 +3,13 @@ title: "Environmental Insights Explorer"
 tagline: "Google's free data tool for measuring and cutting city emissions"
 category: data
 tags: [emissions, transport, buildings, solar, data]
-license: Proprietary-Free
+license: Free-to-use
 homepage: "https://insights.sustainability.google"
 difficulty: beginner
 lastUpdated: "2024"
 featured: false
 dataInputs: ["City or region selection"]
 outputs: ["Building and transportation emissions estimates", "Rooftop solar potential", "Tree canopy coverage"]
-citedBy: 0
 ---
 
 ## Overview

@@ -3,14 +3,13 @@ title: "Copernicus Climate Change Service (C3S)"
 tagline: "Authoritative open data on past, present, and future climate"
 category: data
 tags: [climate data, projections, ERA5, reanalysis]
-license: Proprietary-Free
+license: Free-to-use
 homepage: "https://climate.copernicus.eu"
 difficulty: intermediate
 lastUpdated: "2024"
 featured: true
 dataInputs: ["Variable of interest", "Region / bounding box", "Time period", "Scenario (RCP/SSP)"]
 outputs: ["ERA5 reanalysis (1940–present)", "CMIP6 climate projections", "Urban climate indices", "Sectoral indicators"]
-citedBy: 0
 ---
 
 ## Overview

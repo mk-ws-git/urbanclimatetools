@@ -22,7 +22,7 @@ export function licenseSummary(license) {
   switch (license) {
     case 'CC-BY-4.0':
       return 'Free · Open data';
-    case 'Proprietary-Free':
+    case 'Free-to-use':
       return 'Free to use';
     default: // MIT, Apache-2.0, GPL-3.0, BSD-2-Clause, Open-Source
       return 'Free · Open-source';

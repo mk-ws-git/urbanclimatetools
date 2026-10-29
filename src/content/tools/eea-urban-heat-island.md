@@ -3,14 +3,13 @@ title: "EEA Urban Heat Island Modelling"
 tagline: "Modelled urban heat island intensity for 100 European cities"
 category: heat
 tags: [heat-island, europe, modelling, adaptation]
-license: Proprietary-Free
+license: Free-to-use
 homepage: "https://climate-adapt.eea.europa.eu/en/knowledge/tools/urban-adaptation"
 difficulty: intermediate
 lastUpdated: "2024"
 featured: true
 dataInputs: ["Select a city or use the open dataset in GIS"]
 outputs: ["Summer urban heat island intensity maps (100 m resolution)", "Temperature difference between city and rural reference"]
-citedBy: 0
 ---
 
 ## Overview

@@ -3,14 +3,13 @@ title: "City Resilience Profiling Tool"
 tagline: "UN-Habitat's holistic diagnostic for urban resilience"
 category: planning
 tags: [resilience, risk, urban-systems, planning, assessment]
-license: Proprietary-Free
+license: Free-to-use
 homepage: "https://unhabitat.org/guide-to-the-city-resilience-profiling-tool"
 difficulty: intermediate
 lastUpdated: "2022"
 featured: false
 dataInputs: ["City-wide data across social, economic, and environmental systems", "Hazard and infrastructure information"]
 outputs: ["City resilience profile and risk assessment", "Prioritised actions to strengthen resilience", "Baseline for monitoring progress"]
-citedBy: 0
 ---
 
 ## Overview

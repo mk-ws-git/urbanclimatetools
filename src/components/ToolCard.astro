@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { tool, compact = false } = Astro.props;
-const { title, tagline, category, tags, license, difficulty, featured, citedBy } = tool.data;
+const { title, tagline, category, tags, license, difficulty, featured } = tool.data;
 
 const difficultyLabel = { beginner: 'Beginner', intermediate: 'Intermediate', advanced: 'Advanced' };
 const difficultyColor = {
@@ -49,15 +49,6 @@ const difficultyColor = {
   <div class="mt-4 flex flex-wrap items-center gap-2">
     <span class:list={['badge', difficultyColor[difficulty]]}>{difficultyLabel[difficulty]}</span>
     <span class="badge bg-stone-100 text-stone-600 dark:bg-stone-800 dark:text-stone-400">{license}</span>
-    {citedBy > 0 && (
-      <span class="ml-auto flex items-center gap-1 text-xs text-stone-400">
-        <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <path d="M3 8V5a1 1 0 011-1h2m0 0V2m0 2h4m0 0V2m0 2h2a1 1 0 011 1v3" stroke-linecap="round"/>
-          <rect x="2" y="8" width="12" height="6" rx="1"/>
-        </svg>
-        {citedBy} citations
-      </span>
-    )}
   </div>
 
   {!compact && tags.length > 0 && (
