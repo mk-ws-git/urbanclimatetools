@@ -18,14 +18,15 @@ import sharp from 'sharp';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const UA = 'UrbanClimateTools-photo-helper/1.0 (https://github.com/mk-ws-git/urbanclimatetools)';
 const ALLOWED = /^(CC0|Public domain|PD|CC BY(?!-NC)(?!-ND)(-SA)?)/i;
+const PHOTO_ALLOWED = /^(CC0|CC BY(?!-NC)(?!-ND)(-SA)?)/i; // excludes Public-domain scans of paintings/maps
 const strip = (s = '') => s.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
 const enc = (u) => u.replace(/,/g, '%2C').replace(/\(/g, '%28').replace(/\)/g, '%29');
 
 // slug→image basename, case-study markdown file, display name, fallback alt, search queries.
 const CITIES = [
-  { file: 'paris', md: 'paris-france.md', name: 'Paris France',
+  { file: 'paris', md: 'paris-france.md', name: 'Paris France', photoOnly: true,
     alt: 'Rooftops and skyline of central Paris, France',
-    queries: ['Paris rooftops skyline', 'Paris aerial view', 'Paris cityscape'] },
+    queries: ['Paris skyline Montparnasse', 'Paris rooftops Eiffel Tower day', 'Paris aerial cityscape'] },
   { file: 'seoul', md: 'seoul-south-korea.md', name: 'Seoul South Korea',
     alt: 'The restored Cheonggyecheon stream running through central Seoul',
     queries: ['Cheonggyecheon', 'Cheonggyecheon stream Seoul', 'Seoul cityscape'] },
@@ -63,7 +64,7 @@ const infoOf = (p) => {
   };
 };
 
-async function bestCandidate(query) {
+async function bestCandidate(query, allow = ALLOWED) {
   const r = await api({
     action: 'query', generator: 'search', gsrsearch: `${query} filetype:bitmap`,
     gsrnamespace: 6, gsrlimit: 30, prop: 'imageinfo',
@@ -71,7 +72,8 @@ async function bestCandidate(query) {
   });
   const rows = Object.values(r.query?.pages || {}).map(infoOf).filter(Boolean)
     .filter((i) => i.mime === 'image/jpeg' && i.width >= 1800 && ALLOWED.test(i.licence)
-      && i.width / i.height >= 1.3 && i.width / i.height <= 2.2 && i.thumb);
+      && i.width / i.height >= 1.3 && i.width / i.height <= 2.2 && i.thumb)
+    .filter((i) => allow.test(i.licence));
   // Prefer wide, landscape-ish images (closest to ~1.6 wins ties by width).
   rows.sort((a, b) => Math.abs(a.width / a.height - 1.6) - Math.abs(b.width / b.height - 1.6) || b.width - a.width);
   return rows[0] || null;
@@ -81,7 +83,8 @@ function injectFrontmatter(mdPath, city, pick) {
   let text = fs.readFileSync(mdPath, 'utf8');
   if (/^image:/m.test(text)) return false; // already wired
   const credit = `Photo: ${pick.artist}, ${pick.licence}, via Wikimedia Commons`;
-  const alt = pick.desc && pick.desc.length > 8 ? pick.desc : city.alt;
+  const junk = /500px|provided description|libre photo|feel free|own work/i;
+  const alt = pick.desc && pick.desc.length > 8 && !junk.test(pick.desc) ? pick.desc : city.alt;
   const lines =
     `image: "/images/cities/${city.file}.jpg"\n` +
     `imageAlt: ${JSON.stringify(alt)}\n` +
@@ -105,7 +108,7 @@ for (const city of CITIES) {
   }
   let pick = null;
   for (const q of city.queries) {
-    try { pick = await bestCandidate(q); } catch (e) { /* try next query */ }
+    try { pick = await bestCandidate(q, city.photoOnly ? PHOTO_ALLOWED : ALLOWED); } catch (e) { /* try next query */ }
     if (pick) break;
   }
   if (!pick) { failed.push(city.file); console.log(`✗ ${city.file}: no licence-safe landscape candidate`); continue; }

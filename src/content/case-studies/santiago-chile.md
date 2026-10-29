@@ -15,7 +15,7 @@ statValue: "~1°C"
 statLabel: "local cooling measured around urban parks"
 featured: false
 image: "/images/cities/santiago.jpg"
-imageAlt: "500px provided description: Foto tomada desde balc?n en santiago [#city ,#tower ,#cityscap"
+imageAlt: "Santiago, Chile, with the Andes rising behind the city"
 imageCredit: "Photo: Álvaro Orozco, CC BY 3.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Atardecer_En_Santiago_%28258224103%29.jpeg"
 ---

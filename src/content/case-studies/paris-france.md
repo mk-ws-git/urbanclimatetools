@@ -14,10 +14,6 @@ impact: "10 pilot schoolyards greened under the EU-funded OASIS project (2018–
 statValue: "~700"
 statLabel: "schoolyards to become cool islands by 2050"
 featured: false
-image: "/images/cities/paris.jpg"
-imageAlt: "Oil painting on panel Dimensions: 49.5 by 81cm., 19½ by 31¾in. In the 1860s Gérôme began a"
-imageCredit: "Photo: Jean-Léon Gérôme, Public domain, via Wikimedia Commons"
-imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Jean-L%C3%A9on_G%C3%A9r%C3%B4me_-_Evening_Prayer%2C_Cairo_%281865%29.jpg"
 ---
 
 ## Background
