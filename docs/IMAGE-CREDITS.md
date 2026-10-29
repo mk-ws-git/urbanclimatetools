@@ -26,3 +26,6 @@ City photographs on case-study pages are from Wikimedia Commons under CC BY or C
 | Toronto Canada | toronto.jpg | GreenRoofGardener | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Toronto_City_Hall_Podium_green_roof_by_LiveRoof,_July_2010.jpg |
 | Vienna Austria | vienna.jpg | WWWeb.pix | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Fassadenbegr%C3%BCnung_im_WUK_2025-09.jpg |
 | Wuhan China | wuhan.jpg | Zheng Zhou | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Mount_Mo_and_East_Lake,_Wuhan.jpg |
+| Jakarta | jakarta.jpg | VOA Indonesian Service | Public domain | https://commons.wikimedia.org/wiki/File:VOA_People_walk_through_Jakarta%27s_flooded_streets.jpg |
+| New York | new-york.jpg | Beth Carey | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Flooding_on_FDR_Drive,_following_Hurricane_Sandy.jpg |
+| Auckland | auckland.jpg | Spil030 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Lake_formed_from_floodwaters_on_top_of_cricket_pitches_in_Pukekawa_Auckland_Domain_from_Carlton_Gore_Rd.jpg |
