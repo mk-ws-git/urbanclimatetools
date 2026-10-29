@@ -3,7 +3,7 @@ title: "City Energy Project"
 tagline: "Building energy benchmarking resources for cities"
 category: data
 tags: [energy, benchmarking, buildings, policy]
-license: Proprietary-Free
+license: Free-to-use
 homepage: "https://www.cityenergyproject.org"
 difficulty: beginner
 lastUpdated: "2024"

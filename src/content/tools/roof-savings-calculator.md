@@ -3,7 +3,7 @@ title: "Roof Savings Calculator"
 tagline: "Estimate energy and cost savings from cool roofs and attic insulation"
 category: heat
 tags: [albedo, buildings, energy, retrofit]
-license: Proprietary-Free
+license: Free-to-use
 homepage: "https://www.ornl.gov/content/roof-savings-calculator"
 difficulty: beginner
 lastUpdated: "2025"

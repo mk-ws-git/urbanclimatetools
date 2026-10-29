@@ -4,7 +4,7 @@ tagline: "High-resolution 3D microclimate simulation for streets and neighbourho
 category: heat
 tags: [microclimate, heat, cooling, simulation, urban-design]
 language: "C++"
-license: Proprietary-Free
+license: Free-to-use
 homepage: "https://envi-met.com"
 difficulty: advanced
 lastUpdated: "2024"

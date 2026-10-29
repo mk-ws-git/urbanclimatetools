@@ -3,7 +3,7 @@ title: "Climate-ADAPT"
 tagline: "Europe's platform for climate adaptation knowledge and tools"
 category: planning
 tags: [adaptation, policy, knowledge-base, europe, planning]
-license: Proprietary-Free
+license: Free-to-use
 homepage: "https://climate-adapt.eea.europa.eu"
 difficulty: beginner
 lastUpdated: "2024"

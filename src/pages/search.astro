@@ -25,8 +25,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <script src="/pagefind/pagefind-ui.js" is:inline></script>
 <script>
   window.addEventListener('load', () => {
-    if (typeof window.PagefindUI !== 'undefined') {
-      new window.PagefindUI({
+    if (typeof (window as any).PagefindUI !== 'undefined') {
+      new (window as any).PagefindUI({
         element: '#search',
         showSubResults: true,
         showImages: false,

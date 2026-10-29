@@ -3,7 +3,7 @@ title: "U.S. Climate Resilience Toolkit"
 tagline: "Resources and a step-by-step framework for building climate resilience"
 category: planning
 tags: [resilience, adaptation, planning framework, case studies]
-license: Proprietary-Free
+license: Free-to-use
 homepage: "https://toolkit.climate.gov"
 difficulty: beginner
 lastUpdated: "2024"

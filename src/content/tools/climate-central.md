@@ -3,7 +3,7 @@ title: "Climate Central"
 tagline: "Climate risk assessment and visualisation for local communities"
 category: data
 tags: [climate risk, visualization, sea level, analytics]
-license: Proprietary-Free
+license: Free-to-use
 homepage: "https://www.climatecentral.org"
 difficulty: beginner
 lastUpdated: "2024"

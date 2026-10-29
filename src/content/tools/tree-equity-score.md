@@ -3,7 +3,7 @@ title: "Tree Equity Score"
 tagline: "Neighbourhood-level measure of whether tree canopy reaches the people who need it most"
 category: green
 tags: [tree-canopy, equity, heat, planning]
-license: Proprietary-Free
+license: Free-to-use
 homepage: "https://www.treeequityscore.org/"
 difficulty: beginner
 lastUpdated: "2025"

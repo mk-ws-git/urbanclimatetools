@@ -3,7 +3,7 @@ title: "GloFAS (Global Flood Awareness System)"
 tagline: "Free global river flow and flood forecasts from the Copernicus Emergency Management Service"
 category: flood
 tags: [flood-forecasting, rivers, copernicus, global]
-license: Proprietary-Free
+license: Free-to-use
 homepage: "https://global-flood.emergency.copernicus.eu/"
 difficulty: intermediate
 lastUpdated: "2025"

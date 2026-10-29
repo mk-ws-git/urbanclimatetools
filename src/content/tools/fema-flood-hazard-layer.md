@@ -3,7 +3,7 @@ title: "FEMA National Flood Hazard Layer"
 tagline: "Official U.S. flood hazard maps and data from FEMA's Map Service Center"
 category: flood
 tags: [flood-maps, insurance, gis, united-states]
-license: Proprietary-Free
+license: Free-to-use
 homepage: "https://www.fema.gov/flood-maps/national-flood-hazard-layer"
 difficulty: beginner
 lastUpdated: "2025"

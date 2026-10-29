@@ -3,7 +3,7 @@ title: "Heat.gov"
 tagline: "U.S. federal heat and health information hub with community heat mapping data"
 category: heat
 tags: [heat, health, mapping, united-states]
-license: Proprietary-Free
+license: Free-to-use
 homepage: "https://www.heat.gov/"
 difficulty: beginner
 lastUpdated: "2024"

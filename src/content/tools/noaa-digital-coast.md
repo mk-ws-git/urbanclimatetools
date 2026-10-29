@@ -3,7 +3,7 @@ title: "NOAA Digital Coast"
 tagline: "Coastal data, tools and training for communities managing coastal hazards"
 category: coastal
 tags: [coastal, sea-level-rise, elevation, training]
-license: Proprietary-Free
+license: Free-to-use
 homepage: "https://coast.noaa.gov/digitalcoast/"
 difficulty: beginner
 lastUpdated: "2025"
