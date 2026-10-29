@@ -119,6 +119,9 @@ const homeOverlay = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height
 </svg>`;
 const homeBase = await sharp(heroPoster).resize(1200, 630, { fit: 'cover', position: 'centre' })
   .modulate({ brightness: 0.95 }).tint({ r: 70, g: 150, b: 120 }).toBuffer();
-await sharp(homeBase).composite([{ input: Buffer.from(homeOverlay) }]).jpeg({ quality: 86, mozjpeg: true }).toFile(path.join(OUT, 'home.jpg'));
+// The counts are in the file name so a new card always has a new URL (LinkedIn caches images by path).
+for (const f of fs.readdirSync(OUT)) if (/^home.*\.jpg$/.test(f)) fs.unlinkSync(path.join(OUT, f));
+await sharp(homeBase).composite([{ input: Buffer.from(homeOverlay) }]).jpeg({ quality: 86, mozjpeg: true })
+  .toFile(path.join(OUT, `home-${nTools}-${nCases}-${nCountries}.jpg`));
 
 console.log(`Generated OG images: ${nTools} tools + ${nCases} case studies + home -> public/og/`);
