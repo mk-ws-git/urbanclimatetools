@@ -1,0 +1,221 @@
+{
+ "rule": "Tuesdays, 1st and 3rd = case study, 2nd and 4th = tool. Every entry must pass the verification checklist in docs/CONTENT-PLAN.md before publishing.",
+ "entries": [
+  {
+   "date": "2026-11-03",
+   "type": "case-study",
+   "title": "Paris",
+   "country": "France",
+   "continent": "Europe",
+   "themes": "heat, green",
+   "angle": "Oasis schoolyards and cool-island routes",
+   "status": "candidate"
+  },
+  {
+   "date": "2026-11-10",
+   "type": "tool",
+   "title": "CDC Heat and Health Tracker",
+   "category": "heat",
+   "angle": "U.S. heat-health indicators by county",
+   "status": "candidate"
+  },
+  {
+   "date": "2026-11-17",
+   "type": "case-study",
+   "title": "Seoul",
+   "country": "South Korea",
+   "continent": "Asia",
+   "themes": "flood, green",
+   "angle": "Cheonggyecheon stream restoration",
+   "status": "candidate"
+  },
+  {
+   "date": "2026-11-24",
+   "type": "tool",
+   "title": "World Bank Climate Change Knowledge Portal",
+   "category": "data",
+   "angle": "Country and sub-national climate data and projections",
+   "status": "candidate"
+  },
+  {
+   "date": "2026-12-01",
+   "type": "case-study",
+   "title": "Kigali",
+   "country": "Rwanda",
+   "continent": "Africa",
+   "themes": "planning, green",
+   "angle": "Master plan and wetland protection",
+   "status": "candidate"
+  },
+  {
+   "date": "2026-12-08",
+   "type": "tool",
+   "title": "HEC-RAS",
+   "category": "flood",
+   "angle": "Free U.S. Army Corps of Engineers river hydraulics model",
+   "status": "candidate"
+  },
+  {
+   "date": "2026-12-15",
+   "type": "case-study",
+   "title": "Santiago",
+   "country": "Chile",
+   "continent": "South America",
+   "themes": "heat, green",
+   "angle": "Urban forest and heat vulnerability",
+   "status": "candidate"
+  },
+  {
+   "date": "2026-12-22",
+   "type": "tool",
+   "title": "ICLEI ClearPath",
+   "category": "planning",
+   "angle": "Greenhouse-gas inventory and climate action planning software",
+   "status": "candidate"
+  },
+  {
+   "date": "2027-01-05",
+   "type": "case-study",
+   "title": "Philadelphia",
+   "country": "United States",
+   "continent": "North America",
+   "themes": "flood, green",
+   "angle": "Green City, Clean Waters",
+   "status": "candidate"
+  },
+  {
+   "date": "2027-01-12",
+   "type": "tool",
+   "title": "EPA CREAT",
+   "category": "planning",
+   "angle": "Climate Resilience Evaluation and Awareness Tool for water utilities",
+   "status": "candidate"
+  },
+  {
+   "date": "2027-01-19",
+   "type": "case-study",
+   "title": "Dubai or Doha",
+   "country": "UAE or Qatar",
+   "continent": "Asia",
+   "themes": "heat",
+   "angle": "Extreme-heat adaptation (pick the better-documented city)",
+   "status": "candidate"
+  },
+  {
+   "date": "2027-01-26",
+   "type": "tool",
+   "title": "Google Earth Engine (urban land surface temperature)",
+   "category": "heat",
+   "angle": "Open workflow for city LST from satellite data",
+   "status": "candidate"
+  },
+  {
+   "date": "2027-02-02",
+   "type": "case-study",
+   "title": "Accra",
+   "country": "Ghana",
+   "continent": "Africa",
+   "themes": "flood, planning",
+   "angle": "Drainage and informal-settlement flooding",
+   "status": "candidate"
+  },
+  {
+   "date": "2027-02-09",
+   "type": "tool",
+   "title": "Climate Mapping for Resilience and Adaptation (CMRA)",
+   "category": "data",
+   "angle": "U.S. federal climate hazard and resilience mapping",
+   "status": "candidate"
+  },
+  {
+   "date": "2027-02-16",
+   "type": "case-study",
+   "title": "Milan",
+   "country": "Italy",
+   "continent": "Europe",
+   "themes": "green, heat",
+   "angle": "Forestami urban forest programme",
+   "status": "candidate"
+  },
+  {
+   "date": "2027-02-23",
+   "type": "tool",
+   "title": "EPA Green Infrastructure Wizard (GIWiz)",
+   "category": "green",
+   "angle": "Web tool for planning green infrastructure",
+   "status": "candidate"
+  },
+  {
+   "date": "2027-03-02",
+   "type": "case-study",
+   "title": "Stuttgart",
+   "country": "Germany",
+   "continent": "Europe",
+   "themes": "heat, planning",
+   "angle": "Cold-air corridors in planning law",
+   "status": "candidate"
+  },
+  {
+   "date": "2027-03-09",
+   "type": "tool",
+   "title": "NASA ECOSTRESS",
+   "category": "heat",
+   "angle": "High-resolution land surface temperature from the ISS",
+   "status": "candidate"
+  },
+  {
+   "date": "2027-03-16",
+   "type": "case-study",
+   "title": "Chennai",
+   "country": "India",
+   "continent": "Asia",
+   "themes": "flood, planning",
+   "angle": "Flood response and wetland restoration",
+   "status": "candidate"
+  },
+  {
+   "date": "2027-03-23",
+   "type": "tool",
+   "title": "INFORM Risk Index",
+   "category": "data",
+   "angle": "Open global risk index for crises and disasters",
+   "status": "candidate"
+  },
+  {
+   "date": "2027-04-06",
+   "type": "case-study",
+   "title": "Sydney",
+   "country": "Australia",
+   "continent": "Oceania",
+   "themes": "heat, green",
+   "angle": "Urban heat and greening strategy",
+   "status": "candidate"
+  },
+  {
+   "date": "2027-04-13",
+   "type": "tool",
+   "title": "OpenStreetMap-based accessibility tools (e.g. r5py)",
+   "category": "data",
+   "angle": "Open-source accessibility and routing analysis",
+   "status": "candidate"
+  },
+  {
+   "date": "2027-04-20",
+   "type": "case-study",
+   "title": "Quito",
+   "country": "Ecuador",
+   "continent": "South America",
+   "themes": "planning, green",
+   "angle": "Climate and urban planning",
+   "status": "candidate"
+  },
+  {
+   "date": "2027-04-27",
+   "type": "tool",
+   "title": "Sentinel-2 / Copernicus Browser",
+   "category": "data",
+   "angle": "Free satellite imagery for land cover and vegetation",
+   "status": "candidate"
+  }
+ ]
+}
