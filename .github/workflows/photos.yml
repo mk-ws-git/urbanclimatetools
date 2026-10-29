@@ -1,0 +1,38 @@
+name: Source city photos
+
+# Fetches licence-safe hero photos from Wikimedia Commons for any case study
+# missing one, wires the frontmatter + credits, and commits the result.
+# Runs on a GitHub runner (which has internet access to Commons) — trigger it
+# manually from the Actions tab.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  photos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm ci
+
+      - name: Fetch photos + wire frontmatter
+        run: node scripts/fetch-city-photos.mjs
+
+      - name: Commit any new photos
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add public/images/cities src/content/case-studies docs/IMAGE-CREDITS.md
+            git commit -m "Source hero photos for new case studies (Wikimedia Commons, CC-licensed)"
+            git push
+          else
+            echo "No changes — every case study already has a photo."
+          fi
