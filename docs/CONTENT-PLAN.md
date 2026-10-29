@@ -29,7 +29,7 @@ _Last updated: 2026-10-10_
 4. The 13 original case studies (bde58e6) were not web-verified like the 9 newer ones. Spot-check headline figures and sources.
 5. Several tool homepages point to a generic organisation page rather than the tool (Climate Central, NRDC, UNEP). Prefer the tool's own page.
 6. `tools/*.md` licence field uses `Proprietary-Free` for "free to use, not open source". Consider renaming to `Free-to-use`.
-7. No analytics, no consent banner, no CI link-check.
+7. No analytics or consent banner. (CI link-check added: see `.github/workflows`.)
 
 ## 2. Gap analysis of the catalog
 
