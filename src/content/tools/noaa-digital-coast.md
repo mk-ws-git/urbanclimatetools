@@ -10,6 +10,7 @@ lastUpdated: "2025"
 featured: false
 dataInputs: ["Location or coastal region of interest"]
 outputs: ["Sea level and flooding scenarios", "Lidar and elevation data", "Land cover data", "Training and guidance"]
+published: "2026-10-29"
 ---
 
 ## Overview

@@ -12,6 +12,7 @@ lastUpdated: "2025"
 featured: false
 dataInputs: ["Place name or bounding box", "OpenStreetMap data"]
 outputs: ["Street network graphs", "Routing and travel-time analysis", "Building footprints and points of interest"]
+published: "2026-10-29"
 ---
 
 ## Overview

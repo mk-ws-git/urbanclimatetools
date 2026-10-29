@@ -10,6 +10,7 @@ lastUpdated: "2025"
 featured: false
 dataInputs: ["Neighbourhood or city selection"]
 outputs: ["Tree Equity Score from 0 to 100", "Priority areas for planting", "Planting targets and plans (Local Analyzers)"]
+published: "2026-10-29"
 ---
 
 ## Overview

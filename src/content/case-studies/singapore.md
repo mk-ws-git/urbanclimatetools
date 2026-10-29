@@ -18,6 +18,7 @@ image: "/images/cities/singapore.jpg"
 imageAlt: "Marina Bay and the Singapore skyline at dusk"
 imageCredit: "Photo: Benh LIEU SONG (Flickr), CC BY-SA 4.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Singapore_Marina_Bay_Dusk_2018-02-27.jpg"
+published: "2026-07-22"
 ---
 
 ## Background

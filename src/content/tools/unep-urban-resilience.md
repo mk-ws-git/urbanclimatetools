@@ -10,6 +10,7 @@ lastUpdated: "2024"
 featured: false
 dataInputs: ["City context", "Resilience theme of interest"]
 outputs: ["Guidance & toolkits", "Case studies", "Financing approaches"]
+published: "2026-07-22"
 ---
 
 ## Overview

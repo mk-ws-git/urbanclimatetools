@@ -17,6 +17,7 @@ image: "/images/cities/wuhan.jpg"
 imageAlt: "Mount Mo and the waters of East Lake in Wuhan"
 imageCredit: "Photo: Zheng Zhou, CC BY-SA 4.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Mount_Mo_and_East_Lake%2C_Wuhan.jpg"
+published: "2026-07-22"
 ---
 
 ## Background

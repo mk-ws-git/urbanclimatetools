@@ -10,6 +10,7 @@ lastUpdated: "2024"
 featured: false
 dataInputs: ["Local policy and regulatory context"]
 outputs: ["Best-practice examples", "Policy and legal options for scaling green infrastructure"]
+published: "2026-10-10"
 ---
 
 ## Overview

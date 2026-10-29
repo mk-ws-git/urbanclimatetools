@@ -18,6 +18,7 @@ image: "/images/cities/amsterdam.jpg"
 imageAlt: "Aerial view of Amsterdam's concentric canals"
 imageCredit: "Photo: Andrés Barrios, CC BY-SA 4.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Imagen_de_los_canales_conc%C3%A9ntricos_en_%C3%81msterdam.png"
+published: "2026-07-22"
 ---
 
 ## Background

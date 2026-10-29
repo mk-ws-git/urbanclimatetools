@@ -18,6 +18,7 @@ image: "/images/cities/phoenix.jpg"
 imageAlt: "Aerial view of downtown Phoenix looking northeast"
 imageCredit: "Photo: DPPed, CC BY-SA 3.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Downtown_Phoenix_Aerial_Looking_Northeast.jpg"
+published: "2026-07-22"
 ---
 
 ## Background

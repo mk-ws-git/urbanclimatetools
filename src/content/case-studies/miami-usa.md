@@ -18,6 +18,7 @@ image: "/images/cities/miami.jpg"
 imageAlt: "Brickell skyline in Miami, Florida"
 imageCredit: "Photo: Phillip Pessar, CC BY 2.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Brickell_Miami_Florida_Skyline_31_August_2023.jpg"
+published: "2026-07-22"
 ---
 
 ## Background

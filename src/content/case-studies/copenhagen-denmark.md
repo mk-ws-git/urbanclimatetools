@@ -18,6 +18,7 @@ image: "/images/cities/copenhagen.jpg"
 imageAlt: "Christiansborg Palace seen from the Marble Bridge, Copenhagen"
 imageCredit: "Photo: Moahim, CC BY-SA 4.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:2018_-_Christiansborg_from_the_Marble_Bridge.jpg"
+published: "2026-07-22"
 ---
 
 ## Background

@@ -18,6 +18,7 @@ image: "/images/cities/tokyo.jpg"
 imageAlt: "Skyscrapers of Shinjuku, Tokyo"
 imageCredit: "Photo: Morio, CC BY-SA 3.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Skyscrapers_of_Shinjuku_2009_January.jpg"
+published: "2026-07-22"
 ---
 
 ## Background

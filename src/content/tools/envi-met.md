@@ -11,6 +11,7 @@ lastUpdated: "2024"
 featured: false
 dataInputs: ["3D model of buildings, vegetation, and surfaces", "Local meteorological boundary conditions"]
 outputs: ["Air and surface temperature fields", "Mean radiant temperature and thermal comfort (PET/UTCI)", "Wind flow and humidity distributions"]
+published: "2026-07-22"
 ---
 
 ## Overview

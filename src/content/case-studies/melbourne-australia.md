@@ -18,6 +18,7 @@ image: "/images/cities/melbourne.jpg"
 imageAlt: "Melbourne city skyline"
 imageCredit: "Photo: Celco85, CC BY-SA 4.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Skylinemelbourne2026.jpg"
+published: "2026-07-22"
 ---
 
 ## Background

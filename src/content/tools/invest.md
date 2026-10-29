@@ -12,6 +12,7 @@ lastUpdated: "2024"
 featured: false
 dataInputs: ["Land-cover and land-use maps", "Biophysical and climate parameters", "Optional economic valuation tables"]
 outputs: ["Ecosystem-service supply maps (e.g. urban cooling, stormwater retention)", "Carbon storage and sequestration estimates", "Monetary valuation of services"]
+published: "2026-07-22"
 ---
 
 ## Overview

@@ -10,6 +10,7 @@ lastUpdated: "2025"
 featured: false
 dataInputs: ["Street address or location (viewer)", "GIS software for bulk data"]
 outputs: ["Flood hazard zones", "Printable FIRMette maps", "GIS data by county or state"]
+published: "2026-10-29"
 ---
 
 ## Overview

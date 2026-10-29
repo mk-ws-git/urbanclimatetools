@@ -10,6 +10,7 @@ lastUpdated: "2024"
 featured: false
 dataInputs: ["Community context", "Hazard of concern"]
 outputs: ["Steps to Resilience framework", "Curated tool directory", "Case studies & funding leads"]
+published: "2026-07-22"
 ---
 
 ## Overview

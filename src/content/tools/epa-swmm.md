@@ -12,6 +12,7 @@ lastUpdated: "2023"
 featured: false
 dataInputs: ["Catchment areas and land use", "Rainfall time series", "Drainage network (pipes, channels, storage)", "Soil and infiltration parameters"]
 outputs: ["Runoff quantity and quality", "Flow, depth and flooding in the drainage network", "Pollutant loads", "Green infrastructure performance"]
+published: "2026-10-29"
 ---
 
 ## Overview

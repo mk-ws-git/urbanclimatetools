@@ -10,6 +10,7 @@ lastUpdated: "2024"
 featured: true
 dataInputs: ["Location / coastal area of interest", "Sea level rise scenario (0–10 ft)", "Tidal datum"]
 outputs: ["Inundation maps", "Coastal flood-frequency layers", "Marsh migration projections", "Social vulnerability overlays"]
+published: "2026-07-22"
 ---
 
 ## Overview

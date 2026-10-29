@@ -18,6 +18,7 @@ image: "/images/cities/medellin.jpg"
 imageAlt: "El Poblado neighbourhood in Medellín"
 imageCredit: "Photo: Daniel-1-1, CC BY 3.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:El_Poblado_Medell%C3%ADn.jpg"
+published: "2026-07-22"
 ---
 
 ## Background

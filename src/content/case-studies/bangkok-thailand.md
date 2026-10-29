@@ -17,6 +17,7 @@ image: "/images/cities/bangkok.jpg"
 imageAlt: "Retention pond and lawns at Chulalongkorn University Centenary Park in Bangkok"
 imageCredit: "Photo: BunBn, CC BY-SA 4.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Cu-centenary-park-2017.jpg"
+published: "2026-07-22"
 ---
 
 ## Background

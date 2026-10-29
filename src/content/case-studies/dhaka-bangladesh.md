@@ -18,6 +18,7 @@ image: "/images/cities/dhaka.jpg"
 imageAlt: "Drone view along Kamal Atatürk Avenue, Dhaka"
 imageCredit: "Photo: Sifat777, CC BY-SA 4.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Drone_view_from_Kamal_Atat%C3%BCrk_Avenue.jpg"
+published: "2026-07-22"
 ---
 
 ## Background

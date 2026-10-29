@@ -17,6 +17,7 @@ image: "/images/cities/ahmedabad.jpg"
 imageAlt: "Busy market street in Ahmedabad's old city with the Bhadra Fort tower behind"
 imageCredit: "Photo: Ninara, CC BY 2.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Historic_City_of_Ahmedabad_%2852688850567%29.jpg"
+published: "2026-07-22"
 ---
 
 ## Background

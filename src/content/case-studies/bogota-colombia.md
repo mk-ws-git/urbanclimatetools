@@ -18,6 +18,7 @@ image: "/images/cities/bogota.jpg"
 imageAlt: "View of Bogotá, Colombia"
 imageCredit: "Photo: Pedro Szekely from Los Angeles, USA, CC BY-SA 2.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Bogota%2C_Colombia_%2836668708290%29.jpg"
+published: "2026-07-22"
 ---
 
 ## Background

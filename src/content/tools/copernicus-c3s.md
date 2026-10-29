@@ -10,6 +10,7 @@ lastUpdated: "2024"
 featured: true
 dataInputs: ["Variable of interest", "Region / bounding box", "Time period", "Scenario (RCP/SSP)"]
 outputs: ["ERA5 reanalysis (1940–present)", "CMIP6 climate projections", "Urban climate indices", "Sectoral indicators"]
+published: "2026-07-22"
 ---
 
 ## Overview

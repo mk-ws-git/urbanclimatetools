@@ -17,6 +17,7 @@ image: "/images/cities/freetown.jpg"
 imageAlt: "Aerial view of Freetown, Sierra Leone, between green hills and the estuary"
 imageCredit: "Photo: David Hond, CC BY 2.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Freetown-aerialview.jpg"
+published: "2026-07-22"
 ---
 
 ## Background

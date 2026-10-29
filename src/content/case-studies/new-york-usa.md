@@ -18,6 +18,7 @@ image: "/images/cities/new-york.jpg"
 imageAlt: "Flooded FDR Drive in Manhattan's Lower East Side after Hurricane Sandy, with public housing towers beside it"
 imageCredit: "Photo: Beth Carey, CC BY 2.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Flooding_on_FDR_Drive%2C_following_Hurricane_Sandy.jpg"
+published: "2026-10-29"
 ---
 
 ## Background

@@ -16,6 +16,7 @@ image: "/images/cities/lagos.jpg"
 imageAlt: "Tafa Balewa Square in Onikan, Lagos"
 imageCredit: "Photo: Koutchika Lihouenou Gaspard, CC BY-SA 4.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Tafa_Balewa_Square_%28Onikan%29_in_Lagos._Nigeria.jpg"
+published: "2026-07-22"
 ---
 
 ## Background

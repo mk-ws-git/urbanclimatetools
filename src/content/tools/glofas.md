@@ -10,6 +10,7 @@ lastUpdated: "2025"
 featured: false
 dataInputs: ["River basin or location", "Copernicus Climate Data Store account for data downloads"]
 outputs: ["River discharge forecasts up to 30 days ahead", "Reforecasts for calibration", "Seasonal outlooks"]
+published: "2026-10-29"
 ---
 
 ## Overview

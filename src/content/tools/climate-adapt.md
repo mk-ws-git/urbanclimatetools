@@ -10,6 +10,7 @@ lastUpdated: "2024"
 featured: false
 dataInputs: ["Topic, sector, or country of interest"]
 outputs: ["Adaptation case studies and options", "Climate projections and indicators", "Guidance for adaptation planning"]
+published: "2026-07-22"
 ---
 
 ## Overview

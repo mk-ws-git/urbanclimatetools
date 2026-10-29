@@ -18,6 +18,7 @@ image: "/images/cities/jakarta.jpg"
 imageAlt: "People wade through flooded streets in Jakarta, with a monument and office buildings behind"
 imageCredit: "Photo: VOA Indonesian Service, Public domain, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:VOA_People_walk_through_Jakarta%27s_flooded_streets.jpg"
+published: "2026-10-29"
 ---
 
 ## Background

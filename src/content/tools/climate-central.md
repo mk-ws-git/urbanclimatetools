@@ -10,6 +10,7 @@ lastUpdated: "2024"
 featured: true
 dataInputs: ["Location", "Hazard of interest", "Time horizon"]
 outputs: ["Local risk visualisations", "Coastal flood maps (Risk Finder)", "Heat and extreme-event analytics"]
+published: "2026-07-22"
 ---
 
 ## Overview

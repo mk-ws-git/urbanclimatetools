@@ -10,6 +10,7 @@ lastUpdated: "2024"
 featured: false
 dataInputs: ["Community of interest"]
 outputs: ["Urban heat island maps and reports", "Heat and health resources"]
+published: "2026-10-29"
 ---
 
 ## Overview

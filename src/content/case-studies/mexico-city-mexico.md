@@ -17,6 +17,7 @@ image: "/images/cities/mexico-city.jpg"
 imageAlt: "Mexico City's Reforma skyline above the tree canopy of Chapultepec Park"
 imageCredit: "Photo: Jonathan Salvador, CC BY-SA 4.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Mexico_City_Reforma_skyline.jpg"
+published: "2026-07-22"
 ---
 
 ## Background

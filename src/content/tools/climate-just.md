@@ -10,6 +10,7 @@ lastUpdated: "2023"
 featured: false
 dataInputs: ["Neighbourhood / area boundary", "Socio-economic indicators"]
 outputs: ["Social-vulnerability maps", "Flood & heat disadvantage indices", "Equity-focused guidance"]
+published: "2026-07-22"
 ---
 
 ## Overview

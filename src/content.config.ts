@@ -18,6 +18,7 @@ const tools = defineCollection({
     difficulty:   z.enum(['beginner', 'intermediate', 'advanced']),
     lastUpdated:  z.string(),
     featured:     z.boolean().default(false),
+    published:    z.string().optional(),      // YYYY-MM-DD, set when the entry goes live
     dataInputs:   z.array(z.string()),
     outputs:      z.array(z.string()),
     ogImage:      z.string().optional(),      // per-page Open Graph image override; falls back to /og/tools-<slug>.png
@@ -44,6 +45,7 @@ const caseStudies = defineCollection({
     statValue:  z.string().optional(),
     statLabel:  z.string().optional(),
     featured:   z.boolean().default(false),
+    published:  z.string().optional(),      // YYYY-MM-DD, set when the entry goes live
     ogImage:    z.string().optional(),      // per-page Open Graph image override; falls back to /og/case-studies-<slug>.png
     image:      z.string().optional(),      // e.g. /images/cities/phoenix.jpg — falls back to a gradient hero when absent
     imageAlt:   z.string().optional(),

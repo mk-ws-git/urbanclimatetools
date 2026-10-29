@@ -10,6 +10,7 @@ lastUpdated: "2022"
 featured: false
 dataInputs: ["City-wide data across social, economic, and environmental systems", "Hazard and infrastructure information"]
 outputs: ["City resilience profile and risk assessment", "Prioritised actions to strengthen resilience", "Baseline for monitoring progress"]
+published: "2026-07-22"
 ---
 
 ## Overview

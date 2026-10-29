@@ -17,6 +17,7 @@ image: "/images/cities/vienna.jpg"
 imageAlt: "Ivy-covered facade and green roof of a courtyard building in Vienna"
 imageCredit: "Photo: WWWeb.pix, CC BY-SA 4.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Fassadenbegr%C3%BCnung_im_WUK_2025-09.jpg"
+published: "2026-07-22"
 ---
 
 ## Background

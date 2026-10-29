@@ -11,6 +11,7 @@ lastUpdated: "2024"
 featured: false
 dataInputs: ["Satellite imagery", "Numerical weather prediction", "PV system metadata"]
 outputs: ["Short-term solar generation forecasts", "Grid carbon-intensity signals"]
+published: "2026-07-22"
 ---
 
 ## Overview

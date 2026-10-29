@@ -18,6 +18,7 @@ image: "/images/cities/auckland.jpg"
 imageAlt: "Floodwater forming a lake over cricket pitches in Auckland Domain after the 2023 floods"
 imageCredit: "Photo: Spil030, CC BY-SA 4.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Lake_formed_from_floodwaters_on_top_of_cricket_pitches_in_Pukekawa_Auckland_Domain_from_Carlton_Gore_Rd.jpg"
+published: "2026-10-29"
 ---
 
 ## Background

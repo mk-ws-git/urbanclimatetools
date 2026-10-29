@@ -17,6 +17,7 @@ image: "/images/cities/athens.jpg"
 imageAlt: "View across the dense rooftops of Athens towards Mount Lycabettus"
 imageCredit: "Photo: Tomisti, CC BY-SA 3.0, via Wikimedia Commons"
 imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Athens_panorama_from_Acropolis_2.jpg"
+published: "2026-07-22"
 ---
 
 ## Background
