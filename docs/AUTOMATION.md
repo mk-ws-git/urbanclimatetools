@@ -24,9 +24,11 @@ Goal: two case studies and two tools a month with minimal manual work, without g
 
 ## Deploy
 
-Connect the GitHub repo to Cloudflare Pages in the dashboard (Workers & Pages > urbanclimatetools > Settings > Builds) so merges deploy automatically. Until then deploy manually: `npm run build && npx wrangler pages deploy dist --project-name urbanclimatetools`.
+Merging to `main` runs `.github/workflows/deploy.yml`, which builds and deploys to the existing Cloudflare Pages project. It needs two repository secrets, `CLOUDFLARE_API_TOKEN` (permission: Cloudflare Pages, Edit) and `CLOUDFLARE_ACCOUNT_ID`; until they exist the job skips itself. Cloudflare cannot attach Git to a Pages project created by direct upload, which is why a workflow is used instead.
 
-Note: share images are text rendered with system fonts, so they look slightly different on Cloudflare's build machines than locally. If that matters, build and commit `public/og` locally and remove `node scripts/generate-og.mjs &&` from the `build` script.
+Share images are committed in `public/og`. `npm run build` does not regenerate them; run `npm run og` (or `npm run build:full`) after adding or changing entries, then commit the images.
+
+Manual deploy still works: `npm run build:full && npx wrangler pages deploy dist --project-name urbanclimatetools`.
 
 ## Why nothing posts automatically
 

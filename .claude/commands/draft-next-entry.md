@@ -9,6 +9,6 @@ Draft the next due entry from `content/calendar.json`, following the rules in `d
 3. Match the format of an existing entry (case study: `src/content/case-studies/*.md`; tool: `src/content/tools/*.md`) and the schema in `src/content.config.ts`. Include a "Sources" section with links. Do not add `citedBy`.
 4. Case study photo: run `node scripts/commons-photo.mjs search "<query>"`, look at candidates on Commons, then `get "<File:Title>" <name>`. Add the printed frontmatter lines (write an accurate `imageAlt`).
 5. Tools: pick `license` from the enum honestly (`Proprietary-Free` means free to use, not open source). Use the tool's own page as `homepage`.
-6. Run `npm run build` and fix errors. Run `node scripts/social-drafts.mjs <new file>` to confirm it works.
-7. Create a branch `entry/<slug>`, commit (end the message with the Co-Authored-By line required for this repo), push, and open a pull request using the template. In the PR body, list each headline figure with its source URL and anything you could not verify.
+6. Run `npm run og` (regenerates the share images that must be committed), then `npm run build`, and fix errors. Run `node scripts/social-drafts.mjs <new file>` to confirm it works.
+7. Create a branch `entry/<slug>`, commit (do NOT add a Co-Authored-By line: the owner's global rule forbids it), push, and open a pull request using the template. In the PR body, list each headline figure with its source URL and anything you could not verify.
 8. Do NOT merge. The owner reviews and merges.
