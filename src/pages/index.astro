@@ -14,11 +14,14 @@ const allTools = await getCollection('tools');
 const allStudies = await getCollection('case-studies');
 const stats = await getCatalogStats();
 
+// Versioned so social platforms (LinkedIn caches by URL) refetch the card when the counts change.
+const ogVersion = `${allTools.length}-${allStudies.length}-${stats.countryCount}`;
+
 const featuredTools = allTools.filter((t) => t.data.featured);
 const featuredStudies = allStudies.filter((s) => s.data.featured);
 ---
 
-<BaseLayout title="Urban Climate Tools" ogImage="/og/home.jpg" description="Open-source solutions for building climate-resilient cities — tools, data, and case studies for urban climate practitioners." fullBleedHero={true}>
+<BaseLayout title="Urban Climate Tools" ogImage={`/og/home.jpg?v=${ogVersion}`} description="Open-source solutions for building climate-resilient cities — tools, data, and case studies for urban climate practitioners." fullBleedHero={true}>
 
   <!-- ─── Hero ─── -->
   <section class="relative min-h-screen overflow-hidden text-white">

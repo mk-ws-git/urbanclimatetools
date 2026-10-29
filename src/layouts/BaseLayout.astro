@@ -21,7 +21,7 @@ const {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(ogImage, Astro.site);
-const ogImageType = /\.jpe?g$/i.test(ogImage) ? 'image/jpeg' : 'image/png';
+const ogImageType = /\.jpe?g(\?|$)/i.test(ogImage) ? 'image/jpeg' : 'image/png';
 const fullTitle = title === 'Urban Climate Tools'
   ? title
   : `${title} — Urban Climate Tools`;
