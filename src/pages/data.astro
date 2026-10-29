@@ -62,5 +62,25 @@ const stats = await getCatalogStats();
       </ul>
     </div>
 
+    <!-- Open data / downloads -->
+    <div class="card">
+      <h2 class="text-lg font-semibold text-stone-900 dark:text-stone-100 mb-2">Download the catalog</h2>
+      <p class="text-sm text-stone-600 dark:text-stone-400 leading-relaxed mb-4">
+        Every tool and case study as open data, generated from the site content so it never drifts. Free to reuse with attribution.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/catalog.csv" download
+          class="inline-flex items-center gap-2 rounded-lg border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800/50 px-4 py-2.5 text-sm font-medium text-stone-700 dark:text-stone-300 hover:border-forest-400 hover:bg-forest-50 dark:hover:bg-forest-950/60 transition-colors">
+          <svg class="h-4 w-4 text-forest-600 dark:text-forest-400" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 13h10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          CSV <span class="text-stone-400 dark:text-stone-500">(spreadsheet)</span>
+        </a>
+        <a href="/catalog.json"
+          class="inline-flex items-center gap-2 rounded-lg border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800/50 px-4 py-2.5 text-sm font-medium text-stone-700 dark:text-stone-300 hover:border-forest-400 hover:bg-forest-50 dark:hover:bg-forest-950/60 transition-colors">
+          <svg class="h-4 w-4 text-forest-600 dark:text-forest-400" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 13h10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          JSON <span class="text-stone-400 dark:text-stone-500">(API)</span>
+        </a>
+      </div>
+    </div>
+
   </div>
 </BaseLayout>
