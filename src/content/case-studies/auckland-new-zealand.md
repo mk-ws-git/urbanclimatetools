@@ -7,7 +7,7 @@ lng: 174.7645
 title: "Record Rain and Managed Retreat: Auckland After the 2023 Floods"
 tagline: "After record rainfall in 2023, Auckland is buying out the highest-risk homes rather than rebuilding them in place"
 themes: [coastal, flood, planning]
-toolsUsed: ["floodmap-net", "thinkhazard", "copernicus-c3s"]
+toolsUsed: ["floodmap-net", "thinkhazard", "copernicus-c3s", "glofas"]
 population: "1.7 million"
 year: 2023
 impact: "The 27 January 2023 floods killed four people after a record 245 to 258 mm of rain in a day; the Crown committed up to $387 million toward Auckland Council's buyouts of 'Category 3' high-risk homes, with close to 1,000 homes eligible by January 2025."

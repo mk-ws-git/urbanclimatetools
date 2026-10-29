@@ -7,7 +7,7 @@ lng: 106.8456
 title: "Sinking City: Jakarta's Race Between Subsidence and the Sea"
 tagline: "Jakarta is sinking by centimetres a year, and the debate is whether a giant sea wall treats the cause or only the symptom"
 themes: [coastal, flood, planning]
-toolsUsed: ["floodmap-net", "thinkhazard", "copernicus-c3s"]
+toolsUsed: ["floodmap-net", "thinkhazard", "copernicus-c3s", "glofas"]
 population: "About 10 million"
 year: 2024
 impact: "Jakarta is sinking by about 3.5 cm a year on average (BRIN), and has sunk by as much as 4 metres in places over four decades, leaving roughly 40% of the city below sea level; groundwater pumping is the main driver."

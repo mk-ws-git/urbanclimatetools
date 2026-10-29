@@ -7,7 +7,7 @@ lng: -112.0740
 title: "Heat as a Public Health Emergency: Phoenix's Extreme Heat Action Plan"
 tagline: "Phoenix created the first publicly funded municipal heat office, and its results are still being evaluated"
 themes: [heat, data, planning]
-toolsUsed: ["eea-urban-heat-island", "roof-savings-calculator", "climate-central"]
+toolsUsed: ["eea-urban-heat-island", "roof-savings-calculator", "climate-central", "heat-gov"]
 population: "1.6 million"
 year: 2021
 impact: "After nearly 500 heat deaths in 2020, Phoenix opened a $2.8 million Office of Heat Response and Mitigation in 2021; the regional Heat Relief Network grew to 112 cooling centres and 56 hydration stations, though heat deaths were still rising in 2023."

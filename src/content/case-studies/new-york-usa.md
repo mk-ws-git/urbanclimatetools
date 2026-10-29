@@ -7,7 +7,7 @@ lng: -74.0060
 title: "After Sandy: New York City's Coastal Resilience Programme"
 tagline: "Hurricane Sandy flooded 17% of New York City, and the city is still building the flood defences that followed"
 themes: [coastal, flood, planning]
-toolsUsed: ["noaa-slr", "climate-resilience-toolkit", "stormwater-calculator"]
+toolsUsed: ["noaa-slr", "climate-resilience-toolkit", "stormwater-calculator", "fema-flood-hazard-layer", "noaa-digital-coast"]
 population: "8.8 million"
 year: 2013
 impact: "Hurricane Sandy (2012) flooded about 51 square miles, 17% of New York City, and caused 43 deaths in the city; the East Side Coastal Resiliency project, begun in 2020, will protect more than 110,000 residents including 28,000 in public housing."

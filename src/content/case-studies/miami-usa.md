@@ -7,7 +7,7 @@ lng: -80.1918
 title: "Living with Water: Miami's Sea Level Rise Adaptation Strategy"
 tagline: "Miami is funding flood and sea-level-rise projects through a $400 million bond and a decades-long stormwater plan"
 themes: [coastal, flood, planning]
-toolsUsed: ["noaa-slr", "floodmap-net", "stormwater-calculator"]
+toolsUsed: ["noaa-slr", "floodmap-net", "stormwater-calculator", "noaa-digital-coast"]
 population: "470,000"
 year: 2017
 impact: "Voters approved the $400 million Miami Forever Bond in 2017, with about $192 million for sea-level rise and flood prevention; the city's stormwater master plan calls for roughly $3.8 billion in drainage spending over four decades."
