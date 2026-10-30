@@ -1,0 +1,52 @@
+name: Content reminders
+
+# Daily: keep one tracking issue current, and post a nudge comment at exactly
+# 7, 3 and 1 days before each unpublished entry is due (plus a one-time overdue
+# ping). Review/approve happens by merging the draft PR — see docs/AUTOMATION.md.
+on:
+  schedule:
+    - cron: "0 7 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Build reminder body + nudge
+        run: node scripts/due-reminders.mjs
+
+      - name: Upsert the tracking issue and post any nudge
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          # Ensure the marker label exists (idempotent).
+          gh label create content-schedule --color 1f883d --description "Rolling content schedule tracker" 2>/dev/null || true
+
+          # One tracking issue, found by label. Create if missing, else update its body.
+          num=$(gh issue list --label content-schedule --state open --json number --jq '.[0].number // empty')
+          if [ -z "$num" ]; then
+            num=$(gh issue create --title "📅 Content schedule — upcoming" --label content-schedule --body-file reminder-body.md | grep -oE '[0-9]+$')
+            echo "Created tracking issue #$num"
+          else
+            gh issue edit "$num" --body-file reminder-body.md
+            echo "Updated tracking issue #$num"
+          fi
+
+          # Post the nudge as a comment only when the script emitted one (exact 7/3/1/-1 day marks).
+          if [ -s reminder-nudge.md ]; then
+            gh issue comment "$num" --body-file reminder-nudge.md
+            echo "Posted nudge comment to #$num"
+          else
+            echo "No nudge due today."
+          fi
