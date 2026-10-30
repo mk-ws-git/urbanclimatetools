@@ -54,3 +54,21 @@ Tried a daily Claude Code scheduled task (routine `trig_01NjoSmYQA8ZaQjHKYzxnYTq
 2. **Fully-automated drafting.** Recreate the routine from the claude.ai Automations/Routines screen with the GitHub connector attached (so the fired session has GitHub tools), **or** move the git/PR step into a GitHub Action driven by an `ANTHROPIC_API_KEY` repo secret.
 
 Either way the **review/approve surface stays one place: a pull request — merge = publish.**
+
+### Project-tracking: now in the Project Manager app (2026-10-30, continued)
+
+This project is set up in the owner's Project Manager app (`mk-ws-git/project-manager`) as
+**project 02 "Urban Climate Tools"**, linked to the live URL (`urbanclimatetools.pages.dev`).
+That app had no field for narrative that isn't a task, so a free-text **`overview`** field was
+added to it end-to-end (model + DB column with an additive migration + API + UI "Overview"
+panel; merged to that repo's `main`). Project 02's overview now carries the intro and the full
+content/automation workflow described in this file, so the "how it all hangs together" summary
+lives in the PM app rather than only here.
+
+Task state mirrored into PM project 02: launch essentials (rebuild → Cloudflare → analytics +
+auto-sitemap all done; **custom domain** and **Search Console/Bing sitemap submission** still
+open) and a **Content engine** milestone (calendar reconciled, reminder + photo Actions done;
+drafting/publishing each scheduled entry via `/draft-next-entry` → merge PR is the ongoing task).
+
+Nothing in this (urbanclimatetools) repo changed in that continuation — it was PM-app wiring and
+this dev-log note. Catalogue unchanged at **32 case studies / 34 tools**, all live on `main`.
