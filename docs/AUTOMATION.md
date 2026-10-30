@@ -7,7 +7,7 @@ Goal: two case studies and two tools a month with minimal manual work, without g
 | Step | Who | What |
 |---|---|---|
 | 1. Plan | `content/calendar.json` | One entry per Tuesday (see `docs/CONTENT-CALENDAR.md`) |
-| 2. Remind | GitHub Action, Mondays | Opens an issue "Due: <entry>" with the checklist (`calendar-reminder.yml`) |
+| 2. Remind | GitHub Action, daily | Keeps one tracking issue current and posts nudge comments at 7, 3 and 1 days before each due date (`content-reminders.yml`) |
 | 3. Draft | You run `/draft-next-entry` in Claude Code | Researches, writes the entry, finds a Commons photo, builds, opens a pull request |
 | 4. Review | You | Check each figure against its source in the PR; merge |
 | 5. Check | CI on the PR and on `main` | Build plus internal link check (`ci.yml`) |
@@ -50,7 +50,7 @@ Tried a daily Claude Code scheduled task (routine `trig_01NjoSmYQA8ZaQjHKYzxnYTq
 
 **To actually get the 7/3/1-day auto-draft + nudge, two viable paths:**
 
-1. **Reliable reminders via GitHub Actions (recommended).** Extend `calendar-reminder.yml` to run daily and open/update a single tracking issue at 7, 3 and 1 days before each due date. Keep drafting as the existing `/draft-next-entry` Claude Code command (which works and does the research + Commons photo + PR). Net result: automatic reminders/nudges in one place (Issues), drafting is one command.
+1. **Reliable reminders via GitHub Actions — DONE (2026-10-30).** Implemented as `content-reminders.yml` + `scripts/due-reminders.mjs`, replacing the old Monday-only `calendar-reminder.yml`. Runs daily, keeps one tracking issue ("📅 Content schedule — upcoming", label `content-schedule`) current, and posts a nudge comment at exactly 7, 3 and 1 days before each unpublished entry's due date (plus a one-time overdue ping). Drafting stays the existing `/draft-next-entry` command. Verified end-to-end: the Action creates/updates the issue, and the 7/3/1-day nudge logic is unit-tested.
 2. **Fully-automated drafting.** Recreate the routine from the claude.ai Automations/Routines screen with the GitHub connector attached (so the fired session has GitHub tools), **or** move the git/PR step into a GitHub Action driven by an `ANTHROPIC_API_KEY` repo secret.
 
 Either way the **review/approve surface stays one place: a pull request — merge = publish.**
