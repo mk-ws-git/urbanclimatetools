@@ -1,0 +1,34 @@
+name: Scheduled merge (Milan case study)
+
+# One-off: on Monday 2026-11-02 at 07:00 UTC (08:00 Berlin) merge PR #16 if it is
+# still open, its checks pass and it has no "hold" label. Then trigger the deploy,
+# because pushes made with the default token do not start other workflows.
+# Safe to delete after the merge. Add the label "hold" to the PR to stop it.
+on:
+  schedule:
+    - cron: "0 7 2 11 *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PR: "16"
+    steps:
+      - name: Merge if open, green and not on hold
+        run: |
+          set -euo pipefail
+          state=$(gh pr view "$PR" --repo "$GITHUB_REPOSITORY" --json state,labels --jq '.state')
+          if [ "$state" != "OPEN" ]; then echo "PR #$PR is $state; nothing to do."; exit 0; fi
+          if gh pr view "$PR" --repo "$GITHUB_REPOSITORY" --json labels --jq '.labels[].name' | grep -qx hold; then
+            echo "PR #$PR has the hold label; not merging."; exit 0
+          fi
+          gh pr checks "$PR" --repo "$GITHUB_REPOSITORY"   # fails the job unless all checks pass
+          gh pr merge "$PR" --repo "$GITHUB_REPOSITORY" --merge --delete-branch
+          gh workflow run deploy.yml --repo "$GITHUB_REPOSITORY" --ref main
