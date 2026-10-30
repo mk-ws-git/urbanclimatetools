@@ -26,3 +26,5 @@ assets/video/
 # Promo/source videos (not part of the site)
 /*.mp4
 /*.png
+/analytics-report.md
+/analytics-title.txt
