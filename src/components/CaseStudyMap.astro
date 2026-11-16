@@ -13,7 +13,8 @@ const markers = studies.map((s) => ({
   country: s.data.country,
   slug: s.id,
   themes: s.data.themes,
-  impact: s.data.impact,
+  stat: s.data.statValue ?? '',
+  label: s.data.statLabel ?? '',
 }));
 ---
 
@@ -30,46 +31,37 @@ const markers = studies.map((s) => ({
     const L = window.L;
     if (!L) return;
 
-    // Follow the site theme (the toggle), not just the OS setting.
-    const prefersDark = document.documentElement.classList.contains('dark');
-
-    const tileURL = prefersDark
-      ? 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}'
-      : 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}';
+    const tiles = (dark) => L.tileLayer(
+      dark
+        ? 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}'
+        : 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+      { attribution: 'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, OpenStreetMap contributors', maxZoom: 16 },
+    );
 
     const map = L.map('case-study-map', { zoomControl: true, scrollWheelZoom: false })
       .setView([15, 15], 2);
 
-    L.tileLayer(tileURL, {
-      attribution: 'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, OpenStreetMap contributors',
-      maxZoom: 16,
-    }).addTo(map);
-
-    const svgIcon = (color) => L.divIcon({
-      className: '',
-      html: `<svg width="24" height="32" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 0C5.373 0 0 5.373 0 12c0 9 12 20 12 20S24 21 24 12C24 5.373 18.627 0 12 0z" fill="${color}"/>
-        <circle cx="12" cy="12" r="5" fill="white"/>
-      </svg>`,
-      iconSize: [24, 32],
-      iconAnchor: [12, 32],
-      popupAnchor: [0, -34],
+    // Follow the site theme (the toggle), and swap tiles when it changes.
+    let layer = tiles(document.documentElement.classList.contains('dark')).addTo(map);
+    document.addEventListener('themechange', (e) => {
+      map.removeLayer(layer);
+      layer = tiles(e.detail.dark).addTo(map);
+      layer.bringToBack();
     });
 
-    const catColor = {
-      heat: '#dc2626', flood: '#2563eb', coastal: '#0891b2',
-      green: '#16a34a', data: '#7c3aed', planning: '#d97706',
-    };
-
+    // One marker style in the site accent; the figure does the talking in the popup.
     markers.forEach((m) => {
-      const color = catColor[m.themes[0]] ?? '#9A4A0C';
+      const figure = m.stat
+        ? `<p style="font-size:22px; font-weight:600; letter-spacing:-0.03em; margin:6px 0 0; color:#1B6A48">${m.stat}</p>
+           <p style="font-size:12px; margin:2px 0 8px; color:#3A4841">${m.label}</p>`
+        : '';
       const popup = `
-        <div style="min-width:180px; font-family: system-ui, sans-serif;">
-          <strong style="font-size:14px">${m.city}, ${m.country}</strong>
-          <p style="font-size:12px; margin:4px 0 8px; color:#3A4841">${m.impact.slice(0, 90)}…</p>
+        <div style="min-width:190px; font-family: 'Inter Variable', Inter, system-ui, sans-serif;">
+          <strong style="font-size:13px">${m.city}, ${m.country}</strong>
+          ${figure}
           <a href="/case-studies/${m.slug}" style="font-size:12px; color:#9A4A0C; font-weight:600; text-decoration:underline">Read the case study</a>
         </div>`;
-      L.marker([m.lat, m.lng], { icon: svgIcon(color) })
+      L.circleMarker([m.lat, m.lng], { radius: 7, color: '#0F1714', weight: 1.5, fillColor: '#F2A65A', fillOpacity: 1 })
         .addTo(map)
         .bindPopup(popup);
     });

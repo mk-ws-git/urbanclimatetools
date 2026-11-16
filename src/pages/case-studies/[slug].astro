@@ -145,7 +145,7 @@ const resolvedOg = ogImage ?? `/og/case-studies-${study.id}.png`;
     padding-bottom: 3rem;
   }
   .lead-stat { flex: 1 1 20rem; min-width: 0; }
-  .big { margin-top: 0.75rem; font-size: clamp(4.5rem, 13vw, 10rem); overflow-wrap: anywhere; }
+  .big { margin-top: 0.75rem; font-size: clamp(4rem, 11vw, 8.5rem); overflow-wrap: anywhere; }
   .lead-label { margin-top: 0.75rem; max-width: 26rem; font-size: 1.25rem; color: var(--ink-2); }
   .lead-photo { flex: 1 1 24rem; min-width: 0; max-width: 34rem; margin: 0; }
   .lead-photo img {
@@ -202,13 +202,20 @@ const resolvedOg = ogImage ?? `/og/case-studies-${study.id}.png`;
   window.addEventListener('load', () => {
     const L = window.L;
     if (!L) return;
-    const dark = document.documentElement.classList.contains('dark');
-    const tileURL = dark
-      ? 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}'
-      : 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}';
+    const tiles = (dark) => L.tileLayer(
+      dark
+        ? 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}'
+        : 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+      { attribution: 'Tiles &copy; Esri', maxZoom: 16 },
+    );
     const map = L.map('mini-map', { zoomControl: false, dragging: false, scrollWheelZoom: false })
       .setView([lat, lng], 9);
-    L.tileLayer(tileURL, { attribution: 'Tiles &copy; Esri', maxZoom: 16 }).addTo(map);
+    let layer = tiles(document.documentElement.classList.contains('dark')).addTo(map);
+    document.addEventListener('themechange', (e) => {
+      map.removeLayer(layer);
+      layer = tiles(e.detail.dark).addTo(map);
+      layer.bringToBack();
+    });
     L.circleMarker([lat, lng], { radius: 8, color: '#0F1714', fillColor: '#F2A65A', fillOpacity: 1, weight: 2 })
       .addTo(map).bindPopup(city);
   });
