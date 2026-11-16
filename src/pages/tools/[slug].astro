@@ -46,7 +46,7 @@ const resolvedOg = ogImage ?? `/og/tools-${tool.id}.png`;
     <div class="absolute inset-0 bg-gradient-to-br from-forest-800 via-forest-950 to-forest-950"></div>
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Breadcrumb -->
-      <nav class="flex items-center gap-2 text-xs text-stone-400 pt-8" aria-label="Breadcrumb">
+      <nav class="flex items-center gap-2 text-xs text-white/85 pt-8" aria-label="Breadcrumb">
         <a href="/" class="hover:text-white transition-colors">Home</a>
         <span>/</span>
         <a href="/tools" class="hover:text-white transition-colors">Tools</a>
@@ -74,7 +74,7 @@ const resolvedOg = ogImage ?? `/og/tools-${tool.id}.png`;
       <div class="grid md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)]">
 
         <!-- Primary stat: what climate challenge it addresses -->
-        <div class="flex items-center gap-4 p-6 bg-forest-500 text-white">
+        <div class="flex items-center gap-4 p-6 bg-forest-800 text-white">
           <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-white/15">
             <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" set:html={categoryIcon[category]}></svg>
           </div>

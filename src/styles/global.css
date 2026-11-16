@@ -5,72 +5,172 @@
 
 @theme {
   /* Typography */
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
 
-  /* Brand palette — TERRAIN teal system, primary #1D9E75 */
-  --color-forest-950: #04342C;
-  --color-forest-900: #05402F;
-  --color-forest-800: #085041;
-  --color-forest-700: #0F6E56;
-  --color-forest-600: #168A66;
-  --color-forest-500: #1D9E75;
-  --color-forest-400: #3DB88E;
-  --color-forest-300: #5DCAA5;
-  --color-forest-200: #90D9C0;
-  --color-forest-100: #BEE9D9;
-  --color-forest-50:  #E1F5EE;
+  /* Green scale: vegetation, positive figures, links on inner pages */
+  --color-forest-950: #0B2A1E;
+  --color-forest-900: #0F3A29;
+  --color-forest-800: #155238;
+  --color-forest-700: #1B6A48;
+  --color-forest-600: #1F7A52;
+  --color-forest-500: #2A9B68;
+  --color-forest-400: #4FB985;
+  --color-forest-300: #7FD1A3;
+  --color-forest-200: #AEE3C5;
+  --color-forest-100: #D3F0E0;
+  --color-forest-50:  #EAF8F0;
 
-  --color-stone-950: #0c0a09;
-  --color-stone-900: #1c1917;
-  --color-stone-800: #292524;
-  --color-stone-700: #44403c;
-  --color-stone-600: #57534e;
-  --color-stone-500: #78716c;
-  --color-stone-400: #a8a29e;
-  --color-stone-300: #d6d3d1;
-  --color-stone-200: #e7e5e4;
-  --color-stone-100: #f5f5f4;
-  --color-stone-50:  #fafaf9;
+  /* Neutrals: cool drafting-paper greys with a green cast (light theme values) */
+  --color-stone-950: #0F1714;
+  --color-stone-900: #15211C;
+  --color-stone-800: #1D2C26;
+  --color-stone-700: #303B36;
+  --color-stone-600: #44524B;
+  --color-stone-500: #56665E;
+  --color-stone-400: #5A6B62;
+  --color-stone-300: #B9C5BE;
+  --color-stone-200: #CFD8D3;
+  --color-stone-100: #E9EEEB;
+  --color-stone-50:  #F3F6F4;
 
-  --color-amber-600: #d97706;
-  --color-amber-500: #f59e0b;
-  --color-amber-400: #fbbf24;
+  --color-amber-600: #9A4A0C;
+  --color-amber-500: #C9731F;
+  --color-amber-400: #F2A65A;
 }
 
-/* Brand-tinted dark mode — surfaces built on deep moss #04342C.
-   Scoped to .dark so light mode is untouched. Unlayered, so it overrides @theme.
-   Dark mode only ever uses stone 700–950 for surfaces/borders and 100–400 for text. */
+/* Semantic tokens. New components read these; older utility classes pick up the
+   same palette through the stone and forest scales above and below. */
+:root {
+  --bg: #F3F6F4;
+  --surface: #FFFFFF;
+  --ink: #0F1714;
+  --ink-2: #3A4841;
+  --ink-3: #56665E;
+  --rule: #CFD8D3;
+  --accent: #9A4A0C;        /* accent as text or line */
+  --accent-solid: #F2A65A;  /* accent as a filled surface */
+  --accent-solid-hover: #FFD3A1;
+  --on-accent: #0F1714;
+  --green: #1B6A48;
+  --water: #2C6E9E;
+
+  /* Axonometric drawing */
+  --ax-line: #2A3A33;
+  --ax-ground: #E4EBE7;
+  --ax-slab-l: #C3CEC8;
+  --ax-slab-r: #AEBBB4;
+  --ax-street: #D5DED9;
+  --ax-top: #FFFFFF;
+  --ax-left: #E1E8E4;
+  --ax-right: #C8D3CD;
+  --ax-floor: #8A9A91;
+  --ax-veg: #BFE3CF;
+  --ax-veg-line: #1B6A48;
+  --ax-marsh: #CBE6D6;
+  --ax-water: #CFE4F2;
+  --ax-water-line: #2C6E9E;
+  --ax-yard: #F7F9F8;
+  --ax-pit: #D5DED9;
+}
+
+/* Dark theme. Unlayered, so it overrides @theme.
+   Dark mode uses stone 700–950 for surfaces and borders, 100–600 for text. */
 .dark {
-  --color-stone-950: #03211B; /* page background — deepest */
-  --color-stone-900: #04342C; /* cards & section surfaces — deep moss */
-  --color-stone-800: #0A4D3E; /* raised: chips, inputs, emphasis borders */
-  --color-stone-700: #12614E; /* borders, hover edges */
+  --color-stone-950: #0F1714; /* page background */
+  --color-stone-900: #15211C; /* cards and section surfaces */
+  --color-stone-800: #1D2C26; /* raised: chips, inputs */
+  --color-stone-700: #2A3A33; /* borders */
 
-  --color-stone-100: #F2F7F5; /* primary text / headings — near white, max contrast */
-  --color-stone-200: #DDE8E3;
-  --color-stone-300: #C2D2CB; /* strong secondary text */
-  --color-stone-400: #9FB3AB; /* muted text — lightened & cooled for contrast on teal */
-  --color-stone-500: #87998F;
-  --color-stone-600: #6E8077;
+  --color-stone-100: #E6EFEA; /* primary text */
+  --color-stone-200: #D6E2DB;
+  --color-stone-300: #C9D8D0; /* secondary text */
+  --color-stone-400: #A3B6AC; /* muted text */
+  --color-stone-500: #94A79D;
+  --color-stone-600: #8A9C92;
+
+  --color-amber-600: #F2A65A;
+  --color-amber-500: #F2A65A;
+
+  --bg: #0F1714;
+  --surface: #15211C;
+  --ink: #E6EFEA;
+  --ink-2: #C9D8D0;
+  --ink-3: #A3B6AC;
+  --rule: #2A3A33;
+  --accent: #F2A65A;
+  --green: #7FD1A3;
+  --water: #7DB6E0;
+
+  --ax-line: #BFD2C8;
+  --ax-ground: #15211C;
+  --ax-slab-l: #0B120F;
+  --ax-slab-r: #090F0C;
+  --ax-street: #101915;
+  --ax-top: #1D2C26;
+  --ax-left: #17241E;
+  --ax-right: #111A16;
+  --ax-floor: #5E756A;
+  --ax-veg: #24543C;
+  --ax-veg-line: #7FD1A3;
+  --ax-marsh: #1F4634;
+  --ax-water: #132B3D;
+  --ax-water-line: #7DB6E0;
+  --ax-yard: #2C3F37;
+  --ax-pit: #1B2A24;
 }
 
-/* Frosted glass header — defined here so it's never scoped or dropped */
+/* Header: solid, ruled, no blur */
 .uct-header {
-  background: rgba(255, 255, 255, 0.55);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  /* stylelint-disable-next-line */
-  backdrop-filter: blur(24px) saturate(180%);
-  border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
 }
-.dark .uct-header {
-  background: rgba(4, 36, 30, 0.6);
-  border-bottom-color: rgba(255, 255, 255, 0.08);
+
+/* Display type. Unlayered so it wins over weight utilities on headings:
+   Instrument Serif ships a single weight and must not be faux-bolded. */
+h1,
+h2:not(.text-xs, .text-sm) {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
 }
+h1 { font-size: clamp(2.25rem, 4.2vw, 3.5rem); }
+h2:not(.text-xs, .text-sm, .text-base, .text-lg) { font-size: clamp(1.75rem, 2.6vw, 2.25rem); }
+
+/* Axonometric drawing (src/assets/city-block.svg) */
+.ax { display: block; width: 100%; height: auto; }
+.ax polygon, .ax circle, .ax ellipse, .ax path { stroke: var(--ax-line); stroke-width: 1.1; stroke-linejoin: round; }
+.ax line { stroke: var(--ax-line); stroke-width: 1; stroke-linecap: round; }
+.ax .ax-ground { fill: var(--ax-ground); }
+.ax .ax-slab-l { fill: var(--ax-slab-l); }
+.ax .ax-slab-r { fill: var(--ax-slab-r); }
+.ax .ax-street { fill: var(--ax-street); stroke: var(--ax-floor); stroke-width: 0.8; }
+.ax .ax-dash { stroke: var(--ax-floor); }
+.ax .ax-top { fill: var(--ax-top); }
+.ax .ax-left { fill: var(--ax-left); }
+.ax .ax-right { fill: var(--ax-right); }
+.ax .ax-floor { stroke: var(--ax-floor); stroke-width: 0.7; }
+.ax .ax-veg { fill: var(--ax-veg); stroke: var(--ax-veg-line); }
+.ax .ax-veg-line { fill: none; stroke: var(--ax-veg-line); stroke-width: 0.9; }
+.ax .ax-trunk { stroke: var(--ax-veg-line); stroke-width: 1.4; }
+.ax .ax-marsh { fill: var(--ax-marsh); stroke: none; }
+.ax .ax-river { fill: var(--ax-water); stroke: none; }
+.ax .ax-water { fill: var(--ax-water); stroke: var(--ax-water-line); }
+.ax .ax-water-line { stroke: var(--ax-water-line); stroke-width: 0.8; }
+.ax .ax-shore { stroke: var(--ax-water-line); stroke-width: 0.9; stroke-dasharray: 3 4; }
+.ax .ax-pit-floor { fill: var(--ax-pit); stroke: none; }
+.ax .ax-yard { fill: var(--ax-yard); }
+.ax .ax-court { fill: none; stroke: var(--ax-line); stroke-width: 0.9; }
+.ax .ax-outline { fill: none; stroke-width: 1.2; }
 
 @layer base {
   :root {
-    color-scheme: light dark;
+    color-scheme: light;
+  }
+  :root.dark {
+    color-scheme: dark;
   }
 
   html {
@@ -79,13 +179,24 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+
   body {
-    @apply bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100;
+    background: var(--bg);
+    color: var(--ink);
     min-height: 100dvh;
   }
 
   ::selection {
-    @apply bg-forest-200 text-forest-900;
+    background: var(--accent-solid);
+    color: var(--on-accent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
   }
 
   h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
@@ -94,60 +205,73 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-lg bg-forest-500 px-5 py-2.5 text-sm font-medium text-white
-           hover:bg-forest-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest-500
-           transition-colors;
+    @apply inline-flex items-center gap-2 rounded-[4px] px-5 py-2.5 text-sm font-medium transition-colors;
+    background: var(--accent-solid);
+    color: var(--on-accent);
   }
+  .btn-primary:hover { background: var(--accent-solid-hover); }
 
   .btn-secondary {
-    @apply inline-flex items-center gap-2 rounded-lg border border-stone-300 bg-white px-5 py-2.5 text-sm font-medium text-stone-700
-           hover:bg-stone-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-400
-           dark:border-stone-700 dark:bg-stone-900 dark:text-stone-200 dark:hover:bg-stone-800 transition-colors;
+    @apply inline-flex items-center gap-2 rounded-[4px] border px-5 py-2.5 text-sm font-medium transition-colors;
+    border-color: var(--ink-3);
+    background: transparent;
+    color: var(--ink);
   }
+  .btn-secondary:hover { border-color: var(--ink); }
 
   .btn-ghost {
-    @apply inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-stone-600
-           hover:bg-stone-100 dark:text-stone-400 dark:hover:bg-stone-800 transition-colors;
+    @apply inline-flex items-center gap-2 rounded-[4px] px-4 py-2 text-sm font-medium transition-colors;
+    color: var(--ink-2);
   }
+  .btn-ghost:hover { color: var(--ink); }
 
-  /* card and card-hover share the same base styles — card-hover adds hover effects */
-  .card {
-    @apply rounded-xl border border-stone-200 bg-white p-6 shadow-sm
-           dark:border-stone-800 dark:bg-stone-900;
+  /* card and card-hover share the same base styles; card-hover adds the hover edge */
+  .card,
+  .card-hover {
+    @apply rounded-[4px] border p-6;
+    border-color: var(--rule);
+    background: var(--surface);
   }
 
   .card-hover {
-    @apply rounded-xl border border-stone-200 bg-white p-6 shadow-sm
-           dark:border-stone-800 dark:bg-stone-900
-           hover:border-forest-300 hover:shadow-md dark:hover:border-forest-700 transition-all duration-200;
+    transition: border-color 0.15s;
   }
+  .card-hover:hover { border-color: var(--accent); }
 
   .badge {
-    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+    @apply inline-flex items-center rounded-[2px] px-2 py-0.5 text-[11px] font-medium uppercase;
+    font-family: var(--font-mono);
+    letter-spacing: 0.06em;
   }
 
   .section-label {
-    @apply text-xs font-semibold uppercase tracking-widest text-forest-600 dark:text-forest-400;
+    @apply text-xs font-medium uppercase;
+    font-family: var(--font-mono);
+    letter-spacing: 0.12em;
+    color: var(--accent);
   }
 
   .prose-content {
     @apply prose prose-stone max-w-none dark:prose-invert
-           prose-headings:font-semibold prose-a:text-forest-700 prose-a:no-underline hover:prose-a:underline
+           prose-headings:font-semibold prose-a:text-forest-700 prose-a:underline
            dark:prose-a:text-forest-300;
   }
 
   .input {
-    @apply w-full rounded-lg border border-stone-300 bg-white px-3 py-2 text-sm
-           placeholder:text-stone-400 focus:border-forest-500 focus:outline-none focus:ring-2 focus:ring-forest-500/20
-           dark:border-stone-700 dark:bg-stone-900 dark:text-stone-100;
+    @apply w-full rounded-[4px] border px-3 py-2 text-sm focus:outline-none;
+    border-color: var(--ink-3);
+    background: var(--surface);
+    color: var(--ink);
   }
+  .input::placeholder { color: var(--ink-3); }
+  .input:focus { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
 
-  .category-chip[data-cat="heat"]     { @apply bg-red-100 text-red-700 dark:bg-red-950 dark:text-red-300; }
-  .category-chip[data-cat="flood"]    { @apply bg-blue-100 text-blue-700 dark:bg-blue-950 dark:text-blue-300; }
-  .category-chip[data-cat="coastal"]  { @apply bg-cyan-100 text-cyan-700 dark:bg-cyan-950 dark:text-cyan-300; }
-  .category-chip[data-cat="green"]    { @apply bg-green-100 text-green-700 dark:bg-green-950 dark:text-green-300; }
-  .category-chip[data-cat="data"]     { @apply bg-violet-100 text-violet-700 dark:bg-violet-950 dark:text-violet-300; }
-  .category-chip[data-cat="planning"] { @apply bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300; }
+  .category-chip[data-cat="heat"]     { @apply bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-300; }
+  .category-chip[data-cat="flood"]    { @apply bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300; }
+  .category-chip[data-cat="coastal"]  { @apply bg-cyan-100 text-cyan-800 dark:bg-cyan-950 dark:text-cyan-300; }
+  .category-chip[data-cat="green"]    { @apply bg-green-100 text-green-800 dark:bg-green-950 dark:text-green-300; }
+  .category-chip[data-cat="data"]     { @apply bg-violet-100 text-violet-800 dark:bg-violet-950 dark:text-violet-300; }
+  .category-chip[data-cat="planning"] { @apply bg-amber-100 text-amber-600 dark:bg-stone-800 dark:text-amber-400; }
 
   /* Hide scrollbar on horizontal carousels (arrow buttons drive scrolling) */
   .scrollbar-hide {

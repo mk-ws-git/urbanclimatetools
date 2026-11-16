@@ -1,4 +1,10 @@
 ---
+import '@fontsource/ibm-plex-sans/400.css';
+import '@fontsource/ibm-plex-sans/500.css';
+import '@fontsource/ibm-plex-sans/600.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
+import '@fontsource/instrument-serif/400.css';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -13,7 +19,7 @@ interface Props {
 
 const {
   title,
-  description = 'Open-source tools and case studies for building climate-resilient cities.',
+  description = 'Free tools and city case studies for building climate-resilient cities.',
   ogImage = '/og-default.png',
   type = 'website',
   fullBleedHero = false,
@@ -60,15 +66,18 @@ const ogImageAlt = fullTitle;
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#085243" />
+    <meta name="theme-color" content="#F3F6F4" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0F1714" media="(prefers-color-scheme: dark)" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Theme: set before first paint so the page never flashes the wrong scheme -->
+    <script is:inline>
+      (function () {
+        var stored = null;
+        try { stored = localStorage.getItem('theme'); } catch (e) {}
+        var dark = stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.classList.toggle('dark', dark);
+      })();
+    </script>
   </head>
   <body>
     <Header />
@@ -77,14 +86,6 @@ const ogImageAlt = fullTitle;
     </main>
     <Footer />
 
-    <script>
-      // Dark mode toggle — persists to localStorage
-      const html = document.documentElement;
-      const stored = localStorage.getItem('theme');
-      if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        html.classList.add('dark');
-      }
-    </script>
     <!-- Cloudflare Web Analytics (cookieless; the token is a public site identifier).
          Production only, so local dev/preview never sends beacons. -->
     {import.meta.env.PROD && (
