@@ -1,149 +1,165 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ToolCard from '../../components/ToolCard.astro';
+import { categoryLabel, licenseSummary, difficultyLabel } from '../../lib/labels.mjs';
 
-const allTools = await getCollection('tools');
+const allTools = (await getCollection('tools')).sort((a, b) => a.data.title.localeCompare(b.data.title));
 
-const categories = [
-  { id: 'all',      label: 'All tools' },
-  { id: 'heat',     label: 'Heat Management' },
-  { id: 'flood',    label: 'Flood Risk' },
-  { id: 'coastal',  label: 'Coastal Resilience' },
-  { id: 'green',    label: 'Green Infrastructure' },
-  { id: 'data',     label: 'Data & Analytics' },
-  { id: 'planning', label: 'Planning & Policy' },
-];
+const categoryOrder = ['heat', 'flood', 'coastal', 'green', 'data', 'planning'];
+const groups = categoryOrder.map((cat, i) => ({
+  cat,
+  num: String(i + 1).padStart(2, '0'),
+  label: categoryLabel(cat),
+  tools: allTools.filter((t) => t.data.category === cat),
+}));
 
+const openLicensed = allTools.filter((t) => t.data.license !== 'Free-to-use').length;
 const difficulties = ['beginner', 'intermediate', 'advanced'];
 ---
 
-<BaseLayout title="Tools" description="Browse free and open-source urban climate tools across heat, flood, coastal, green infrastructure, data, and planning categories.">
+<BaseLayout title="Tools" description={`${allTools.length} free urban climate tools for heat, flooding, coasts, green infrastructure, climate data and planning.`}>
+  <div class="page">
 
-  <div class="bg-stone-50 dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
-      <p class="section-label mb-2">Tool library</p>
-      <h1 class="text-3xl font-bold text-stone-900 dark:text-stone-100">Urban climate tools</h1>
-      <p class="mt-2 text-stone-500 dark:text-stone-400 max-w-2xl">
-        {allTools.length} free tools across six challenge areas. Filter by category, difficulty, or search by keyword.
+    <header class="page-head">
+      <p class="section-label">The index</p>
+      <h1>Tools, sorted by the problem in front of you.</h1>
+      <p class="lede">
+        {allTools.length} tools, all free to use; {openLicensed} carry an open licence.
+        Each entry says what you need to bring and what you get back.
       </p>
-    </div>
-  </div>
+    </header>
 
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
-    <!-- Filters -->
-    <div class="flex flex-wrap gap-3 mb-8 items-center">
-      <!-- Search -->
-      <input
-        id="tool-search"
-        type="search"
-        placeholder="Search tools..."
-        class="input max-w-xs"
-        aria-label="Search tools"
-      />
-
-      <!-- Category tabs -->
-      <div class="flex flex-wrap gap-1.5" role="group" aria-label="Filter by category">
-        {categories.map(({ id, label }) => (
-          <button
-            class="filter-btn rounded-lg px-3 py-1.5 text-xs font-medium border transition-colors"
-            data-filter-cat={id}
-            data-active={id === 'all' ? 'true' : 'false'}
-          >
-            {label}
-          </button>
+    <div class="controls">
+      <div class="tabs" role="group" aria-label="Filter by challenge">
+        <button type="button" class="tab" data-filter-cat="all" aria-pressed="true">All</button>
+        {groups.map((g) => (
+          <button type="button" class="tab" data-filter-cat={g.cat} aria-pressed="false">{g.label}</button>
         ))}
       </div>
-
-      <!-- Difficulty -->
-      <select id="filter-difficulty" class="input max-w-[160px]" aria-label="Filter by difficulty">
-        <option value="all">All levels</option>
-        {difficulties.map((d) => <option value={d}>{d.charAt(0).toUpperCase() + d.slice(1)}</option>)}
-      </select>
+      <div class="fields">
+        <input id="tool-search" type="search" placeholder="Search tools" class="input" aria-label="Search tools" />
+        <select id="filter-difficulty" class="input" aria-label="Filter by difficulty">
+          <option value="all">Any level</option>
+          {difficulties.map((d) => <option value={d}>{difficultyLabel(d)}</option>)}
+        </select>
+        <p class="meta" id="tool-count" aria-live="polite">{allTools.length} tools</p>
+      </div>
     </div>
 
-    <!-- Count -->
-    <p class="text-sm text-stone-500 dark:text-stone-400 mb-6" id="tool-count">{allTools.length} tools</p>
-
-    <!-- Grid -->
-    <div id="tools-grid" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {allTools.map((tool) => (
-        <div
-          class="tool-item"
-          data-cat={tool.data.category}
-          data-difficulty={tool.data.difficulty}
-          data-title={tool.data.title.toLowerCase()}
-          data-tags={tool.data.tags.join(' ').toLowerCase()}
-        >
-          <ToolCard tool={tool} />
+    {groups.map((g) => (
+      <section class="tool-group" data-group={g.cat}>
+        <div class="group-head">
+          <span class="meta">{g.num}</span>
+          <h2>{g.label}</h2>
+          <span class="meta"><span data-group-count>{g.tools.length}</span> tools</span>
         </div>
-      ))}
-    </div>
+        {g.tools.map((tool) => (
+          <a
+            href={`/tools/${tool.id}`}
+            class="row tool-item"
+            data-cat={tool.data.category}
+            data-difficulty={tool.data.difficulty}
+            data-title={tool.data.title.toLowerCase()}
+            data-tags={`${tool.data.tags.join(' ')} ${tool.data.tagline}`.toLowerCase()}
+          >
+            <span>
+              <span class="row-title">{tool.data.title}</span>
+              <span class="row-sub block">{tool.data.tagline}</span>
+            </span>
+            <span class="meta">{difficultyLabel(tool.data.difficulty)}</span>
+            <span class="meta">{licenseSummary(tool.data.license)}</span>
+          </a>
+        ))}
+      </section>
+    ))}
 
-    <p id="no-results" class="hidden py-16 text-center text-stone-400">
-      No tools match your filters. <button class="text-forest-600 underline" id="reset-filters">Reset</button>
+    <p id="no-results" class="no-results" hidden>
+      Nothing matches those filters.
+      <button type="button" class="text-link" id="reset-filters">Clear filters</button>
     </p>
+
   </div>
 </BaseLayout>
 
+<style>
+  .controls {
+    position: sticky;
+    top: 3.5rem;
+    z-index: 10;
+    background: var(--bg);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 0.25rem 0 0.75rem;
+  }
+  .fields {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1rem;
+    margin-top: 0.5rem;
+  }
+  .fields .input { width: auto; flex: 0 1 14rem; min-height: 2.75rem; }
+  .fields .meta { margin-left: auto; }
+  .tool-group[hidden], .tool-item[hidden] { display: none; }
+  .tool-group:first-of-type .group-head { margin-top: 2.5rem; }
+  .no-results { padding: 4rem 0; color: var(--ink-2); }
+  .page { padding-bottom: 6rem; }
+  @media (max-width: 640px) {
+    .controls { position: static; }
+  }
+</style>
+
 <script>
   const searchEl = document.getElementById('tool-search') as HTMLInputElement;
-  const diffEl   = document.getElementById('filter-difficulty') as HTMLSelectElement;
-  const countEl  = document.getElementById('tool-count')!;
+  const diffEl = document.getElementById('filter-difficulty') as HTMLSelectElement;
+  const countEl = document.getElementById('tool-count')!;
   const noResultsEl = document.getElementById('no-results')!;
   const items = Array.from(document.querySelectorAll<HTMLElement>('.tool-item'));
+  const groups = Array.from(document.querySelectorAll<HTMLElement>('.tool-group'));
+  const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-filter-cat]'));
 
   let activeCat = 'all';
 
   function applyFilters() {
-    const q    = searchEl.value.toLowerCase();
+    const q = searchEl.value.trim().toLowerCase();
     const diff = diffEl.value;
     let visible = 0;
 
     items.forEach((el) => {
-      const catMatch  = activeCat === 'all' || el.dataset.cat === activeCat;
-      const diffMatch = diff === 'all' || el.dataset.difficulty === diff;
-      const textMatch = !q || el.dataset.title!.includes(q) || el.dataset.tags!.includes(q);
-      const show = catMatch && diffMatch && textMatch;
-      el.classList.toggle('hidden', !show);
+      const show =
+        (activeCat === 'all' || el.dataset.cat === activeCat) &&
+        (diff === 'all' || el.dataset.difficulty === diff) &&
+        (!q || el.dataset.title!.includes(q) || el.dataset.tags!.includes(q));
+      el.hidden = !show;
       if (show) visible++;
     });
 
+    groups.forEach((g) => {
+      const n = g.querySelectorAll('.tool-item:not([hidden])').length;
+      g.hidden = n === 0;
+      const c = g.querySelector('[data-group-count]');
+      if (c) c.textContent = String(n);
+    });
+
     countEl.textContent = `${visible} tool${visible !== 1 ? 's' : ''}`;
-    noResultsEl.classList.toggle('hidden', visible > 0);
+    noResultsEl.hidden = visible > 0;
   }
 
-  document.querySelectorAll<HTMLButtonElement>('.filter-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      activeCat = btn.dataset.filterCat!;
-      document.querySelectorAll<HTMLButtonElement>('.filter-btn').forEach((b) => {
-        const active = b.dataset.filterCat === activeCat;
-        b.dataset.active = String(active);
-        b.classList.toggle('bg-forest-600',   active);
-        b.classList.toggle('text-white',       active);
-        b.classList.toggle('border-forest-600',active);
-        b.classList.toggle('border-stone-200', !active);
-        b.classList.toggle('text-stone-600',   !active);
-        b.classList.toggle('dark:border-stone-700', !active);
-        b.classList.toggle('dark:text-stone-400',   !active);
-      });
-      applyFilters();
-    });
-  });
+  function setCat(cat: string) {
+    activeCat = tabs.some((t) => t.dataset.filterCat === cat) ? cat : 'all';
+    tabs.forEach((t) => t.setAttribute('aria-pressed', String(t.dataset.filterCat === activeCat)));
+    applyFilters();
+  }
 
+  tabs.forEach((t) => t.addEventListener('click', () => setCat(t.dataset.filterCat!)));
   searchEl.addEventListener('input', applyFilters);
   diffEl.addEventListener('change', applyFilters);
   document.getElementById('reset-filters')?.addEventListener('click', () => {
     searchEl.value = '';
     diffEl.value = 'all';
-    activeCat = 'all';
-    document.querySelector<HTMLButtonElement>('[data-filter-cat="all"]')?.click();
+    setCat('all');
   });
 
-  // Init from ?cat= URL param, falling back to "all"
-  const urlCat = new URLSearchParams(window.location.search).get('cat');
-  const initBtn =
-    (urlCat && document.querySelector<HTMLButtonElement>(`[data-filter-cat="${urlCat}"]`)) ||
-    document.querySelector<HTMLButtonElement>('[data-filter-cat="all"]');
-  initBtn?.click();
+  // Init from ?cat= URL param
+  setCat(new URLSearchParams(window.location.search).get('cat') ?? 'all');
 </script>

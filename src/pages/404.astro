@@ -1,33 +1,42 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const links = [
+  ['/tools',        'Tools',        'The full index, sorted by problem'],
+  ['/case-studies', 'Case studies', 'What cities have actually done'],
+  ['/data',         'Data',         'Context, sources and downloads'],
+];
 ---
 
 <BaseLayout title="Page not found" description="The page you were looking for doesn’t exist.">
-  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 py-28 text-center">
-    <p class="section-label mb-3">Error 404</p>
-    <h1 class="text-4xl font-bold text-stone-900 dark:text-stone-100 sm:text-5xl">
-      Page not found
-    </h1>
-    <p class="mt-4 text-stone-500 dark:text-stone-400 leading-relaxed">
-      The page you’re looking for doesn’t exist or may have moved. Try searching, or head back to one of the main sections below.
-    </p>
+  <div class="page">
+    <header class="page-head">
+      <p class="section-label">Error 404</p>
+      <h1>This page is off the map.</h1>
+      <p class="lede">
+        It doesn’t exist or it has moved. Try the search, or start from one of the sections below.
+      </p>
+      <div class="actions">
+        <a href="/" class="btn-primary">Back to the start</a>
+        <a href="/search" class="btn-secondary">Search the site</a>
+      </div>
+    </header>
 
-    <div class="mt-8 flex flex-wrap justify-center gap-3">
-      <a href="/" class="btn-primary px-5 py-2.5">Back to home</a>
-      <a href="/search" class="btn-secondary px-5 py-2.5">Search the site</a>
-    </div>
-
-    <div class="mt-12 grid gap-3 sm:grid-cols-3 text-left">
-      {[
-        ['/tools',        'Tools',        'Browse the full tool library'],
-        ['/case-studies', 'Case Studies', 'Global implementations'],
-        ['/data',         'Data',         'Climate context & metrics'],
-      ].map(([href, title, desc]) => (
-        <a href={href} class="card-hover p-4">
-          <p class="font-medium text-stone-800 dark:text-stone-200 text-sm">{title}</p>
-          <p class="mt-0.5 text-xs text-stone-400">{desc}</p>
+    <nav class="links" aria-label="Main sections">
+      {links.map(([href, title, desc]) => (
+        <a href={href} class="row two">
+          <span class="row-title">{title}</span>
+          <span class="row-sub">{desc}</span>
         </a>
       ))}
-    </div>
+    </nav>
   </div>
 </BaseLayout>
+
+<style>
+  .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+  .links { border-top: 2px solid var(--ink); margin-bottom: 6rem; }
+  @media (min-width: 768px) {
+    .row.two { grid-template-columns: 14rem minmax(0, 1fr); }
+  }
+</style>

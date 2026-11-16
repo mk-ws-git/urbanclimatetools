@@ -1,60 +1,61 @@
 ---
 import metrics from '../data/metrics.json';
 import { getCatalogStats } from '../lib/catalog';
+import { categoryLabel } from '../lib/labels.mjs';
 
 const { categoryCounts } = await getCatalogStats();
 const maxCount = Math.max(1, ...Object.values(categoryCounts));
 ---
 
-<div class="card" id="data-explorer">
-  <h2 class="text-lg font-semibold text-stone-900 dark:text-stone-100 mb-1">Global Climate Context</h2>
-  <p class="text-sm text-stone-500 dark:text-stone-400 mb-6">Key metrics motivating the need for urban climate tools</p>
-
-  <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+<section id="data-explorer">
+  <div class="group-head first">
+    <h2>Why this matters</h2>
+    <span class="meta">Global context</span>
+  </div>
+  <div class="entry-grid context">
     {metrics.climateMetrics.map((m) => (
-      <div class="rounded-lg bg-stone-50 dark:bg-stone-800 p-4">
-        <div class="flex items-start justify-between gap-2 mb-2">
-          <span class="text-xs text-stone-500 dark:text-stone-400 leading-tight">{m.label}</span>
-          <svg
-            class:list={['h-4 w-4 shrink-0', m.trend === 'up' ? 'text-red-500' : 'text-stone-400']}
-            viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"
-          >
-            {m.trend === 'up'
-              ? <path d="M8 13V3M4 7l4-4 4 4" stroke-linecap="round" stroke-linejoin="round"/>
-              : <path d="M4 8h8" stroke-linecap="round"/>
-            }
-          </svg>
-        </div>
-        <div class="text-2xl font-bold text-stone-900 dark:text-stone-100">{m.value}</div>
-        <div class="mt-1 text-xs text-stone-400">Source: {m.source}</div>
+      <div class="entry">
+        <span class="figure-stat">{m.value}</span>
+        <span class="entry-label">{m.label}</span>
+        <span class="meta">Source: {m.source}</span>
       </div>
     ))}
   </div>
 
-  <!-- Category breakdown bar -->
-  <div class="mt-8">
-    <h3 class="text-sm font-semibold text-stone-700 dark:text-stone-300 mb-3">Tools by category</h3>
-    <div class="space-y-2">
-      {metrics.categories.map((cat) => (
-        <div class="flex items-center gap-3">
-          <a href={`/tools?cat=${cat.id}`} class="w-32 text-xs font-medium text-stone-600 dark:text-stone-400 hover:text-forest-600 transition-colors">{cat.label}</a>
-          <div class="flex-1 h-2 rounded-full bg-stone-100 dark:bg-stone-800 overflow-hidden">
-            <div
-              class:list={[
-                'h-full rounded-full',
-                cat.id === 'heat'     ? 'bg-red-400'    :
-                cat.id === 'flood'    ? 'bg-blue-400'   :
-                cat.id === 'coastal'  ? 'bg-cyan-400'   :
-                cat.id === 'green'    ? 'bg-green-400'  :
-                cat.id === 'data'     ? 'bg-violet-400' :
-                'bg-amber-400',
-              ]}
-              style={`width: ${((categoryCounts[cat.id] ?? 0) / maxCount) * 100}%`}
-            />
-          </div>
-          <span class="w-4 text-xs text-stone-400">{categoryCounts[cat.id] ?? 0}</span>
-        </div>
-      ))}
-    </div>
+  <div class="group-head">
+    <h2>The catalogue by challenge</h2>
+    <span class="meta">Tools per category</span>
   </div>
-</div>
+  {metrics.categories.map((cat) => (
+    <a href={`/tools?cat=${cat.id}`} class="bar-row">
+      <span class="bar-name">{categoryLabel(cat.id)}</span>
+      <span class="bar-track" aria-hidden="true">
+        <span class="bar-fill" style={`width: ${((categoryCounts[cat.id] ?? 0) / maxCount) * 100}%`}></span>
+      </span>
+      <span class="meta">{categoryCounts[cat.id] ?? 0} tools</span>
+    </a>
+  ))}
+</section>
+
+<style>
+  .first { margin-top: 0; }
+  .context { margin-top: 1rem; }
+  .context .entry { border-top: 0; padding-top: 0.5rem; }
+  .bar-row {
+    display: grid;
+    grid-template-columns: minmax(9rem, 16rem) minmax(0, 1fr) 5rem;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .bar-row:hover { border-bottom-color: var(--accent); }
+  .bar-name { font-size: 1.125rem; }
+  .bar-track { display: block; height: 0.625rem; }
+  .bar-fill { display: block; height: 100%; background: var(--accent-solid); border: 1px solid var(--ink); }
+  .bar-row .meta { text-align: right; }
+  @media (max-width: 640px) {
+    .bar-row { grid-template-columns: minmax(0, 1fr) 5rem; }
+    .bar-track { grid-column: 1 / -1; grid-row: 2; }
+  }
+</style>
