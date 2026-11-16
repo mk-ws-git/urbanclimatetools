@@ -17,8 +17,8 @@ const markers = studies.map((s) => ({
 }));
 ---
 
-<div class="relative overflow-hidden rounded-xl border border-stone-200 dark:border-stone-800">
-  <div id="case-study-map" class="uct-map h-[480px] w-full bg-stone-100 dark:bg-stone-900"></div>
+<div class="relative overflow-hidden rounded-[4px] border" style="border-color: var(--rule)">
+  <div id="case-study-map" class="uct-map h-[480px] w-full" style="background: var(--surface)"></div>
 </div>
 
 <!-- Leaflet -->
@@ -30,8 +30,8 @@ const markers = studies.map((s) => ({
     const L = window.L;
     if (!L) return;
 
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-      || document.documentElement.classList.contains('dark');
+    // Follow the site theme (the toggle), not just the OS setting.
+    const prefersDark = document.documentElement.classList.contains('dark');
 
     const tileURL = prefersDark
       ? 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}'
@@ -62,12 +62,12 @@ const markers = studies.map((s) => ({
     };
 
     markers.forEach((m) => {
-      const color = catColor[m.themes[0]] ?? '#1D9E75';
+      const color = catColor[m.themes[0]] ?? '#9A4A0C';
       const popup = `
         <div style="min-width:180px; font-family: system-ui, sans-serif;">
           <strong style="font-size:14px">${m.city}, ${m.country}</strong>
-          <p style="font-size:12px; margin:4px 0 8px; color:#666">${m.impact.slice(0, 90)}…</p>
-          <a href="/case-studies/${m.slug}" style="font-size:12px; color:#1D9E75; font-weight:600">Read case study →</a>
+          <p style="font-size:12px; margin:4px 0 8px; color:#3A4841">${m.impact.slice(0, 90)}…</p>
+          <a href="/case-studies/${m.slug}" style="font-size:12px; color:#9A4A0C; font-weight:600; text-decoration:underline">Read the case study</a>
         </div>`;
       L.marker([m.lat, m.lng], { icon: svgIcon(color) })
         .addTo(map)

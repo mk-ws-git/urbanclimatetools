@@ -1,76 +1,73 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { getCatalogStats } from '../lib/catalog';
 
-const allTools    = await getCollection('tools');
-const allStudies  = await getCollection('case-studies');
+const allTools = await getCollection('tools');
+const allStudies = await getCollection('case-studies');
+const stats = await getCatalogStats();
+const openLicensed = allTools.filter((t) => t.data.license !== 'Free-to-use').length;
+
+const scope = [
+  ['Tools', `${allTools.length} across 6 challenge areas`],
+  ['Case studies', `${allStudies.length} cities on ${stats.continentCount} continents`],
+  ['Cost', `All free to use; ${openLicensed} carry an open licence`],
+  ['Updates', 'New entries are added through GitHub pull requests'],
+];
 ---
 
-<BaseLayout title="About" description="About Urban Climate Tools — an open-source repository of tools and case studies for climate-resilient urban planning.">
+<BaseLayout title="About" description="About Urban Climate Tools: a curated catalogue of free tools and city case studies for climate-resilient urban planning.">
+  <div class="page">
 
-  <div class="bg-stone-50 dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
-      <p class="section-label mb-2">About</p>
-      <h1 class="text-3xl font-bold text-stone-900 dark:text-stone-100">Urban Climate Tools</h1>
-      <p class="mt-2 text-stone-500 dark:text-stone-400 max-w-2xl">
-        An open repository connecting practitioners with the tools they need to build climate-resilient cities.
-      </p>
+    <header class="page-head">
+      <p class="section-label">About</p>
+      <h1 class="wide">One entry point for the tools that already exist.</h1>
+    </header>
+
+    <div class="about">
+      <div class="prose-content text">
+        <p>Urban Climate Tools is a curated catalogue of free tools, datasets and real-world case studies for urban climate practitioners: city planners, climate officers, researchers, engineers and community advocates.</p>
+        <p>The project grew from a frustration shared by many in the field. The tools exist and the knowledge exists, but they are scattered across GitHub repositories, academic papers, NGO websites and agency portals with no common entry point. This site is that entry point.</p>
+        <p>Everything listed here is free to use. Some tools are open source and some are free but proprietary; each entry says which. All case studies reference publicly available sources. The code for this site is MIT-licensed on GitHub.</p>
+        <p>The catalogue is compiled and maintained by Mary Sprague, an urban designer and software developer in Berlin.</p>
+      </div>
+
+      <dl class="scope">
+        {scope.map(([k, v]) => (
+          <div><dt class="meta">{k}</dt><dd>{v}</dd></div>
+        ))}
+      </dl>
     </div>
-  </div>
 
-  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-14 space-y-14">
+    <div class="group-head">
+      <h2>Suggest a tool or a correction</h2>
+    </div>
+    <p class="para">
+      If you know of a tool or case study that should be here, or you spot an error in an entry, open a pull request
+      or an issue on GitHub. The guidelines are in <code>CONTRIBUTING.md</code>.
+    </p>
+    <div class="actions">
+      <a href="https://github.com/mk-ws-git/urbanclimatetools" target="_blank" rel="noreferrer" class="btn-primary">View on GitHub</a>
+      <a href="https://github.com/mk-ws-git/urbanclimatetools/issues/new" target="_blank" rel="noreferrer" class="btn-secondary">Open an issue</a>
+    </div>
 
-    <section>
-      <h2 class="text-xl font-semibold text-stone-900 dark:text-stone-100 mb-4">What this is</h2>
-      <div class="prose-content text-stone-600 dark:text-stone-400 space-y-4 text-sm leading-relaxed">
-        <p>Urban Climate Tools is a curated, open-source repository of free tools, datasets, and real-world implementation case studies for urban climate practitioners — including city planners, climate officers, researchers, engineers, and community advocates.</p>
-        <p>The project grew from a frustration shared by many in the field: the tools exist, the knowledge exists, but they're scattered across GitHub repositories, academic papers, NGO websites, and agency portals with no common entry point. This site is that entry point.</p>
-        <p>Everything here is free to use. All tools are open-source or freely available. All case studies reference publicly available sources. The code for this site is MIT-licensed on GitHub.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2 class="text-xl font-semibold text-stone-900 dark:text-stone-100 mb-4">Scope</h2>
-      <div class="grid gap-4 sm:grid-cols-2">
-        {[
-          ['Tools indexed',  `${allTools.length} tools across 6 challenge areas`],
-          ['Case studies',   `${allStudies.length} implementations across 6 continents`],
-          ['Licence model',  'All tools are open-source or freely available'],
-          ['Update cadence', 'New tools and case studies added via GitHub PRs'],
-        ].map(([k, v]) => (
-          <div class="card">
-            <p class="text-xs text-stone-400 mb-1">{k}</p>
-            <p class="text-sm font-medium text-stone-700 dark:text-stone-300">{v}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <section>
-      <h2 class="text-xl font-semibold text-stone-900 dark:text-stone-100 mb-4">Contribute</h2>
-      <p class="text-sm text-stone-600 dark:text-stone-400 leading-relaxed mb-6">
-        Urban Climate Tools is maintained through community contributions. If you know of a tool or case study that should be here, or if you spot an error in an existing entry, please open a pull request or an issue on GitHub. Contribution guidelines are in <code class="rounded bg-stone-100 dark:bg-stone-800 px-1 py-0.5 text-xs">CONTRIBUTING.md</code>.
-      </p>
-      <div class="flex flex-wrap gap-3">
-        <a href="https://github.com/mk-ws-git/urbanclimatetools" target="_blank" rel="noreferrer" class="btn-primary">
-          View on GitHub
-        </a>
-        <a href="https://github.com/mk-ws-git/urbanclimatetools/issues/new" target="_blank" rel="noreferrer" class="btn-secondary">
-          Open an issue
-        </a>
-      </div>
-    </section>
-
-    <section>
-      <h2 class="text-xl font-semibold text-stone-900 dark:text-stone-100 mb-4">Built with</h2>
-      <div class="flex flex-wrap gap-3">
-        {['Astro', 'Tailwind CSS v4', 'MDX', 'Leaflet', 'Pagefind'].map((tech) => (
-          <span class="rounded-lg border border-stone-200 dark:border-stone-700 px-3 py-1.5 text-sm text-stone-600 dark:text-stone-400">
-            {tech}
-          </span>
-        ))}
-      </div>
-    </section>
+    <div class="group-head">
+      <h2>Built with</h2>
+    </div>
+    <p class="para built">Astro · Tailwind CSS v4 · MDX · Leaflet · Pagefind</p>
 
   </div>
 </BaseLayout>
+
+<style>
+  .page { padding-bottom: 6rem; }
+  .about { display: flex; flex-wrap: wrap; gap: 3rem 5rem; }
+  .text { flex: 999 1 30rem; min-width: 0; max-width: 44rem; font-size: 1.125rem; }
+  .scope { flex: 1 1 16rem; min-width: 0; border-top: 2px solid var(--ink); align-self: flex-start; }
+  .scope > div { padding: 0.875rem 0 1rem; border-bottom: 1px solid var(--rule); }
+  .scope dd { margin-top: 0.25rem; font-size: 1.0625rem; }
+  .para { max-width: 44rem; margin-top: 0.5rem; font-size: 1.0625rem; color: var(--ink-2); }
+  .para code { font-family: var(--font-mono); font-size: 0.9375rem; color: var(--ink); }
+  .built { font-family: var(--font-mono); font-size: 0.9375rem; }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+</style>

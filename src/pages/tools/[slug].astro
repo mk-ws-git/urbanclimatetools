@@ -1,7 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ToolCard from '../../components/ToolCard.astro';
 import { categoryLabel, licenseSummary, difficultyLabel } from '../../lib/labels.mjs';
 
 export async function getStaticPaths() {
@@ -13,244 +12,152 @@ const { tool } = Astro.props;
 const { Content } = await render(tool);
 const {
   title, tagline, category, tags, license, language, homepage, github,
-  difficulty, lastUpdated, dataInputs, outputs, featured, ogImage,
+  difficulty, lastUpdated, dataInputs, outputs, ogImage,
 } = tool.data;
 
-// Related tools — same category, not this one
+// Related tools: same category, not this one
 const allTools = await getCollection('tools');
 const related = allTools.filter((t) => t.data.category === category && t.id !== tool.id).slice(0, 6);
 
-const difficultyColor: Record<string, string> = {
-  beginner:     'bg-green-100 text-green-700 dark:bg-green-950 dark:text-green-300',
-  intermediate: 'bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300',
-  advanced:     'bg-red-100 text-red-700 dark:bg-red-950 dark:text-red-300',
-};
-
-// Monochrome inline-SVG glyph per category (24×24, currentColor stroke).
-const categoryIcon: Record<string, string> = {
-  heat:     '<path d="M12 3c0 3-3 4-3 7a3 3 0 006 0c0-1-.5-2-1-2.5M12 3c2 2 4 4.5 4 8a4 4 0 11-8 0" stroke-linecap="round" stroke-linejoin="round"/>',
-  flood:    '<path d="M3 14c1.5 0 1.5-1.2 3-1.2s1.5 1.2 3 1.2 1.5-1.2 3-1.2 1.5 1.2 3 1.2 1.5-1.2 3-1.2M3 18c1.5 0 1.5-1.2 3-1.2s1.5 1.2 3 1.2 1.5-1.2 3-1.2 1.5 1.2 3 1.2 1.5-1.2 3-1.2M8 9l4-5 4 5" stroke-linecap="round" stroke-linejoin="round"/>',
-  coastal:  '<path d="M3 16c1.5 0 1.5-1.2 3-1.2S7.5 16 9 16s1.5-1.2 3-1.2 1.5 1.2 3 1.2 1.5-1.2 3-1.2M3 20c1.5 0 1.5-1.2 3-1.2s1.5 1.2 3 1.2 1.5-1.2 3-1.2 1.5 1.2 3 1.2 1.5-1.2 3-1.2M6 11h12M9 11V5l6 3-6 3" stroke-linecap="round" stroke-linejoin="round"/>',
-  green:    '<path d="M12 20v-7m0 0c0-3 2-6 6-7 0 4-2 7-6 7zm0 0c0-2.5-2-5-5-5.5 0 3.5 2 5.5 5 5.5z" stroke-linecap="round" stroke-linejoin="round"/>',
-  data:     '<path d="M4 19V9m4 10V5m4 14v-7m4 7V8m4 11v-4" stroke-linecap="round" stroke-linejoin="round"/>',
-  planning: '<path d="M4 5h16M4 5v14M4 12h10M4 19h16M17 8l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/>',
-};
+// Case studies that list this tool
+const usedIn = (await getCollection('case-studies')).filter((s) => s.data.toolsUsed.includes(tool.id));
 
 const resolvedOg = ogImage ?? `/og/tools-${tool.id}.png`;
 ---
 
 <BaseLayout title={title} description={tagline} type="article" ogImage={resolvedOg}>
+  <div class="page">
 
-  <!-- Hero band -->
-  <div class="relative bg-forest-950 text-white overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-forest-800 via-forest-950 to-forest-950"></div>
-    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <!-- Breadcrumb -->
-      <nav class="flex items-center gap-2 text-xs text-stone-400 pt-8" aria-label="Breadcrumb">
-        <a href="/" class="hover:text-white transition-colors">Home</a>
-        <span>/</span>
-        <a href="/tools" class="hover:text-white transition-colors">Tools</a>
-        <span>/</span>
-        <span class="text-stone-300">{title}</span>
-      </nav>
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a><span>/</span><a href="/tools">Tools</a><span>/</span><span>{title}</span>
+    </nav>
 
-      <div class="py-10">
-        <div class="flex flex-wrap items-center gap-2 mb-4">
-          <span class="badge category-chip" data-cat={category}>{category}</span>
-          <span class:list={['badge', difficultyColor[difficulty]]}>{difficultyLabel(difficulty)}</span>
-          {featured && (
-            <span class="badge bg-amber-900/60 text-amber-300">Featured</span>
-          )}
-        </div>
-        <h1 class="text-3xl font-bold sm:text-4xl max-w-3xl">{title}</h1>
-        <p class="mt-3 text-stone-300 text-lg max-w-2xl">{tagline}</p>
+    <header class="page-head head">
+      <p class="section-label">Tool · {categoryLabel(category)}</p>
+      <h1 class="wide">{title}</h1>
+      <p class="lede">{tagline}</p>
+      <div class="actions">
+        {homepage && <a href={homepage} target="_blank" rel="noreferrer" class="btn-primary">Open the tool</a>}
+        {github && <a href={github} target="_blank" rel="noreferrer" class="btn-secondary">Source on GitHub</a>}
       </div>
-    </div>
-  </div>
+    </header>
 
-  <!-- ============ FACT SHEET: Key facts panel ============ -->
-  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 -mt-6 relative z-10">
-    <div class="card p-0 overflow-hidden shadow-md">
-      <div class="grid md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)]">
+    <dl class="sheet">
+      <div><dt class="meta">Addresses</dt><dd><a href={`/tools?cat=${category}`} class="sheet-link">{categoryLabel(category)}</a></dd></div>
+      <div><dt class="meta">Cost</dt><dd>{licenseSummary(license)}</dd></div>
+      <div><dt class="meta">Licence</dt><dd>{license}</dd></div>
+      <div><dt class="meta">Level</dt><dd>{difficultyLabel(difficulty)}</dd></div>
+      {language && <div><dt class="meta">Built with</dt><dd>{language}</dd></div>}
+      <div><dt class="meta">Entry updated</dt><dd>{String(lastUpdated)}</dd></div>
+    </dl>
 
-        <!-- Primary stat: what climate challenge it addresses -->
-        <div class="flex items-center gap-4 p-6 bg-forest-500 text-white">
-          <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-white/15">
-            <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" set:html={categoryIcon[category]}></svg>
-          </div>
+    <section class="io" aria-label="Inputs and outputs">
+      <div>
+        <h2 class="text-sm meta">You bring</h2>
+        <ul>
+          {dataInputs.map((inp) => <li>{inp}</li>)}
+        </ul>
+      </div>
+      <div class="io-out">
+        <h2 class="text-sm meta">You get</h2>
+        <ul>
+          {outputs.map((out) => <li>{out}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <div class="body">
+      <article class="prose-content">
+        <Content />
+      </article>
+
+      <aside class="side">
+        {usedIn.length > 0 && (
           <div>
-            <div class="text-[11px] font-semibold uppercase tracking-widest text-forest-50/80">Addresses</div>
-            <div class="text-2xl font-bold leading-tight">{categoryLabel(category)}</div>
+            <h2 class="text-sm meta">Seen in</h2>
+            {usedIn.slice(0, 6).map((s) => (
+              <a href={`/case-studies/${s.id}`} class="side-row">
+                <span>{s.data.city}</span>
+                <span class="meta">{s.data.country}</span>
+              </a>
+            ))}
+            {usedIn.length > 6 && (
+              <a href="/case-studies" class="text-link">And {usedIn.length - 6} more case studies</a>
+            )}
           </div>
-        </div>
-
-        <!-- Facts grid -->
-        <dl class="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y divide-stone-200 dark:divide-stone-800 border-t md:border-t-0 md:border-l border-stone-200 dark:border-stone-800">
-          <div class="p-4">
-            <dt class="text-[11px] font-semibold uppercase tracking-wider text-stone-400 dark:text-stone-500 mb-1">Cost</dt>
-            <dd class="text-sm font-semibold text-forest-700 dark:text-forest-300">{licenseSummary(license)}</dd>
-            <dd class="text-xs text-stone-500 dark:text-stone-400 mt-0.5">{license}</dd>
-          </div>
-          <div class="p-4">
-            <dt class="text-[11px] font-semibold uppercase tracking-wider text-stone-400 dark:text-stone-500 mb-1">Difficulty</dt>
-            <dd class="text-sm font-semibold text-stone-800 dark:text-stone-100">{difficultyLabel(difficulty)}</dd>
-          </div>
-          <div class="p-4">
-            <dt class="text-[11px] font-semibold uppercase tracking-wider text-stone-400 dark:text-stone-500 mb-1">Language</dt>
-            <dd class="text-sm font-semibold text-stone-800 dark:text-stone-100">{language ?? '—'}</dd>
-          </div>
-          <div class="p-4">
-            <dt class="text-[11px] font-semibold uppercase tracking-wider text-stone-400 dark:text-stone-500 mb-1">Updated</dt>
-            <dd class="text-sm font-semibold text-stone-800 dark:text-stone-100">{String(lastUpdated)}</dd>
-          </div>
-        </dl>
-      </div>
-    </div>
-  </section>
-
-  <!-- Body -->
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-    <div class="grid gap-10 lg:grid-cols-3">
-
-      <!-- Main content -->
-      <div class="lg:col-span-2">
-
-        <!-- Inputs → Outputs flow -->
-        <div class="card mb-8 p-0 overflow-hidden">
-          <div class="grid sm:grid-cols-[1fr_auto_1fr]">
-            <!-- Inputs -->
-            <div class="p-5">
-              <h2 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-stone-500 dark:text-stone-400 mb-3">
-                <svg class="h-4 w-4 text-stone-400" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                  <path d="M8 11V2M8 11l-3-3M8 11l3-3M2.5 13.5h11" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                You provide
-              </h2>
-              <ul class="space-y-2">
-                {dataInputs.map((inp) => (
-                  <li class="flex items-start gap-2 text-sm text-stone-600 dark:text-stone-400">
-                    <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-stone-300 dark:bg-stone-600"></span>
-                    {inp}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <!-- Arrow divider -->
-            <div class="flex items-center justify-center border-stone-200 dark:border-stone-800 px-2 py-2 sm:border-x sm:py-0">
-              <div class="flex h-9 w-9 items-center justify-center rounded-full bg-forest-100 dark:bg-forest-900">
-                <svg class="h-4 w-4 text-forest-600 dark:text-forest-300 rotate-90 sm:rotate-0" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
-                  <path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </div>
-            </div>
-
-            <!-- Outputs -->
-            <div class="p-5 bg-forest-50/60 dark:bg-forest-950/30">
-              <h2 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-forest-700 dark:text-forest-300 mb-3">
-                <svg class="h-4 w-4 text-forest-500" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                  <path d="M8 2v9M8 11l-3-3M8 11l3-3M2.5 13.5h11" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                You get
-              </h2>
-              <ul class="space-y-2">
-                {outputs.map((out) => (
-                  <li class="flex items-start gap-2 text-sm text-stone-700 dark:text-stone-300">
-                    <svg class="mt-0.5 h-3.5 w-3.5 shrink-0 text-forest-500" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
-                      <path d="M3 8.5l3.5 3.5L13 5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    {out}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Article body -->
-        <div class="prose-content">
-          <Content />
-        </div>
-      </div>
-
-      <!-- Sidebar -->
-      <aside class="space-y-5">
-
-        <!-- Links -->
-        <div class="card space-y-3">
-          {homepage && (
-            <a href={homepage} target="_blank" rel="noreferrer" class="btn-primary w-full justify-center">
-              <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                <path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM1.5 8h13M8 1.5C6.5 4 6 6 6 8s.5 4 2 6.5M8 1.5C9.5 4 10 6 10 8s-.5 4-2 6.5" stroke-linecap="round"/>
-              </svg>
-              Visit homepage
-            </a>
-          )}
-          {github && (
-            <a href={github} target="_blank" rel="noreferrer" class="btn-secondary w-full justify-center">
-              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-              </svg>
-              View on GitHub
-            </a>
-          )}
-        </div>
-
-        <!-- Tags -->
+        )}
         {tags.length > 0 && (
-          <div class="card">
-            <h2 class="text-sm font-semibold text-stone-700 dark:text-stone-300 mb-3">Topics</h2>
-            <div class="flex flex-wrap gap-1.5">
-              {tags.map((tag) => (
-                <span class="rounded-md bg-stone-100 dark:bg-stone-800 px-2.5 py-1 text-xs text-stone-500 dark:text-stone-400">{tag}</span>
-              ))}
-            </div>
+          <div>
+            <h2 class="text-sm meta">Topics</h2>
+            <p class="topics">{tags.join(' · ')}</p>
           </div>
         )}
       </aside>
     </div>
 
-    <!-- Related carousel -->
     {related.length > 0 && (
-      <section class="mt-16 border-t border-stone-200 dark:border-stone-800 pt-12">
-        <div class="flex items-center justify-between mb-6">
-          <h2 class="text-xl font-semibold text-stone-900 dark:text-stone-100">More in {categoryLabel(category)}</h2>
-          <div class="flex gap-2">
-            <button id="tool-prev" aria-label="Previous"
-              class="rounded-full border border-stone-200 dark:border-stone-700 p-2 text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 hover:border-stone-300 dark:hover:border-stone-500 transition-colors">
-              <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                <path d="M10 12L6 8l4-4" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <button id="tool-next" aria-label="Next"
-              class="rounded-full border border-stone-200 dark:border-stone-700 p-2 text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 hover:border-stone-300 dark:hover:border-stone-500 transition-colors">
-              <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                <path d="M6 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </div>
+      <section class="more">
+        <div class="group-head">
+          <h2>More for {categoryLabel(category).toLowerCase()}</h2>
+          <a href={`/tools?cat=${category}`} class="text-link">See all</a>
         </div>
-        <div id="tool-carousel"
-          class="flex gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide pb-2">
-          {related.map((t) => (
-            <div class="shrink-0 w-80 snap-start">
-              <ToolCard tool={t} />
-            </div>
-          ))}
-        </div>
+        {related.map((t) => (
+          <a href={`/tools/${t.id}`} class="row">
+            <span>
+              <span class="row-title">{t.data.title}</span>
+              <span class="row-sub block">{t.data.tagline}</span>
+            </span>
+            <span class="meta">{difficultyLabel(t.data.difficulty)}</span>
+            <span class="meta">{licenseSummary(t.data.license)}</span>
+          </a>
+        ))}
       </section>
     )}
-  </div>
 
+  </div>
 </BaseLayout>
 
-<script>
-  const track = document.getElementById('tool-carousel');
-  const prev  = document.getElementById('tool-prev');
-  const next  = document.getElementById('tool-next');
-  if (track && prev && next) {
-    const step = 336;
-    prev.addEventListener('click', () => track.scrollBy({ left: -step, behavior: 'smooth' }));
-    next.addEventListener('click', () => track.scrollBy({ left:  step, behavior: 'smooth' }));
+<style>
+  .head { padding-top: 2rem; }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+  .sheet-link { text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 4px; }
+  .sheet-link:hover { text-decoration-color: var(--accent); }
+
+  .io {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 2rem 4rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--rule);
   }
-</script>
+  .io ul { margin-top: 0.75rem; }
+  .io li {
+    padding: 0.625rem 0;
+    border-top: 1px solid var(--rule);
+    font-size: 1.0625rem;
+  }
+  .io-out li { color: var(--green); }
+
+  .body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem 5rem;
+    padding: 3.5rem 0 1rem;
+  }
+  .body article { flex: 999 1 34rem; min-width: 0; max-width: 46rem; }
+  .side { flex: 1 1 16rem; min-width: 0; display: flex; flex-direction: column; gap: 2.5rem; }
+  .side-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .side-row:first-of-type { margin-top: 0.5rem; border-top: 1px solid var(--rule); }
+  .side-row:hover { border-bottom-color: var(--accent); }
+  .topics { margin-top: 0.75rem; color: var(--ink-2); }
+
+  .more { padding-bottom: 6rem; }
+  .more .group-head { align-items: center; }
+</style>

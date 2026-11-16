@@ -44,7 +44,7 @@ const toolData = (await getCollection('tools')).map((t) => ({
           ['data',     'Climate data & risk analysis'],
           ['planning', 'Policy, planning & investment'],
         ].map(([val, label]) => (
-          <button class="quiz-option text-left rounded-lg border border-stone-200 dark:border-stone-700 px-4 py-3 text-sm hover:border-forest-400 hover:bg-forest-50 dark:hover:bg-forest-950 transition-colors" data-q="1" data-val={val}>
+          <button class="quiz-option text-left rounded-[4px] border border-stone-200 dark:border-stone-700 px-4 py-3 text-sm hover:border-forest-400 hover:bg-forest-50 dark:hover:bg-forest-950 transition-colors" data-q="1" data-val={val}>
             {label}
           </button>
         ))}
@@ -62,7 +62,7 @@ const toolData = (await getCollection('tools')).map((t) => ({
         ].map(([val, label]) => {
           const [l1, l2] = label.split('\n');
           return (
-            <button class="quiz-option text-left rounded-lg border border-stone-200 dark:border-stone-700 px-4 py-3 text-sm hover:border-forest-400 hover:bg-forest-50 dark:hover:bg-forest-950 transition-colors" data-q="2" data-val={val}>
+            <button class="quiz-option text-left rounded-[4px] border border-stone-200 dark:border-stone-700 px-4 py-3 text-sm hover:border-forest-400 hover:bg-forest-50 dark:hover:bg-forest-950 transition-colors" data-q="2" data-val={val}>
               <span class="font-medium">{l1}</span>
               <br /><span class="text-stone-500 text-xs">{l2}</span>
             </button>
@@ -81,7 +81,7 @@ const toolData = (await getCollection('tools')).map((t) => ({
           ['data',     'Raw data & APIs'],
           ['estimate', 'Cost or performance estimates'],
         ].map(([val, label]) => (
-          <button class="quiz-option text-left rounded-lg border border-stone-200 dark:border-stone-700 px-4 py-3 text-sm hover:border-forest-400 hover:bg-forest-50 dark:hover:bg-forest-950 transition-colors" data-q="3" data-val={val}>
+          <button class="quiz-option text-left rounded-[4px] border border-stone-200 dark:border-stone-700 px-4 py-3 text-sm hover:border-forest-400 hover:bg-forest-50 dark:hover:bg-forest-950 transition-colors" data-q="3" data-val={val}>
             {label}
           </button>
         ))}
@@ -97,7 +97,7 @@ const toolData = (await getCollection('tools')).map((t) => ({
           ['neighbourhood','Neighbourhood'],
           ['city',         'City / regional'],
         ].map(([val, label]) => (
-          <button class="quiz-option text-left rounded-lg border border-stone-200 dark:border-stone-700 px-4 py-3 text-sm hover:border-forest-400 hover:bg-forest-50 dark:hover:bg-forest-950 transition-colors" data-q="4" data-val={val}>
+          <button class="quiz-option text-left rounded-[4px] border border-stone-200 dark:border-stone-700 px-4 py-3 text-sm hover:border-forest-400 hover:bg-forest-50 dark:hover:bg-forest-950 transition-colors" data-q="4" data-val={val}>
             {label}
           </button>
         ))}

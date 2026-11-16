@@ -4,83 +4,79 @@ import DataExplorer from '../components/DataExplorer.astro';
 import { getCatalogStats } from '../lib/catalog';
 
 const stats = await getCatalogStats();
+
+const sources = [
+  ['IPCC AR6 (2021–2022)', 'Global climate projections and risk frameworks'],
+  ['NOAA / NASA GISS',     'Observed temperature anomalies and trend data'],
+  ['C40 Cities',           'Urban climate action and city reach estimates'],
+  ['World Bank',           'Urban flood exposure and infrastructure financing data'],
+  ['OECD',                 'Green infrastructure return on investment meta-analysis'],
+];
 ---
 
-<BaseLayout title="Data" description="Climate data context, metrics, and category breakdowns underlying the Urban Climate Tools repository.">
+<BaseLayout title="Data" description="The numbers behind Urban Climate Tools: climate context, how the catalogue breaks down, where figures come from, and the full catalogue as open data.">
+  <div class="page">
 
-  <div class="bg-stone-50 dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
-      <p class="section-label mb-2">Context & data</p>
-      <h1 class="text-3xl font-bold text-stone-900 dark:text-stone-100">Climate data overview</h1>
-      <p class="mt-2 text-stone-500 dark:text-stone-400 max-w-2xl">
-        Key metrics and data context behind this repository — updated periodically from IPCC, NOAA, C40, and World Bank sources.
+    <header class="page-head">
+      <p class="section-label">The numbers</p>
+      <h1>Where the figures come from.</h1>
+      <p class="lede">
+        The context behind the catalogue, how it breaks down, and the whole thing as a download.
       </p>
-    </div>
-  </div>
-
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+    </header>
 
     <DataExplorer />
 
-    <!-- Repository summary -->
-    <div class="card">
-      <h2 class="text-lg font-semibold text-stone-900 dark:text-stone-100 mb-6">Repository summary</h2>
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {[
-          { label: 'Tools indexed', value: stats.toolCount },
-          { label: 'Case studies', value: stats.caseStudyCount },
-          { label: 'Countries profiled', value: stats.countryCount },
-          { label: 'Continents', value: stats.continentCount },
-        ].map(({ label, value }) => (
-          <div class="text-center">
-            <div class="text-3xl font-bold text-forest-600 dark:text-forest-400">{value}</div>
-            <div class="mt-1 text-sm text-stone-500 dark:text-stone-400">{label}</div>
-          </div>
-        ))}
-      </div>
+    <div class="group-head">
+      <h2>The catalogue in numbers</h2>
+      <span class="meta">Counted at build time</span>
     </div>
+    <dl class="counts">
+      <div><dd>{stats.toolCount}</dd><dt>tools indexed</dt></div>
+      <div><dd>{stats.caseStudyCount}</dd><dt>case studies</dt></div>
+      <div><dd>{stats.countryCount}</dd><dt>countries</dt></div>
+      <div><dd>{stats.continentCount}</dd><dt>continents</dt></div>
+    </dl>
 
-    <!-- Data sources -->
-    <div class="card">
-      <h2 class="text-lg font-semibold text-stone-900 dark:text-stone-100 mb-4">Data sources & methodology</h2>
-      <p class="text-sm text-stone-600 dark:text-stone-400 leading-relaxed mb-4">
-        Climate metrics are drawn from peer-reviewed and institutional sources. Tool metadata is maintained by the community through GitHub pull requests. Case study impact data is verified against published city reports and academic literature before inclusion.
-      </p>
-      <ul class="space-y-2 text-sm">
-        {[
-          ['IPCC AR6 (2021–2022)', 'Global climate projections and risk frameworks'],
-          ['NOAA / NASA GISS',     'Observed temperature anomalies and trend data'],
-          ['C40 Cities',           'Urban climate action and city reach estimates'],
-          ['World Bank',           'Urban flood exposure and infrastructure financing data'],
-          ['OECD',                 'Green infrastructure return on investment meta-analysis'],
-        ].map(([src, desc]) => (
-          <li class="flex items-start gap-3">
-            <span class="mt-0.5 h-1.5 w-1.5 rounded-full bg-forest-500 shrink-0"></span>
-            <span><strong class="text-stone-700 dark:text-stone-300">{src}</strong> — {desc}</span>
-          </li>
-        ))}
-      </ul>
+    <div class="group-head">
+      <h2>Sources and method</h2>
     </div>
-
-    <!-- Open data / downloads -->
-    <div class="card">
-      <h2 class="text-lg font-semibold text-stone-900 dark:text-stone-100 mb-2">Download the catalog</h2>
-      <p class="text-sm text-stone-600 dark:text-stone-400 leading-relaxed mb-4">
-        Every tool and case study as open data, generated from the site content so it never drifts. Free to reuse with attribution.
-      </p>
-      <div class="flex flex-wrap gap-3">
-        <a href="/catalog.csv" download
-          class="inline-flex items-center gap-2 rounded-lg border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800/50 px-4 py-2.5 text-sm font-medium text-stone-700 dark:text-stone-300 hover:border-forest-400 hover:bg-forest-50 dark:hover:bg-forest-950/60 transition-colors">
-          <svg class="h-4 w-4 text-forest-600 dark:text-forest-400" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 13h10" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          CSV <span class="text-stone-400 dark:text-stone-500">(spreadsheet)</span>
-        </a>
-        <a href="/catalog.json"
-          class="inline-flex items-center gap-2 rounded-lg border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800/50 px-4 py-2.5 text-sm font-medium text-stone-700 dark:text-stone-300 hover:border-forest-400 hover:bg-forest-50 dark:hover:bg-forest-950/60 transition-colors">
-          <svg class="h-4 w-4 text-forest-600 dark:text-forest-400" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 13h10" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          JSON <span class="text-stone-400 dark:text-stone-500">(API)</span>
-        </a>
+    <p class="para">
+      Climate metrics are drawn from peer-reviewed and institutional sources. Tool entries are kept in this site's
+      GitHub repository, where anyone can propose a correction. Case study figures are checked against published
+      city reports and academic literature before they are included.
+    </p>
+    {sources.map(([src, desc]) => (
+      <div class="row two">
+        <span class="row-title">{src}</span>
+        <span class="row-sub">{desc}</span>
       </div>
+    ))}
+
+    <div class="group-head">
+      <h2>Download the catalogue</h2>
+    </div>
+    <p class="para">
+      Every tool and case study as open data, generated from the site content so it never drifts. Free to reuse with attribution.
+    </p>
+    <div class="downloads">
+      <a href="/catalog.csv" download class="btn-primary">Download CSV</a>
+      <a href="/catalog.json" class="btn-secondary">Open JSON</a>
     </div>
 
   </div>
 </BaseLayout>
+
+<style>
+  .page { padding-bottom: 6rem; }
+  .counts { display: flex; flex-wrap: wrap; }
+  .counts > div { flex: 1 1 11rem; padding: 1rem 1.5rem 0 0; }
+  .counts dd { font-family: var(--font-mono); font-size: 2.5rem; line-height: 1.1; }
+  .counts dt { margin-top: 0.375rem; color: var(--ink-2); }
+  .para { max-width: 44rem; margin: 0.5rem 0 1rem; font-size: 1.0625rem; color: var(--ink-2); }
+  .row.two { grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 768px) {
+    .row.two { grid-template-columns: 18rem minmax(0, 1fr); }
+  }
+  .downloads { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+</style>

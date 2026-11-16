@@ -2,22 +2,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout
-  title="Search — Urban Climate Tools"
-  description="Search tools, case studies, and data across the Urban Climate Tools library."
->
-  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16">
-    <p class="section-label mb-2">Search</p>
-    <h1 class="text-3xl font-bold text-stone-900 dark:text-stone-100 mb-8">
-      Search Urban Climate Tools
-    </h1>
+<BaseLayout title="Search" description="Search every tool, case study and page on Urban Climate Tools.">
+  <div class="page">
+    <header class="page-head">
+      <p class="section-label">Search</p>
+      <h1>Find a tool, a city or a topic.</h1>
+    </header>
 
-    <div id="search"></div>
-
-    <p class="mt-10 text-sm text-stone-400 dark:text-stone-500">
-      Search indexes all tools, case studies, and pages.
-      Run <code class="bg-stone-100 dark:bg-stone-800 px-1.5 py-0.5 rounded text-xs">npm run build</code> to update the index after adding content.
-    </p>
+    <div id="search" class="search"></div>
   </div>
 </BaseLayout>
 
@@ -40,3 +32,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
   });
 </script>
+
+<style is:global>
+  .search {
+    max-width: 48rem;
+    padding-bottom: 6rem;
+    --pagefind-ui-scale: 1;
+    --pagefind-ui-primary: var(--accent);
+    --pagefind-ui-text: var(--ink);
+    --pagefind-ui-background: var(--surface);
+    --pagefind-ui-border: var(--ink-3);
+    --pagefind-ui-tag: var(--rule);
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: 4px;
+    --pagefind-ui-font: var(--font-sans);
+  }
+  .search .pagefind-ui__result-link { color: var(--ink); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 4px; }
+  .search .pagefind-ui__result-excerpt, .search .pagefind-ui__message { color: var(--ink-2); }
+  .search mark { background: var(--accent-solid); color: var(--on-accent); }
+  .search .pagefind-ui__search-input::placeholder { color: var(--ink-3); opacity: 1; }
+</style>

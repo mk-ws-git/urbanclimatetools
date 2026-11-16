@@ -3,55 +3,40 @@ const year = new Date().getFullYear();
 
 const links = {
   Explore: [
-    { href: '/tools',        label: 'All Tools' },
-    { href: '/case-studies', label: 'Case Studies' },
-    { href: '/data',         label: 'Data Explorer' },
-    { href: '/portfolio',    label: 'Portfolio' },
-  ],
-  Categories: [
-    { href: '/tools?cat=heat',     label: 'Heat Management' },
-    { href: '/tools?cat=flood',    label: 'Flood Risk' },
-    { href: '/tools?cat=coastal',  label: 'Coastal Resilience' },
-    { href: '/tools?cat=green',    label: 'Green Infrastructure' },
+    { href: '/tools',        label: 'All tools' },
+    { href: '/case-studies', label: 'Case studies' },
+    { href: '/data',         label: 'Data explorer' },
+    { href: '/about',        label: 'About' },
   ],
   Project: [
-    { href: '/about',                                                               label: 'About' },
-    { href: 'https://github.com/mk-ws-git/urbanclimatetools',                    label: 'GitHub' },
-    { href: 'https://github.com/mk-ws-git/urbanclimatetools/blob/main/LICENSE',  label: 'MIT License' },
-    { href: 'https://github.com/mk-ws-git/urbanclimatetools/blob/main/CONTRIBUTING.md', label: 'Contribute' },
+    { href: 'https://github.com/mk-ws-git/urbanclimatetools/blob/main/CONTRIBUTING.md', label: 'Suggest a tool' },
+    { href: 'https://github.com/mk-ws-git/urbanclimatetools',                         label: 'GitHub' },
+    { href: 'https://github.com/mk-ws-git/urbanclimatetools/blob/main/LICENSE',       label: 'MIT licence' },
   ],
 };
 ---
 
-<footer class="border-t border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-950">
-  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+<footer class="site-footer">
+  <div class="mx-auto flex max-w-7xl flex-wrap justify-between gap-x-16 gap-y-10 px-4 py-12 sm:px-6 lg:px-8">
 
-      <!-- Brand -->
-      <div class="col-span-2 md:col-span-1">
-        <a href="/" class="flex items-center gap-2 font-semibold text-stone-900 dark:text-stone-100">
-          <img src="/logo-light.png" alt="" class="h-6 w-auto dark:hidden" aria-hidden="true" />
-          <img src="/logo-dark.png"  alt="" class="h-6 w-auto hidden dark:block" aria-hidden="true" />
-          Urban Climate Tools
-        </a>
-        <p class="mt-3 text-sm text-stone-500 dark:text-stone-400">
-          Open-source solutions for building climate-resilient cities.
-        </p>
-        <p class="mt-4 text-xs text-stone-400 dark:text-stone-600">
-          &copy; {year} Urban Climate Tools.<br/>MIT License.
-        </p>
-      </div>
+    <div class="max-w-md">
+      <p class="credit">
+        Compiled and maintained by Mary Sprague, urban designer and software developer in Berlin.
+        Every figure links to its source.
+      </p>
+      <p class="small">&copy; {year} Urban Climate Tools. Code under the MIT licence.</p>
+    </div>
 
-      <!-- Nav cols -->
+    <div class="flex flex-wrap gap-x-16 gap-y-8">
       {Object.entries(links).map(([group, items]) => (
-        <div>
-          <h3 class="text-xs font-semibold uppercase tracking-wider text-stone-500 dark:text-stone-400">{group}</h3>
-          <ul class="mt-4 space-y-2">
+        <nav aria-label={group}>
+          <h3 class="section-label">{group}</h3>
+          <ul class="mt-2">
             {items.map(({ href, label }) => (
               <li>
                 <a
                   href={href}
-                  class="text-sm text-stone-600 hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-200 transition-colors"
+                  class="footer-link"
                   {...(href.startsWith('http') ? { target: '_blank', rel: 'noreferrer' } : {})}
                 >
                   {label}
@@ -59,8 +44,35 @@ const links = {
               </li>
             ))}
           </ul>
-        </div>
+        </nav>
       ))}
     </div>
   </div>
 </footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--rule);
+    background: var(--bg);
+  }
+  .credit { color: var(--ink-2); }
+  .small {
+    margin-top: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--ink-3);
+  }
+  .footer-link {
+    display: inline-block;
+    padding-block: 0.625rem;
+    font-size: 0.9375rem;
+    color: var(--ink-2);
+    text-decoration: underline;
+    text-decoration-color: var(--rule);
+    text-underline-offset: 4px;
+  }
+  .footer-link:hover {
+    color: var(--ink);
+    text-decoration-color: var(--accent);
+  }
+</style>
