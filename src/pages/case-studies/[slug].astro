@@ -35,7 +35,7 @@ const resolvedOg = ogImage ?? `/og/case-studies-${study.id}.png`;
 <BaseLayout title={`${city} — ${title}`} description={tagline} type="article" ogImage={resolvedOg}>
   <div class="page">
 
-    <nav class="crumbs" aria-label="Breadcrumb">
+    <nav class="crumbs" aria-label="Breadcrumb" data-pagefind-ignore>
       <a href="/">Home</a><span>/</span><a href="/case-studies">Case studies</a><span>/</span><span>{city}</span>
     </nav>
 
@@ -88,7 +88,7 @@ const resolvedOg = ogImage ?? `/og/case-studies-${study.id}.png`;
         </div>
       </article>
 
-      <aside class="side">
+      <aside class="side" data-pagefind-ignore>
         <div>
           <div id="mini-map" class="uct-map mini-map"></div>
           <p class="meta map-cap">{city}, {country}</p>
@@ -113,7 +113,7 @@ const resolvedOg = ogImage ?? `/og/case-studies-${study.id}.png`;
     </div>
 
     {related.length > 0 && (
-      <section class="more">
+      <section class="more" data-pagefind-ignore>
         <div class="group-head">
           <h2>Related case studies</h2>
           <a href="/case-studies" class="text-link">See all</a>

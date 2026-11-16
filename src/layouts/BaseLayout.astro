@@ -77,8 +77,9 @@ const ogImageAlt = fullTitle;
     </script>
   </head>
   <body>
+    <a href="#main" class="skip-link">Skip to content</a>
     <Header />
-    <main class:list={[!fullBleedHero && 'pt-14']}>
+    <main id="main" class:list={[!fullBleedHero && 'pt-14']}>
       <slot />
     </main>
     <Footer />

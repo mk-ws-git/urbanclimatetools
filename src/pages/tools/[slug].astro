@@ -28,7 +28,7 @@ const resolvedOg = ogImage ?? `/og/tools-${tool.id}.png`;
 <BaseLayout title={title} description={tagline} type="article" ogImage={resolvedOg}>
   <div class="page">
 
-    <nav class="crumbs" aria-label="Breadcrumb">
+    <nav class="crumbs" aria-label="Breadcrumb" data-pagefind-ignore>
       <a href="/">Home</a><span>/</span><a href="/tools">Tools</a><span>/</span><span>{title}</span>
     </nav>
 
@@ -67,12 +67,17 @@ const resolvedOg = ogImage ?? `/og/tools-${tool.id}.png`;
     </section>
 
     <div class="body">
-      <article class="prose-content">
-        <Content />
+      <article>
+        <div class="prose-content">
+          <Content />
+        </div>
+        {tags.length > 0 && (
+          <p class="topics"><span class="meta">Topics</span> {tags.join(' · ')}</p>
+        )}
       </article>
 
-      <aside class="side">
-        {usedIn.length > 0 && (
+      {usedIn.length > 0 && (
+        <aside class="side" data-pagefind-ignore>
           <div>
             <h2 class="text-sm meta">Seen in</h2>
             {usedIn.slice(0, 6).map((s) => (
@@ -85,18 +90,12 @@ const resolvedOg = ogImage ?? `/og/tools-${tool.id}.png`;
               <a href="/case-studies" class="text-link">And {usedIn.length - 6} more case studies</a>
             )}
           </div>
-        )}
-        {tags.length > 0 && (
-          <div>
-            <h2 class="text-sm meta">Topics</h2>
-            <p class="topics">{tags.join(' · ')}</p>
-          </div>
-        )}
-      </aside>
+        </aside>
+      )}
     </div>
 
     {related.length > 0 && (
-      <section class="more">
+      <section class="more" data-pagefind-ignore>
         <div class="group-head">
           <h2>More for {categoryLabel(category).toLowerCase()}</h2>
           <a href={`/tools?cat=${category}`} class="text-link">See all</a>
@@ -156,7 +155,8 @@ const resolvedOg = ogImage ?? `/og/tools-${tool.id}.png`;
   }
   .side-row:first-of-type { margin-top: 0.5rem; border-top: 1px solid var(--rule); }
   .side-row:hover { border-bottom-color: var(--accent); }
-  .topics { margin-top: 0.75rem; color: var(--ink-2); }
+  .topics { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--ink-2); }
+  .topics .meta { margin-right: 0.75rem; }
 
   .more { padding-bottom: 6rem; }
   .more .group-head { align-items: center; }
