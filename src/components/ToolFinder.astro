@@ -1,203 +1,164 @@
 ---
+// Two questions, both of which actually drive the result: the challenge picks
+// the category, the background sets the difficulty ceiling. Everything is read
+// from the tools collection, so the finder can never recommend a missing tool.
 import { getCollection } from 'astro:content';
+import { categoryLabel, difficultyLabel } from '../lib/labels.mjs';
 
-// Recommendations are derived from the tools collection (single source of truth).
-const toolData = (await getCollection('tools')).map((t) => ({
-  slug: t.id,
-  title: t.data.title,
-  cat: t.data.category,
-  difficulty: t.data.difficulty,
-}));
+const toolData = (await getCollection('tools'))
+  .sort((a, b) => Number(b.data.featured) - Number(a.data.featured) || a.data.title.localeCompare(b.data.title))
+  .map((t) => ({
+    slug: t.id,
+    title: t.data.title,
+    tagline: t.data.tagline,
+    cat: t.data.category,
+    difficulty: t.data.difficulty,
+    level: difficultyLabel(t.data.difficulty),
+  }));
+
+const challenges = [
+  ['heat',     'Urban heat and thermal comfort'],
+  ['flood',    'Flooding and stormwater'],
+  ['coastal',  'Sea level rise and coastal erosion'],
+  ['green',    'Green infrastructure and nature-based solutions'],
+  ['data',     'Climate data and risk analysis'],
+  ['planning', 'Policy, planning and investment'],
+];
+const backgrounds = [
+  ['beginner',     'Non-technical', 'Policy, communications or community role'],
+  ['intermediate', 'Technical',     'GIS or analyst background'],
+  ['advanced',     'Specialist',    'Modelling or engineering experience'],
+];
+const catLabels = Object.fromEntries(challenges.map(([id]) => [id, categoryLabel(id)]));
 ---
 
-<div id="tool-finder" class="card" data-quiz data-tools={JSON.stringify(toolData)}>
-  <!-- Step indicator -->
-  <div class="flex items-center gap-2 mb-6" id="quiz-steps">
-    {[1,2,3,4].map((n) => (
-      <div class="flex items-center gap-2">
-        <div
-          class:list={[
-            'flex h-7 w-7 items-center justify-center rounded-full text-xs font-semibold transition-colors',
-            'quiz-step-dot',
-          ]}
-          data-step={n}
-        >
-          {n}
-        </div>
-        {n < 4 && <div class="h-px w-6 bg-stone-200 dark:bg-stone-700 quiz-step-line" data-after={n} />}
-      </div>
-    ))}
+<div class="finder" data-finder data-tools={JSON.stringify(toolData)} data-labels={JSON.stringify(catLabels)}>
+
+  <div data-step="1">
+    <p class="meta">Question 1 of 2</p>
+    <h3>What is your main climate challenge?</h3>
+    <div class="options">
+      {challenges.map(([val, label]) => (
+        <button type="button" class="option" data-q="cat" data-val={val}>{label}</button>
+      ))}
+    </div>
   </div>
 
-  <!-- Question panels -->
-  <div id="quiz-question" class="min-h-[12rem]">
-
-    <div class="quiz-panel" data-panel="1">
-      <p class="section-label mb-3">Step 1 of 4</p>
-      <h3 class="text-lg font-semibold text-stone-900 dark:text-stone-100 mb-4">What is your primary climate challenge?</h3>
-      <div class="grid gap-2 sm:grid-cols-2">
-        {[
-          ['heat',     'Urban heat & thermal comfort'],
-          ['flood',    'Flooding & stormwater'],
-          ['coastal',  'Sea level rise & coastal erosion'],
-          ['green',    'Green infrastructure & nature-based solutions'],
-          ['data',     'Climate data & risk analysis'],
-          ['planning', 'Policy, planning & investment'],
-        ].map(([val, label]) => (
-          <button class="quiz-option text-left rounded-[4px] border border-stone-200 dark:border-stone-700 px-4 py-3 text-sm hover:border-forest-400 hover:bg-forest-50 dark:hover:bg-forest-950 transition-colors" data-q="1" data-val={val}>
-            {label}
-          </button>
-        ))}
-      </div>
+  <div data-step="2" hidden>
+    <p class="meta">Question 2 of 2</p>
+    <h3>What is your technical background?</h3>
+    <div class="options">
+      {backgrounds.map(([val, label, sub]) => (
+        <button type="button" class="option" data-q="level" data-val={val}>
+          <span class="option-title">{label}</span>
+          <span class="option-sub">{sub}</span>
+        </button>
+      ))}
     </div>
-
-    <div class="quiz-panel hidden" data-panel="2">
-      <p class="section-label mb-3">Step 2 of 4</p>
-      <h3 class="text-lg font-semibold text-stone-900 dark:text-stone-100 mb-4">What is your technical background?</h3>
-      <div class="grid gap-2 sm:grid-cols-3">
-        {[
-          ['beginner',     'Non-technical\nPolicy or comms role'],
-          ['intermediate', 'Technical\nGIS or analyst background'],
-          ['advanced',     'Developer\nComfortable with code'],
-        ].map(([val, label]) => {
-          const [l1, l2] = label.split('\n');
-          return (
-            <button class="quiz-option text-left rounded-[4px] border border-stone-200 dark:border-stone-700 px-4 py-3 text-sm hover:border-forest-400 hover:bg-forest-50 dark:hover:bg-forest-950 transition-colors" data-q="2" data-val={val}>
-              <span class="font-medium">{l1}</span>
-              <br /><span class="text-stone-500 text-xs">{l2}</span>
-            </button>
-          );
-        })}
-      </div>
-    </div>
-
-    <div class="quiz-panel hidden" data-panel="3">
-      <p class="section-label mb-3">Step 3 of 4</p>
-      <h3 class="text-lg font-semibold text-stone-900 dark:text-stone-100 mb-4">What type of output do you need?</h3>
-      <div class="grid gap-2 sm:grid-cols-2">
-        {[
-          ['map',      'Maps & spatial visualisations'],
-          ['report',   'Reports & PDFs'],
-          ['data',     'Raw data & APIs'],
-          ['estimate', 'Cost or performance estimates'],
-        ].map(([val, label]) => (
-          <button class="quiz-option text-left rounded-[4px] border border-stone-200 dark:border-stone-700 px-4 py-3 text-sm hover:border-forest-400 hover:bg-forest-50 dark:hover:bg-forest-950 transition-colors" data-q="3" data-val={val}>
-            {label}
-          </button>
-        ))}
-      </div>
-    </div>
-
-    <div class="quiz-panel hidden" data-panel="4">
-      <p class="section-label mb-3">Step 4 of 4</p>
-      <h3 class="text-lg font-semibold text-stone-900 dark:text-stone-100 mb-4">What scale is your project?</h3>
-      <div class="grid gap-2 sm:grid-cols-3">
-        {[
-          ['site',         'Site / building'],
-          ['neighbourhood','Neighbourhood'],
-          ['city',         'City / regional'],
-        ].map(([val, label]) => (
-          <button class="quiz-option text-left rounded-[4px] border border-stone-200 dark:border-stone-700 px-4 py-3 text-sm hover:border-forest-400 hover:bg-forest-50 dark:hover:bg-forest-950 transition-colors" data-q="4" data-val={val}>
-            {label}
-          </button>
-        ))}
-      </div>
-    </div>
-
+    <button type="button" class="back" data-back>Back</button>
   </div>
 
-  <!-- Results -->
-  <div id="quiz-results" class="hidden">
-    <h3 class="text-lg font-semibold text-stone-900 dark:text-stone-100 mb-1">Recommended tools for you</h3>
-    <p class="text-sm text-stone-500 dark:text-stone-400 mb-4">Based on your answers</p>
-    <div id="quiz-results-list" class="grid gap-3 sm:grid-cols-2"></div>
-    <button id="quiz-restart" class="btn-ghost mt-6 text-sm">Start over</button>
+  <div data-step="results" hidden aria-live="polite">
+    <p class="meta" data-summary></p>
+    <h3 data-heading></h3>
+    <div data-list></div>
+    <div class="after">
+      <a class="text-link" data-all href="/tools">See everything for this challenge</a>
+      <button type="button" class="back" data-restart>Start over</button>
+    </div>
   </div>
 </div>
 
 <script>
-  type Answers = Record<string, string>;
+  type Tool = { slug: string; title: string; tagline: string; cat: string; difficulty: string; level: string };
+  const rank: Record<string, number> = { beginner: 0, intermediate: 1, advanced: 2 };
 
-  const answers: Answers = {};
-  let currentPanel = 1;
+  document.querySelectorAll<HTMLElement>('[data-finder]').forEach((root) => {
+    const tools: Tool[] = JSON.parse(root.dataset.tools ?? '[]');
+    const labels: Record<string, string> = JSON.parse(root.dataset.labels ?? '{}');
+    const answers: Record<string, string> = {};
+    const steps = root.querySelectorAll<HTMLElement>('[data-step]');
+    const show = (name: string) => steps.forEach((s) => { s.hidden = s.dataset.step !== name; });
+    const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]!));
 
-  function updateStepDots(step: number) {
-    document.querySelectorAll<HTMLElement>('.quiz-step-dot').forEach((dot) => {
-      const n = parseInt(dot.dataset.step ?? '0');
-      dot.className = dot.className.replace(/bg-\S+|text-\S+/g, '').trim();
-      if (n < step) {
-        dot.classList.add('bg-forest-600', 'text-white');
-      } else if (n === step) {
-        dot.classList.add('bg-forest-100', 'text-forest-700', 'dark:bg-forest-900', 'dark:text-forest-300');
-      } else {
-        dot.classList.add('bg-stone-100', 'text-stone-400', 'dark:bg-stone-800');
-      }
-    });
-  }
-
-  function showPanel(n: number) {
-    document.querySelectorAll<HTMLElement>('.quiz-panel').forEach((p) => {
-      p.classList.toggle('hidden', parseInt(p.dataset.panel ?? '0') !== n);
-    });
-    updateStepDots(n);
-  }
-
-  const toolData: { slug: string; title: string; cat: string; difficulty: string }[] = JSON.parse(
-    document.getElementById('tool-finder')?.dataset.tools ?? '[]'
-  );
-
-  function getRecommendations(a: Answers) {
-    return toolData
-      .filter((t) => {
-        const catMatch = !a['1'] || t.cat === a['1'];
-        const diffMatch = !a['2'] || t.difficulty === a['2'] ||
-          (a['2'] === 'intermediate' && t.difficulty !== 'advanced');
-        return catMatch && diffMatch;
-      })
-      .slice(0, 4);
-  }
-
-  function showResults() {
-    const questionEl = document.getElementById('quiz-question');
-    const resultsEl = document.getElementById('quiz-results');
-    const listEl = document.getElementById('quiz-results-list');
-    if (!questionEl || !resultsEl || !listEl) return;
-    questionEl.classList.add('hidden');
-    resultsEl.classList.remove('hidden');
-    document.getElementById('quiz-steps')?.classList.add('hidden');
-    const recs = getRecommendations(answers);
-    listEl.innerHTML = recs.length
-      ? recs.map((t) => `
-          <a href="/tools/${t.slug}" class="card-hover flex items-center gap-3 p-4">
-            <span class="badge category-chip" data-cat="${t.cat}">${t.cat}</span>
-            <span class="text-sm font-medium text-stone-800 dark:text-stone-200">${t.title}</span>
-            <svg class="ml-auto h-4 w-4 shrink-0 text-stone-400" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 12l4-4-4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>`).join('')
-      : '<p class="text-sm text-stone-500">No exact matches — <a href="/tools" class="text-forest-600 underline">browse all tools</a>.</p>';
-  }
-
-  document.addEventListener('click', (e) => {
-    const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('.quiz-option');
-    if (!btn) return;
-    answers[btn.dataset.q!] = btn.dataset.val!;
-    currentPanel++;
-    if (currentPanel > 4) {
-      showResults();
-    } else {
-      showPanel(currentPanel);
+    function results() {
+      const max = rank[answers.level] ?? 2;
+      const matches = tools.filter((t) => t.cat === answers.cat && rank[t.difficulty] <= max);
+      const label = labels[answers.cat] ?? answers.cat;
+      root.querySelector('[data-summary]')!.textContent = `${label} · up to ${answers.level} level`;
+      root.querySelector('[data-heading]')!.textContent = matches.length
+        ? `${matches.length} tool${matches.length !== 1 ? 's' : ''} fit that.`
+        : 'Nothing fits both answers yet.';
+      root.querySelector('[data-list]')!.innerHTML = matches
+        .map((t) => `
+          <a href="/tools/${t.slug}" class="row two">
+            <span><span class="row-title">${esc(t.title)}</span><span class="row-sub block">${esc(t.tagline)}</span></span>
+            <span class="meta">${esc(t.level)}</span>
+          </a>`)
+        .join('');
+      root.querySelector<HTMLAnchorElement>('[data-all]')!.href = `/tools?cat=${answers.cat}`;
+      show('results');
     }
-  });
 
-  document.getElementById('quiz-restart')?.addEventListener('click', () => {
-    Object.keys(answers).forEach((k) => delete answers[k]);
-    currentPanel = 1;
-    const questionEl = document.getElementById('quiz-question');
-    const resultsEl = document.getElementById('quiz-results');
-    if (questionEl) questionEl.classList.remove('hidden');
-    if (resultsEl) resultsEl.classList.add('hidden');
-    document.getElementById('quiz-steps')?.classList.remove('hidden');
-    showPanel(1);
+    root.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      const option = target.closest<HTMLButtonElement>('.option');
+      if (option) {
+        answers[option.dataset.q!] = option.dataset.val!;
+        if (option.dataset.q === 'cat') show('2'); else results();
+        return;
+      }
+      if (target.closest('[data-back]') || target.closest('[data-restart]')) show('1');
+    });
   });
-
-  showPanel(1);
 </script>
+
+<style>
+  .finder {
+    border-top: 2px solid var(--ink);
+    padding-top: 1.25rem;
+  }
+  .finder h3 {
+    margin-top: 0.5rem;
+    font-size: 1.375rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 0;
+    margin-top: 1.25rem;
+    border-top: 1px solid var(--rule);
+  }
+  .option {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    min-height: 3.5rem;
+    justify-content: center;
+    padding: 0.75rem 1rem 0.75rem 0;
+    border-bottom: 1px solid var(--rule);
+    text-align: left;
+    color: var(--ink);
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s, padding 0.15s;
+  }
+  .option:hover { color: var(--accent); border-bottom-color: var(--accent); padding-left: 0.5rem; }
+  .option-title { font-weight: 500; }
+  .option-sub { font-size: 0.875rem; color: var(--ink-2); }
+  .back {
+    margin-top: 0.75rem;
+    padding: 0.75rem 0;
+    font-size: 0.9375rem;
+    color: var(--ink-2);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    cursor: pointer;
+  }
+  .back:hover { color: var(--ink); }
+  .after { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 2rem; margin-top: 0.5rem; }
+  .after .back { margin-top: 0; }
+  [data-list] { margin-top: 0.75rem; border-top: 1px solid var(--rule); }
+  @media (prefers-reduced-motion: reduce) { .option { transition: none; } }
+</style>

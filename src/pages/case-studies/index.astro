@@ -35,6 +35,7 @@ const slug = (c: string) => c.toLowerCase().replace(/\s+/g, '-');
         ))}
       </div>
       <div class="fields">
+        <input id="cs-search" type="search" placeholder="Search cities" class="input" aria-label="Search case studies by city, country or title" />
         <select id="filter-theme" class="input" aria-label="Filter by theme">
           <option value="all">Any challenge</option>
           {themes.map((t) => <option value={t}>{categoryLabel(t)}</option>)}
@@ -50,6 +51,7 @@ const slug = (c: string) => c.toLowerCase().replace(/\s+/g, '-');
           class="entry cs-item"
           data-continent={slug(s.data.continent)}
           data-themes={s.data.themes.join(' ')}
+          data-text={`${s.data.city} ${s.data.country} ${s.data.title}`.toLowerCase()}
         >
           <span class="meta">{s.data.city}, {s.data.country}</span>
           {s.data.statValue && <span class="figure-stat">{s.data.statValue}</span>}
@@ -86,6 +88,7 @@ const slug = (c: string) => c.toLowerCase().replace(/\s+/g, '-');
 
 <script>
   const themeEl = document.getElementById('filter-theme') as HTMLSelectElement;
+  const searchEl = document.getElementById('cs-search') as HTMLInputElement;
   const countEl = document.getElementById('cs-count')!;
   const noResultsEl = document.getElementById('cs-no-results')!;
   const items = Array.from(document.querySelectorAll<HTMLElement>('.cs-item'));
@@ -94,11 +97,13 @@ const slug = (c: string) => c.toLowerCase().replace(/\s+/g, '-');
 
   function applyFilters() {
     const theme = themeEl.value;
+    const q = searchEl.value.trim().toLowerCase();
     let visible = 0;
     items.forEach((el) => {
       const show =
         (activeContinent === 'all' || el.dataset.continent === activeContinent) &&
-        (theme === 'all' || el.dataset.themes!.split(' ').includes(theme));
+        (theme === 'all' || el.dataset.themes!.split(' ').includes(theme)) &&
+        (!q || el.dataset.text!.includes(q));
       el.hidden = !show;
       if (show) visible++;
     });
@@ -114,8 +119,10 @@ const slug = (c: string) => c.toLowerCase().replace(/\s+/g, '-');
 
   tabs.forEach((t) => t.addEventListener('click', () => setContinent(t.dataset.filterContinent!)));
   themeEl.addEventListener('change', applyFilters);
+  searchEl.addEventListener('input', applyFilters);
   document.getElementById('cs-reset')?.addEventListener('click', () => {
     themeEl.value = 'all';
+    searchEl.value = '';
     setContinent('all');
   });
 </script>

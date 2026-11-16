@@ -47,8 +47,41 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     --pagefind-ui-border-radius: 4px;
     --pagefind-ui-font: var(--font-sans);
   }
-  .search .pagefind-ui__result-link { color: var(--ink); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 4px; }
-  .search .pagefind-ui__result-excerpt, .search .pagefind-ui__message { color: var(--ink-2); }
-  .search mark { background: var(--accent-solid); color: var(--on-accent); }
-  .search .pagefind-ui__search-input::placeholder { color: var(--ink-3); opacity: 1; }
+  #search .pagefind-ui__result { padding: 1.5rem 0; border-top: 1px solid var(--rule); }
+  #search .pagefind-ui__result-link {
+    color: var(--ink);
+    font-size: 1.1875rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-decoration: underline;
+    text-decoration-color: var(--rule);
+    text-underline-offset: 4px;
+  }
+  #search .pagefind-ui__result-link:hover { text-decoration-color: var(--accent); }
+  #search .pagefind-ui__result-excerpt,
+  #search .pagefind-ui__message { color: var(--ink-2); }
+  #search .pagefind-ui__message {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  #search .pagefind-ui__result-nested .pagefind-ui__result-link { font-size: 1rem; }
+  #search mark {
+    background: transparent;
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  #search .pagefind-ui__search-input { font-weight: 500; }
+  #search .pagefind-ui__search-input::placeholder { color: var(--ink-3); opacity: 1; }
+  #search .pagefind-ui__button {
+    border: 1px solid var(--ink-3);
+    background: transparent;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  #search .pagefind-ui__button:hover { border-color: var(--accent); }
 </style>
